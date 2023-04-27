@@ -1,0 +1,11 @@
+C:\Users\Henkka\Documents\Ohjelmistotuotanto\OhjTuotanto\mokkivaraus\mokivaraus\bin\Debug\mokivaraus.exe.config
+C:\Users\Henkka\Documents\Ohjelmistotuotanto\OhjTuotanto\mokkivaraus\mokivaraus\bin\Debug\mokivaraus.exe
+C:\Users\Henkka\Documents\Ohjelmistotuotanto\OhjTuotanto\mokkivaraus\mokivaraus\bin\Debug\mokivaraus.pdb
+C:\Users\Henkka\Documents\Ohjelmistotuotanto\OhjTuotanto\mokkivaraus\mokivaraus\obj\Debug\mokinvaraus.csproj.AssemblyReference.cache
+C:\Users\Henkka\Documents\Ohjelmistotuotanto\OhjTuotanto\mokkivaraus\mokivaraus\obj\Debug\mokinvaraus.csproj.SuggestedBindingRedirects.cache
+C:\Users\Henkka\Documents\Ohjelmistotuotanto\OhjTuotanto\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.Form1.resources
+C:\Users\Henkka\Documents\Ohjelmistotuotanto\OhjTuotanto\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.Properties.Resources.resources
+C:\Users\Henkka\Documents\Ohjelmistotuotanto\OhjTuotanto\mokkivaraus\mokivaraus\obj\Debug\mokinvaraus.csproj.GenerateResource.cache
+C:\Users\Henkka\Documents\Ohjelmistotuotanto\OhjTuotanto\mokkivaraus\mokivaraus\obj\Debug\mokinvaraus.csproj.CoreCompileInputs.cache
+C:\Users\Henkka\Documents\Ohjelmistotuotanto\OhjTuotanto\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.exe
+C:\Users\Henkka\Documents\Ohjelmistotuotanto\OhjTuotanto\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.pdb
