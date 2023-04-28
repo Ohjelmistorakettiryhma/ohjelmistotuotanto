@@ -52,5 +52,23 @@ namespace mokivaraus
         {
 
         }
+
+        private void button17_Click(object sender, EventArgs e) // laskutus, muokkaa -nappi
+        {
+            Form3 form3 = new Form3();  // Create a new instance of Form3
+            form3.Show();               // Show Form3
+
+        }
+
+        private void button18_Click(object sender, EventArgs e) // laskutus, poista -nappi
+        {
+            Form4 form4 = new Form4();  // Create a new instance of Form3
+            form4.Show();               // Show Form3
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

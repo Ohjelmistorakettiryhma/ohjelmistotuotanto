@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Tab1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
@@ -83,11 +86,24 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.button6 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
             this.Tab1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -101,7 +117,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.tabPage6.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
             this.SuspendLayout();
             // 
             // Tab1
@@ -140,6 +159,27 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1043, 467);
             this.panel3.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Kunstler Script", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(360, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(311, 51);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Village Newbies Oy";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(190, 109);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(654, 314);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // tabPage2
             // 
@@ -525,7 +565,13 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button28);
+            this.tabPage6.Controls.Add(this.button18);
+            this.tabPage6.Controls.Add(this.button17);
+            this.tabPage6.Controls.Add(this.dataGridView4);
+            this.tabPage6.Controls.Add(this.label7);
             this.tabPage6.Controls.Add(this.label5);
+            this.tabPage6.Controls.Add(this.button27);
             this.tabPage6.Controls.Add(this.textBox9);
             this.tabPage6.Controls.Add(this.label4);
             this.tabPage6.Controls.Add(this.label3);
@@ -533,7 +579,6 @@
             this.tabPage6.Controls.Add(this.textBox6);
             this.tabPage6.Controls.Add(this.label2);
             this.tabPage6.Controls.Add(this.textBox8);
-            this.tabPage6.Controls.Add(this.button27);
             this.tabPage6.Controls.Add(this.groupBox1);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
@@ -555,7 +600,7 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(117, 272);
+            this.textBox9.Location = new System.Drawing.Point(117, 269);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(207, 22);
             this.textBox9.TabIndex = 16;
@@ -563,7 +608,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 204);
+            this.label4.Location = new System.Drawing.Point(46, 218);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 16);
             this.label4.TabIndex = 15;
@@ -572,7 +617,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 139);
+            this.label3.Location = new System.Drawing.Point(45, 161);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 16);
             this.label3.TabIndex = 14;
@@ -580,14 +625,14 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(117, 201);
+            this.textBox7.Location = new System.Drawing.Point(117, 212);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(207, 22);
             this.textBox7.TabIndex = 13;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(117, 136);
+            this.textBox6.Location = new System.Drawing.Point(117, 155);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(207, 22);
             this.textBox6.TabIndex = 12;
@@ -595,7 +640,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 67);
+            this.label2.Location = new System.Drawing.Point(45, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 16);
             this.label2.TabIndex = 11;
@@ -604,30 +649,29 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(117, 65);
+            this.textBox8.Location = new System.Drawing.Point(117, 102);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(207, 22);
             this.textBox8.TabIndex = 7;
             // 
             // button27
             // 
-            this.button27.Location = new System.Drawing.Point(558, 263);
+            this.button27.Location = new System.Drawing.Point(308, 359);
             this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(129, 31);
+            this.button27.Size = new System.Drawing.Size(129, 45);
             this.button27.TabIndex = 5;
-            this.button27.Text = "Tallenna";
+            this.button27.Text = "Lisää";
             this.button27.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(428, 65);
+            this.groupBox1.Location = new System.Drawing.Point(49, 325);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(419, 123);
+            this.groupBox1.Size = new System.Drawing.Size(215, 122);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // radioButton2
             // 
@@ -653,6 +697,14 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.button21);
+            this.tabPage7.Controls.Add(this.textBox10);
+            this.tabPage7.Controls.Add(this.textBox4);
+            this.tabPage7.Controls.Add(this.dateTimePicker2);
+            this.tabPage7.Controls.Add(this.dateTimePicker1);
+            this.tabPage7.Controls.Add(this.button20);
+            this.tabPage7.Controls.Add(this.button19);
+            this.tabPage7.Controls.Add(this.dataGridView6);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
@@ -672,25 +724,123 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // pictureBox1
+            // label7
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(262, 156);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(493, 220);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(44, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(151, 25);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Luo uusi lasku";
             // 
-            // label6
+            // dataGridView4
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(436, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(125, 16);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Village Newbies Oy";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(452, 39);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 51;
+            this.dataGridView4.RowTemplate.Height = 24;
+            this.dataGridView4.Size = new System.Drawing.Size(525, 280);
+            this.dataGridView4.TabIndex = 19;
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(491, 359);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(129, 45);
+            this.button17.TabIndex = 20;
+            this.button17.Text = "Muokkaa";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(675, 359);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(129, 45);
+            this.button18.TabIndex = 21;
+            this.button18.Text = "Poista";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            // 
+            // dataGridView6
+            // 
+            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView6.Location = new System.Drawing.Point(441, 31);
+            this.dataGridView6.Name = "dataGridView6";
+            this.dataGridView6.RowHeadersWidth = 51;
+            this.dataGridView6.RowTemplate.Height = 24;
+            this.dataGridView6.Size = new System.Drawing.Size(525, 280);
+            this.dataGridView6.TabIndex = 20;
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(519, 365);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(118, 55);
+            this.button19.TabIndex = 21;
+            this.button19.Text = "Muokkaa";
+            this.button19.UseVisualStyleBackColor = true;
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(723, 365);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(118, 55);
+            this.button20.TabIndex = 22;
+            this.button20.Text = "Poista";
+            this.button20.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(112, 139);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 23;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(112, 199);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker2.TabIndex = 24;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(112, 262);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(200, 22);
+            this.textBox4.TabIndex = 25;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(112, 77);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(200, 22);
+            this.textBox10.TabIndex = 26;
+            // 
+            // button21
+            // 
+            this.button21.Location = new System.Drawing.Point(158, 365);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(118, 55);
+            this.button21.TabIndex = 27;
+            this.button21.Text = "Lisää";
+            this.button21.UseVisualStyleBackColor = true;
+            // 
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(848, 359);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(129, 45);
+            this.button28.TabIndex = 22;
+            this.button28.Text = "Tallenna PDF-muodossa";
+            this.button28.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -706,6 +856,7 @@
             this.tabPage1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -725,7 +876,11 @@
             this.tabPage6.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -788,6 +943,20 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.DataGridView dataGridView6;
+        private System.Windows.Forms.Button button28;
     }
 }
 

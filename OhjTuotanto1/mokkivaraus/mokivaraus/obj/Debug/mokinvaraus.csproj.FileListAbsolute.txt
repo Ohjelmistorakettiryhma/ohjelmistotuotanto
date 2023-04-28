@@ -45,3 +45,17 @@ C:\Mokkivarausjuttuja1\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokinvaraus
 C:\Mokkivarausjuttuja1\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokinvaraus.csproj.CoreCompileInputs.cache
 C:\Mokkivarausjuttuja1\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.exe
 C:\Mokkivarausjuttuja1\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.pdb
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\mokivaraus.exe.config
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\mokivaraus.exe
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\mokivaraus.pdb
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokinvaraus.csproj.AssemblyReference.cache
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokinvaraus.csproj.SuggestedBindingRedirects.cache
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.Form1.resources
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.Form2.resources
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.Properties.Resources.resources
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokinvaraus.csproj.GenerateResource.cache
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokinvaraus.csproj.CoreCompileInputs.cache
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.exe
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.pdb
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.Form3.resources
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.Form4.resources
