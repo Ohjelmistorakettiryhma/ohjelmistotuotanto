@@ -72,7 +72,13 @@
             this.button25 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button28 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.button27 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -80,26 +86,21 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button27 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             this.button21 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.button6 = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.button29 = new System.Windows.Forms.Button();
             this.Tab1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -116,11 +117,11 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // Tab1
@@ -565,6 +566,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button29);
             this.tabPage6.Controls.Add(this.button28);
             this.tabPage6.Controls.Add(this.button18);
             this.tabPage6.Controls.Add(this.button17);
@@ -589,6 +591,56 @@
             this.tabPage6.Text = "Laskutus";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(848, 388);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(129, 45);
+            this.button28.TabIndex = 22;
+            this.button28.Text = "Tallenna PDF-muodossa";
+            this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(675, 388);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(129, 45);
+            this.button18.TabIndex = 21;
+            this.button18.Text = "Poista";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(495, 388);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(129, 45);
+            this.button17.TabIndex = 20;
+            this.button17.Text = "Muokkaa";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(452, 80);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 51;
+            this.dataGridView4.RowTemplate.Height = 24;
+            this.dataGridView4.Size = new System.Drawing.Size(525, 280);
+            this.dataGridView4.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(44, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(151, 25);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Luo uusi lasku";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -597,6 +649,15 @@
             this.label5.Size = new System.Drawing.Size(32, 16);
             this.label5.TabIndex = 17;
             this.label5.Text = "ALV";
+            // 
+            // button27
+            // 
+            this.button27.Location = new System.Drawing.Point(308, 388);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(129, 45);
+            this.button27.TabIndex = 5;
+            this.button27.Text = "Lisää";
+            this.button27.UseVisualStyleBackColor = true;
             // 
             // textBox9
             // 
@@ -654,15 +715,6 @@
             this.textBox8.Size = new System.Drawing.Size(207, 22);
             this.textBox8.TabIndex = 7;
             // 
-            // button27
-            // 
-            this.button27.Location = new System.Drawing.Point(308, 359);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(129, 45);
-            this.button27.TabIndex = 5;
-            this.button27.Text = "Lisää";
-            this.button27.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton2);
@@ -713,60 +765,60 @@
             this.tabPage7.Text = "Varaukset";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // button21
             // 
-            this.button6.Location = new System.Drawing.Point(932, 495);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 28);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Sulje";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button21.Location = new System.Drawing.Point(158, 365);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(118, 55);
+            this.button21.TabIndex = 27;
+            this.button21.Text = "Lisää";
+            this.button21.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // textBox10
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(44, 39);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(151, 25);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Luo uusi lasku";
+            this.textBox10.Location = new System.Drawing.Point(112, 77);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(200, 22);
+            this.textBox10.TabIndex = 26;
             // 
-            // dataGridView4
+            // textBox4
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(452, 39);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersWidth = 51;
-            this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(525, 280);
-            this.dataGridView4.TabIndex = 19;
+            this.textBox4.Location = new System.Drawing.Point(112, 262);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(200, 22);
+            this.textBox4.TabIndex = 25;
             // 
-            // button17
+            // dateTimePicker2
             // 
-            this.button17.Location = new System.Drawing.Point(491, 359);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(129, 45);
-            this.button17.TabIndex = 20;
-            this.button17.Text = "Muokkaa";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.dateTimePicker2.Location = new System.Drawing.Point(112, 199);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker2.TabIndex = 24;
             // 
-            // button18
+            // dateTimePicker1
             // 
-            this.button18.Location = new System.Drawing.Point(675, 359);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(129, 45);
-            this.button18.TabIndex = 21;
-            this.button18.Text = "Poista";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.dateTimePicker1.Location = new System.Drawing.Point(112, 139);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 23;
             // 
-            // bindingSource1
+            // button20
             // 
-            this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            this.button20.Location = new System.Drawing.Point(723, 365);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(118, 55);
+            this.button20.TabIndex = 22;
+            this.button20.Text = "Poista";
+            this.button20.UseVisualStyleBackColor = true;
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(519, 365);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(118, 55);
+            this.button19.TabIndex = 21;
+            this.button19.Text = "Muokkaa";
+            this.button19.UseVisualStyleBackColor = true;
             // 
             // dataGridView6
             // 
@@ -778,69 +830,30 @@
             this.dataGridView6.Size = new System.Drawing.Size(525, 280);
             this.dataGridView6.TabIndex = 20;
             // 
-            // button19
+            // button6
             // 
-            this.button19.Location = new System.Drawing.Point(519, 365);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(118, 55);
-            this.button19.TabIndex = 21;
-            this.button19.Text = "Muokkaa";
-            this.button19.UseVisualStyleBackColor = true;
+            this.button6.Location = new System.Drawing.Point(932, 495);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(100, 28);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "Sulje";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button20
+            // bindingSource1
             // 
-            this.button20.Location = new System.Drawing.Point(723, 365);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(118, 55);
-            this.button20.TabIndex = 22;
-            this.button20.Text = "Poista";
-            this.button20.UseVisualStyleBackColor = true;
+            this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
             // 
-            // dateTimePicker1
+            // button29
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(112, 139);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 23;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(112, 199);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 24;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(112, 262);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 22);
-            this.textBox4.TabIndex = 25;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(112, 77);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(200, 22);
-            this.textBox10.TabIndex = 26;
-            // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(158, 365);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(118, 55);
-            this.button21.TabIndex = 27;
-            this.button21.Text = "Lisää";
-            this.button21.UseVisualStyleBackColor = true;
-            // 
-            // button28
-            // 
-            this.button28.Location = new System.Drawing.Point(848, 359);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(129, 45);
-            this.button28.TabIndex = 22;
-            this.button28.Text = "Tallenna PDF-muodossa";
-            this.button28.UseVisualStyleBackColor = true;
+            this.button29.Location = new System.Drawing.Point(452, 31);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(242, 33);
+            this.button29.TabIndex = 23;
+            this.button29.Text = "Näytä olemassa olevat laskut";
+            this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
             // 
             // Form1
             // 
@@ -874,13 +887,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -957,6 +970,7 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.DataGridView dataGridView6;
         private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.Button button29;
     }
 }
 
