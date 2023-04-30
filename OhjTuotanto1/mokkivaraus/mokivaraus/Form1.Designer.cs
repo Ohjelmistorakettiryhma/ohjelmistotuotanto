@@ -72,6 +72,7 @@
             this.button25 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button29 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
@@ -79,16 +80,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button27 = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.tbALV_laskutus = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbSumma_laskutus = new System.Windows.Forms.TextBox();
+            this.tbVarausID_laskutus = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.tbLaskuID_laskutus = new System.Windows.Forms.TextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.button21 = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
@@ -100,7 +98,6 @@
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.button29 = new System.Windows.Forms.Button();
             this.Tab1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -118,7 +115,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -574,14 +570,13 @@
             this.tabPage6.Controls.Add(this.label7);
             this.tabPage6.Controls.Add(this.label5);
             this.tabPage6.Controls.Add(this.button27);
-            this.tabPage6.Controls.Add(this.textBox9);
+            this.tabPage6.Controls.Add(this.tbALV_laskutus);
             this.tabPage6.Controls.Add(this.label4);
             this.tabPage6.Controls.Add(this.label3);
-            this.tabPage6.Controls.Add(this.textBox7);
-            this.tabPage6.Controls.Add(this.textBox6);
+            this.tabPage6.Controls.Add(this.tbSumma_laskutus);
+            this.tabPage6.Controls.Add(this.tbVarausID_laskutus);
             this.tabPage6.Controls.Add(this.label2);
-            this.tabPage6.Controls.Add(this.textBox8);
-            this.tabPage6.Controls.Add(this.groupBox1);
+            this.tabPage6.Controls.Add(this.tbLaskuID_laskutus);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
@@ -591,9 +586,19 @@
             this.tabPage6.Text = "Laskutus";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // button29
+            // 
+            this.button29.Location = new System.Drawing.Point(452, 31);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(242, 33);
+            this.button29.TabIndex = 23;
+            this.button29.Text = "Näytä olemassa olevat laskut";
+            this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
+            // 
             // button28
             // 
-            this.button28.Location = new System.Drawing.Point(848, 388);
+            this.button28.Location = new System.Drawing.Point(833, 388);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(129, 45);
             this.button28.TabIndex = 22;
@@ -603,7 +608,7 @@
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(675, 388);
+            this.button18.Location = new System.Drawing.Point(655, 388);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(129, 45);
             this.button18.TabIndex = 21;
@@ -613,7 +618,7 @@
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(495, 388);
+            this.button17.Location = new System.Drawing.Point(472, 388);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(129, 45);
             this.button17.TabIndex = 20;
@@ -652,19 +657,20 @@
             // 
             // button27
             // 
-            this.button27.Location = new System.Drawing.Point(308, 388);
+            this.button27.Location = new System.Drawing.Point(151, 340);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(129, 45);
             this.button27.TabIndex = 5;
             this.button27.Text = "Lisää";
             this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
             // 
-            // textBox9
+            // tbALV_laskutus
             // 
-            this.textBox9.Location = new System.Drawing.Point(117, 269);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(207, 22);
-            this.textBox9.TabIndex = 16;
+            this.tbALV_laskutus.Location = new System.Drawing.Point(117, 269);
+            this.tbALV_laskutus.Name = "tbALV_laskutus";
+            this.tbALV_laskutus.Size = new System.Drawing.Size(207, 22);
+            this.tbALV_laskutus.TabIndex = 16;
             // 
             // label4
             // 
@@ -684,19 +690,19 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Varaus ID";
             // 
-            // textBox7
+            // tbSumma_laskutus
             // 
-            this.textBox7.Location = new System.Drawing.Point(117, 212);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(207, 22);
-            this.textBox7.TabIndex = 13;
+            this.tbSumma_laskutus.Location = new System.Drawing.Point(117, 212);
+            this.tbSumma_laskutus.Name = "tbSumma_laskutus";
+            this.tbSumma_laskutus.Size = new System.Drawing.Size(207, 22);
+            this.tbSumma_laskutus.TabIndex = 13;
             // 
-            // textBox6
+            // tbVarausID_laskutus
             // 
-            this.textBox6.Location = new System.Drawing.Point(117, 155);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(207, 22);
-            this.textBox6.TabIndex = 12;
+            this.tbVarausID_laskutus.Location = new System.Drawing.Point(117, 155);
+            this.tbVarausID_laskutus.Name = "tbVarausID_laskutus";
+            this.tbVarausID_laskutus.Size = new System.Drawing.Size(207, 22);
+            this.tbVarausID_laskutus.TabIndex = 12;
             // 
             // label2
             // 
@@ -708,44 +714,12 @@
             this.label2.Text = "Lasku ID";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox8
+            // tbLaskuID_laskutus
             // 
-            this.textBox8.Location = new System.Drawing.Point(117, 102);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(207, 22);
-            this.textBox8.TabIndex = 7;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(49, 325);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(215, 122);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(83, 75);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(99, 20);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "paperilasku";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(83, 15);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(126, 20);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "sähköpostilasku";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.tbLaskuID_laskutus.Location = new System.Drawing.Point(117, 102);
+            this.tbLaskuID_laskutus.Name = "tbLaskuID_laskutus";
+            this.tbLaskuID_laskutus.Size = new System.Drawing.Size(207, 22);
+            this.tbLaskuID_laskutus.TabIndex = 7;
             // 
             // tabPage7
             // 
@@ -845,16 +819,6 @@
             // 
             this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
             // 
-            // button29
-            // 
-            this.button29.Location = new System.Drawing.Point(452, 31);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(242, 33);
-            this.button29.TabIndex = 23;
-            this.button29.Text = "Näytä olemassa olevat laskut";
-            this.button29.UseVisualStyleBackColor = true;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -888,8 +852,6 @@
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
@@ -943,17 +905,14 @@
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox tbLaskuID_laskutus;
         private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox tbALV_laskutus;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbSumma_laskutus;
+        private System.Windows.Forms.TextBox tbVarausID_laskutus;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button18;
