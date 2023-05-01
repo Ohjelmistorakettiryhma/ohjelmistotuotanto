@@ -98,6 +98,8 @@
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.Tab1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -150,6 +152,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Location = new System.Drawing.Point(-2, -2);
@@ -160,10 +164,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Kunstler Script", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(360, 38);
+            this.label6.Font = new System.Drawing.Font("Kunstler Script", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(31, 54);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(311, 51);
+            this.label6.Size = new System.Drawing.Size(393, 65);
             this.label6.TabIndex = 1;
             this.label6.Text = "Village Newbies Oy";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -171,9 +175,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(190, 109);
+            this.pictureBox1.Location = new System.Drawing.Point(475, 99);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(654, 314);
+            this.pictureBox1.Size = new System.Drawing.Size(496, 290);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -671,6 +675,7 @@
             this.tbALV_laskutus.Name = "tbALV_laskutus";
             this.tbALV_laskutus.Size = new System.Drawing.Size(207, 22);
             this.tbALV_laskutus.TabIndex = 16;
+            this.tbALV_laskutus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbALV_laskutus_KeyPress);
             // 
             // label4
             // 
@@ -696,6 +701,7 @@
             this.tbSumma_laskutus.Name = "tbSumma_laskutus";
             this.tbSumma_laskutus.Size = new System.Drawing.Size(207, 22);
             this.tbSumma_laskutus.TabIndex = 13;
+            this.tbSumma_laskutus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSumma_laskutus_KeyPress);
             // 
             // tbVarausID_laskutus
             // 
@@ -703,6 +709,7 @@
             this.tbVarausID_laskutus.Name = "tbVarausID_laskutus";
             this.tbVarausID_laskutus.Size = new System.Drawing.Size(207, 22);
             this.tbVarausID_laskutus.TabIndex = 12;
+            this.tbVarausID_laskutus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbVarausID_laskutus_KeyPress);
             // 
             // label2
             // 
@@ -720,6 +727,7 @@
             this.tbLaskuID_laskutus.Name = "tbLaskuID_laskutus";
             this.tbLaskuID_laskutus.Size = new System.Drawing.Size(207, 22);
             this.tbLaskuID_laskutus.TabIndex = 7;
+            this.tbLaskuID_laskutus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLaskuID_laskutus_KeyPress);
             // 
             // tabPage7
             // 
@@ -818,6 +826,26 @@
             // bindingSource1
             // 
             this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Kunstler Script", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(91, 184);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(257, 65);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Mökkivaraus-";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Kunstler Script", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(114, 260);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(211, 65);
+            this.label9.TabIndex = 3;
+            this.label9.Text = " järjestelmä";
             // 
             // Form1
             // 
@@ -930,6 +958,8 @@
         private System.Windows.Forms.DataGridView dataGridView6;
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
 

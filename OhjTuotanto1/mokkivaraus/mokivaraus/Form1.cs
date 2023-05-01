@@ -144,5 +144,153 @@ namespace mokivaraus
             adapter.Fill(table);
             dataGridView4.DataSource = table;
         }
+
+        private void tbLaskuID_laskutus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Tarkistaa että merkki on numero tai pilkku
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // Tarkistaa että luku ei oo liian pitkä
+            TextBox textBox = sender as TextBox;
+            int maxLength = 0;
+            switch (textBox.Name)
+            {
+                case "tbLaskuID_laskutus":
+                    maxLength = 11; // lasku_id int(11)
+                    break;
+                case "tbVarausID_laskutus":
+                    maxLength = 10; // varaus_id int(10)
+                    break;
+                case "tbSumma_laskutus":
+                    maxLength = 10; // summa double(8,2)
+                    break;
+                case "tbALV_laskutus":
+                    maxLength = 10; // alv double(8,2)
+                    break;
+                default:
+                    break;
+            }
+            if (textBox.Text.Length >= maxLength && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbVarausID_laskutus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Tarkistaa että syötetty merkki on numero 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // Tarkista että luku ei ole liian pitkä
+            TextBox textBox = sender as TextBox;
+            int maxLength = 0;
+            switch (textBox.Name)
+            {
+                case "tbLaskuID_laskutus":
+                    maxLength = 11; // lasku_id int(11)
+                    break;
+                case "tbVarausID_laskutus":
+                    maxLength = 10; // varaus_id int(10)
+                    break;
+                case "tbSumma_laskutus":
+                    maxLength = 10; // summa double(8,2)
+                    break;
+                case "tbALV_laskutus":
+                    maxLength = 10; // alv double(8,2)
+                    break;
+                default:
+                    break;
+            }
+            if (textBox.Text.Length >= maxLength && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbSumma_laskutus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Tarkistaa että merkki on numero tai pilkku
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == ',' && (sender as TextBox).Text.IndexOf(',') > -1)
+            {
+                e.Handled = true;
+            }
+
+            // Tarkistaa että luku ei ole liian pitkä
+            TextBox textBox = sender as TextBox;
+            int maxLength = 0;
+            switch (textBox.Name)
+            {
+                case "tbLaskuID_laskutus":
+                    maxLength = 11; // lasku_id int(11)
+                    break;
+                case "tbVarausID_laskutus":
+                    maxLength = 10; // varaus_id int(10)
+                    break;
+                case "tbSumma_laskutus":
+                    maxLength = 10; // summa double(8,2)
+                    break;
+                case "tbALV_laskutus":
+                    maxLength = 10; // alv double(8,2)
+                    break;
+                default:
+                    break;
+            }
+            if (textBox.Text.Length >= maxLength && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+
+        }
+
+        private void tbALV_laskutus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Tarkistaa että merkki on numero tai pilkku
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == ',' && (sender as TextBox).Text.IndexOf(',') > -1)
+            {
+                e.Handled = true;
+            }
+
+            // Tarkistaa että luku ei ole liian pitkä
+            TextBox textBox = sender as TextBox;
+            int maxLength = 0;
+            switch (textBox.Name)
+            {
+                case "tbLaskuID_laskutus":
+                    maxLength = 11; // lasku_id int(11)
+                    break;
+                case "tbVarausID_laskutus":
+                    maxLength = 10; // varaus_id int(10)
+                    break;
+                case "tbsumma_laskutus":
+                    maxLength = 10; // summa double(8,2)
+                    break;
+                case "tbALV_laskutus":
+                    maxLength = 10; // alv double(8,2)
+                    break;
+                default:
+                    break;
+            }
+            if (textBox.Text.Length >= maxLength && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
