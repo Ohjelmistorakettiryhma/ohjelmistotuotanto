@@ -153,5 +153,45 @@ namespace mokivaraus
             adapter.Fill(table);
             dataGridView1.DataSource = table;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+             if (dataGridView1.SelectedRows.Count > 0)
+            {
+                
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                // TODO: Use the selectedRow to delete the corresponding record from the database
+
+                int id = Convert.ToInt32(selectedRow.Cells[0].Value);
+
+
+                MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+                connection.Open();
+                string query = "DELETE FROM mokki WHERE mokki_id = @id";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@id", id);
+                
+                int rowsAffected = command.ExecuteNonQuery();
+                connection.Close();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Mökki poistettu");
+                }
+                else
+                {
+                    MessageBox.Show("Mökkiä ei löydy");
+                    
+
+                }
+                connection.Close();
+            }
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

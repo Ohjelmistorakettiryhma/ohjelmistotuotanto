@@ -84,7 +84,7 @@ namespace mokivaraus
 
                 connection.Close();
 
-                MessageBox.Show("Data inserted successfully.");
+                MessageBox.Show("Mökki lisätty");
             }
             else
             {
