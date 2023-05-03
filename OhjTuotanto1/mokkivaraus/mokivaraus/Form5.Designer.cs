@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_tulosta = new System.Windows.Forms.Button();
             this.button_muokkaa_nayta = new System.Windows.Forms.Button();
             this.btn_muokkaa_muokkaa = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbLasku_id_tallenna = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView_tallenna_laskutus = new System.Windows.Forms.DataGridView();
-            this.btn_tulosta = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_tallenna_laskutus)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +55,7 @@
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.tbLasku_id_tallenna);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -65,6 +65,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(870, 500);
             this.panel1.TabIndex = 15;
+            // 
+            // btn_tulosta
+            // 
+            this.btn_tulosta.Location = new System.Drawing.Point(219, 368);
+            this.btn_tulosta.Name = "btn_tulosta";
+            this.btn_tulosta.Size = new System.Drawing.Size(121, 36);
+            this.btn_tulosta.TabIndex = 13;
+            this.btn_tulosta.Text = "Tulosta";
+            this.btn_tulosta.UseVisualStyleBackColor = true;
             // 
             // button_muokkaa_nayta
             // 
@@ -84,6 +93,7 @@
             this.btn_muokkaa_muokkaa.TabIndex = 11;
             this.btn_muokkaa_muokkaa.Text = "Tallenna";
             this.btn_muokkaa_muokkaa.UseVisualStyleBackColor = true;
+            this.btn_muokkaa_muokkaa.Click += new System.EventHandler(this.btn_muokkaa_muokkaa_Click);
             // 
             // label5
             // 
@@ -116,12 +126,13 @@
             this.textBox2.Size = new System.Drawing.Size(176, 22);
             this.textBox2.TabIndex = 7;
             // 
-            // textBox1
+            // tbLasku_id_tallenna
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 22);
-            this.textBox1.TabIndex = 6;
+            this.tbLasku_id_tallenna.Location = new System.Drawing.Point(131, 115);
+            this.tbLasku_id_tallenna.Name = "tbLasku_id_tallenna";
+            this.tbLasku_id_tallenna.Size = new System.Drawing.Size(176, 22);
+            this.tbLasku_id_tallenna.TabIndex = 6;
+            this.tbLasku_id_tallenna.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -169,15 +180,6 @@
             this.dataGridView_tallenna_laskutus.Size = new System.Drawing.Size(430, 327);
             this.dataGridView_tallenna_laskutus.TabIndex = 0;
             // 
-            // btn_tulosta
-            // 
-            this.btn_tulosta.Location = new System.Drawing.Point(219, 368);
-            this.btn_tulosta.Name = "btn_tulosta";
-            this.btn_tulosta.Size = new System.Drawing.Size(121, 36);
-            this.btn_tulosta.TabIndex = 13;
-            this.btn_tulosta.Text = "Tulosta";
-            this.btn_tulosta.UseVisualStyleBackColor = true;
-            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -202,7 +204,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbLasku_id_tallenna;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
