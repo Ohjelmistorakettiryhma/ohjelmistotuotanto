@@ -136,7 +136,7 @@
             // 
             // btn_muokkaa_muokkaa
             // 
-            this.btn_muokkaa_muokkaa.Location = new System.Drawing.Point(153, 368);
+            this.btn_muokkaa_muokkaa.Location = new System.Drawing.Point(157, 368);
             this.btn_muokkaa_muokkaa.Name = "btn_muokkaa_muokkaa";
             this.btn_muokkaa_muokkaa.Size = new System.Drawing.Size(121, 36);
             this.btn_muokkaa_muokkaa.TabIndex = 11;
