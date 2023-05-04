@@ -89,36 +89,51 @@ namespace mokivaraus
 
         private void tbLaskuid_Muokkaa_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Tarkistaa että syötetty merkki on numero
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            // käy vain numero, pilkku tai backspace
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+            // voi sisältää vain yhden pilkun
+            if (e.KeyChar == ',' && ((sender as TextBox).Text.Contains(',') || (sender as TextBox).Text.Length == 0 ))
+            { 
+                e.Handled = true;
+            }
+            // ennen pilkkua voi olla max 8 numeroo
+            if((sender as TextBox).Text.IndexOf(',') == -1 && (sender as TextBox).Text.Length == 8 && e.KeyChar != (char)Keys.Back)
+            { 
+                e.Handled = true;
+            }
+            // pilkun jälkeen max 2 numeroa
+            if ((sender as TextBox).Text.IndexOf(',') > -1 && (sender as TextBox).Text.Length - (sender as TextBox).Text.IndexOf(',') > 2 && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
 
             // Tarkistaa että teksti ei ole yli sallitun pituuden
-            TextBox textBox = sender as TextBox;
-            int maxLength = 0;
-            switch (textBox.Name)
-            {
-                case "tbLaskuid_Muokkaa":
-                    maxLength = 11; // lasku_id int(11)
-                    break;
-                case "tbVarausid_muokkaa":
-                    maxLength = 10; // varaus_id int(10)
-                    break;
-                case "tbsumma_muokkaa":
-                    maxLength = 10; // summa double(8,2)
-                    break;
-                case "tbalv_muokkaa":
-                    maxLength = 10; // alv double(8,2)
-                    break;
-                default:
-                    break;
-            }
-            if (textBox.Text.Length >= maxLength && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            //TextBox textBox = sender as TextBox;
+            //int maxLength = 0;
+            //switch (textBox.Name)
+            //{
+            //    case "tbLaskuid_Muokkaa":
+            //        maxLength = 11; // lasku_id int(11)
+            //        break;
+            //    case "tbVarausid_muokkaa":
+            //        maxLength = 10; // varaus_id int(10)
+            //        break;
+            //    case "tbsumma_muokkaa":
+            //        maxLength = 10; // summa double(8,2)
+            //        break;
+            //    case "tbalv_muokkaa":
+            //        maxLength = 10; // alv max 10 merkkiä
+            //        break;
+            //    default:
+            //        break;
+            //}
+            //if (textBox.Text.Length >= maxLength && !char.IsControl(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
         }
 
         private void tbVarausid_muokkaa_KeyPress(object sender, KeyPressEventArgs e)
@@ -232,6 +247,11 @@ namespace mokivaraus
             {
                 e.Handled = true;
             }
+        }
+
+        private void tbLaskuid_Muokkaa_Validating(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

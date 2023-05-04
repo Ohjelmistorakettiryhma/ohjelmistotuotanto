@@ -117,5 +117,15 @@ namespace mokivaraus
         {
 
         }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbLasku_id_tallenna_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

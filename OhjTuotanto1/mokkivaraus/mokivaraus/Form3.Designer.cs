@@ -98,6 +98,7 @@
             this.tbLaskuid_Muokkaa.Size = new System.Drawing.Size(176, 22);
             this.tbLaskuid_Muokkaa.TabIndex = 6;
             this.tbLaskuid_Muokkaa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLaskuid_Muokkaa_KeyPress);
+            this.tbLaskuid_Muokkaa.Validating += new System.ComponentModel.CancelEventHandler(this.tbLaskuid_Muokkaa_Validating);
             // 
             // tbVarausid_muokkaa
             // 

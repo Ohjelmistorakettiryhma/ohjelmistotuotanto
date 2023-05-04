@@ -133,6 +133,7 @@
             this.tbLasku_id_tallenna.Size = new System.Drawing.Size(176, 22);
             this.tbLasku_id_tallenna.TabIndex = 6;
             this.tbLasku_id_tallenna.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tbLasku_id_tallenna.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLasku_id_tallenna_KeyPress);
             // 
             // label4
             // 
@@ -188,6 +189,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form5";
             this.Text = "Tallenna PDF-muotoon";
+            this.Load += new System.EventHandler(this.Form5_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_tallenna_laskutus)).EndInit();
