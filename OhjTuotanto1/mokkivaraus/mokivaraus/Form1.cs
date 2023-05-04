@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using mokivaraus.Properties;
 using MySqlConnector;
 
 namespace mokivaraus
@@ -192,6 +193,12 @@ namespace mokivaraus
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button24_Click(object sender, EventArgs e) //palveluiden lisäys-nappi
+        {
+            PalvelunlisaysForm palvelunlisaysform = new PalvelunlisaysForm();  // aukausee oman palveluiden lisäysikkunan
+            palvelunlisaysform.Show();               // Show Form5
         }
     }
 }
