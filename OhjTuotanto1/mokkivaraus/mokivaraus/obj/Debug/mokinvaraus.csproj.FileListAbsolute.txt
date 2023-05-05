@@ -71,7 +71,6 @@ C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\System.Memory.
 C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\System.Numerics.Vectors.dll
 C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\System.Threading.Tasks.Extensions.dll
-C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\BouncyCastle.Crypto.xml
 C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\Google.Protobuf.pdb
 C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\Google.Protobuf.xml
 C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\K4os.Compression.LZ4.xml
@@ -84,6 +83,7 @@ C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\System.Memory.
 C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\System.Numerics.Vectors.xml
 C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.exe.config
 C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.Form5.resources
 C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokinvaraus.csproj.CopyComplete
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\itextsharp.dll
+C:\ReposOhjTuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\bin\Debug\itextsharp.xml

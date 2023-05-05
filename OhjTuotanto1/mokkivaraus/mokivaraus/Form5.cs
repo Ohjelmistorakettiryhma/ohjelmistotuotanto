@@ -27,9 +27,9 @@ namespace mokivaraus
         private void button_muokkaa_nayta_Click(object sender, EventArgs e)
         {
 
-            string query = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id";
+            string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id";
 
-            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlCommand command = new MySqlCommand(hakeminen, connection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -41,25 +41,28 @@ namespace mokivaraus
         {
             int laskuid = int.Parse(tbLasku_id_hae.Text);
 
-            string query = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi" +
-                            "FROM lasku" +
-                            "JOIN varaus ON lasku.varaus_id = varaus.varaus_id" +
+            string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi " +
+                            "FROM lasku " +
+                            "JOIN varaus ON lasku.varaus_id = varaus.varaus_id " +
                             "JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id" +
                             "JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id" +
                             "INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id" +
                             "INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id" +
                             "WHERE lasku.lasku_id = laskuid";
 
-            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlCommand command = new MySqlCommand(hakeminen, connection);
             command.Parameters.AddWithValue("@lasku_id", laskuid);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
 
-            // Luodaan PDF-tiedosto
+            // pdf-tiedoston luominen
             string fileName = "laskuid:" + tbLasku_id_hae.Text + ".pdf";
             string filePath = @"C:\Asiakas_laskut\" + fileName;
             FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None);
+            
+
+            
             //Document document = new Document();
             //PdfWriter writer = PdfWriter.GetInstance(document, file);
             //document.Open();
