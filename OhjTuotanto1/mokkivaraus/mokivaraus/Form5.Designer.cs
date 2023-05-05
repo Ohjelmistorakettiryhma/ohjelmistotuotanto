@@ -42,9 +42,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView_tallenna_laskutus = new System.Windows.Forms.DataGridView();
+            this.groupbox1 = new System.Windows.Forms.GroupBox();
             this.rbtn_sahkoposti = new System.Windows.Forms.RadioButton();
             this.rbtn_Paperilasku = new System.Windows.Forms.RadioButton();
-            this.groupbox1 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_tallenna_laskutus)).BeginInit();
             this.groupbox1.SuspendLayout();
@@ -112,30 +112,30 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 419);
+            this.textBox4.Location = new System.Drawing.Point(89, 172);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(176, 22);
             this.textBox4.TabIndex = 9;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(40, 419);
+            this.textBox3.Location = new System.Drawing.Point(89, 234);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(176, 22);
             this.textBox3.TabIndex = 8;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(44, 425);
+            this.textBox2.Location = new System.Drawing.Point(89, 299);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(176, 22);
             this.textBox2.TabIndex = 7;
             // 
             // tbLasku_id_hae
             // 
-            this.tbLasku_id_hae.Location = new System.Drawing.Point(301, 32);
+            this.tbLasku_id_hae.Location = new System.Drawing.Point(89, 117);
             this.tbLasku_id_hae.Name = "tbLasku_id_hae";
-            this.tbLasku_id_hae.Size = new System.Drawing.Size(189, 22);
+            this.tbLasku_id_hae.Size = new System.Drawing.Size(176, 22);
             this.tbLasku_id_hae.TabIndex = 6;
             this.tbLasku_id_hae.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.tbLasku_id_hae.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLasku_id_tallenna_KeyPress);
@@ -152,7 +152,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(94, 444);
+            this.label3.Location = new System.Drawing.Point(20, 123);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 16);
             this.label3.TabIndex = 3;
@@ -170,7 +170,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 457);
+            this.label1.Location = new System.Drawing.Point(20, 178);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 1;
@@ -179,12 +179,22 @@
             // dataGridView_tallenna_laskutus
             // 
             this.dataGridView_tallenna_laskutus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_tallenna_laskutus.Location = new System.Drawing.Point(40, 95);
+            this.dataGridView_tallenna_laskutus.Location = new System.Drawing.Point(354, 95);
             this.dataGridView_tallenna_laskutus.Name = "dataGridView_tallenna_laskutus";
             this.dataGridView_tallenna_laskutus.RowHeadersWidth = 51;
             this.dataGridView_tallenna_laskutus.RowTemplate.Height = 24;
-            this.dataGridView_tallenna_laskutus.Size = new System.Drawing.Size(792, 309);
+            this.dataGridView_tallenna_laskutus.Size = new System.Drawing.Size(478, 309);
             this.dataGridView_tallenna_laskutus.TabIndex = 0;
+            // 
+            // groupbox1
+            // 
+            this.groupbox1.Controls.Add(this.rbtn_sahkoposti);
+            this.groupbox1.Controls.Add(this.rbtn_Paperilasku);
+            this.groupbox1.Location = new System.Drawing.Point(288, 382);
+            this.groupbox1.Name = "groupbox1";
+            this.groupbox1.Size = new System.Drawing.Size(336, 79);
+            this.groupbox1.TabIndex = 16;
+            this.groupbox1.TabStop = false;
             // 
             // rbtn_sahkoposti
             // 
@@ -208,16 +218,6 @@
             this.rbtn_Paperilasku.Text = "Paperilasku";
             this.rbtn_Paperilasku.UseVisualStyleBackColor = true;
             // 
-            // groupbox1
-            // 
-            this.groupbox1.Controls.Add(this.rbtn_sahkoposti);
-            this.groupbox1.Controls.Add(this.rbtn_Paperilasku);
-            this.groupbox1.Location = new System.Drawing.Point(288, 382);
-            this.groupbox1.Name = "groupbox1";
-            this.groupbox1.Size = new System.Drawing.Size(336, 79);
-            this.groupbox1.TabIndex = 16;
-            this.groupbox1.TabStop = false;
-            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -225,7 +225,7 @@
             this.ClientSize = new System.Drawing.Size(891, 503);
             this.Controls.Add(this.panel1);
             this.Name = "Form5";
-            this.Text = "Tallenna PDF-muotoon";
+            this.Text = "Lisää lasku";
             this.Load += new System.EventHandler(this.Form5_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

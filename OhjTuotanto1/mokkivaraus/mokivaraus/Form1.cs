@@ -307,5 +307,11 @@ namespace mokivaraus
                 e.Handled = true;
             }
         }
+
+        private void button17_Click_1(object sender, EventArgs e)
+        {
+            Form5 form5 = new Form5();
+            form5.Show();
+        }
     }
 }
