@@ -64,6 +64,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.button22 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -98,7 +99,6 @@
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label8 = new System.Windows.Forms.Label();
             this.Tab1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -309,8 +309,9 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(81, 20);
             this.button11.TabIndex = 10;
-            this.button11.Text = "Hae mökkejä";
+            this.button11.Text = "Hae alueita";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // textBox2
             // 
@@ -336,6 +337,7 @@
             this.button7.TabIndex = 1;
             this.button7.Text = "Lisää...";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button9
             // 
@@ -345,6 +347,7 @@
             this.button9.TabIndex = 3;
             this.button9.Text = "Poista...";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -476,6 +479,16 @@
             this.panel4.Size = new System.Drawing.Size(782, 379);
             this.panel4.TabIndex = 6;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(21, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(163, 20);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Palveluiden hallinta";
+            // 
             // dataGridView5
             // 
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -493,6 +506,7 @@
             this.button22.TabIndex = 10;
             this.button22.Text = "Hae palveluita";
             this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // textBox5
             // 
@@ -528,6 +542,7 @@
             this.button25.TabIndex = 3;
             this.button25.Text = "Poista...";
             this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
             // 
             // button26
             // 
@@ -537,6 +552,7 @@
             this.button26.TabIndex = 2;
             this.button26.Text = "Muokkaa...";
             this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // tabPage6
             // 
@@ -816,16 +832,6 @@
             // bindingSource1
             // 
             this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(21, 28);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(163, 20);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Palveluiden hallinta";
             // 
             // Form1
             // 

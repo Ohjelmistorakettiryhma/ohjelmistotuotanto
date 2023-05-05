@@ -178,3 +178,4 @@ C:\Users\Henkka\Source\Repos\ohjelmistotuotanto\OhjTuotanto1\mokkivaraus\mokivar
 C:\Users\Henkka\Source\Repos\ohjelmistotuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.exe
 C:\Users\Henkka\Source\Repos\ohjelmistotuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.pdb
 C:\Users\Henkka\Source\Repos\ohjelmistotuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.Properties.PalvelunlisaysForm.resources
+C:\Users\Henkka\Source\Repos\ohjelmistotuotanto\OhjTuotanto1\mokkivaraus\mokivaraus\obj\Debug\mokivaraus.AlueenlisaysForm.resources
