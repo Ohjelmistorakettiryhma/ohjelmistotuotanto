@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -24,12 +25,6 @@ namespace mokivaraus
             InitializeComponent();
         }
 
-        // MySqlConnection connection = new MySqlConnection("Server=localhost; Database=vn; Uid=root; Pwd=Ruutti;");
-
-        //string conString = "server=localhost;port=3307;database=vn;uid=root;password=Ruutti;";
-        //// string connectionString = "datasource=localhost;port=3307;username=root;password=Ruutti;database=vn";
-        //MySqlConnection yhteys = new MySqlConnection();
-        //yhteys.ConnectionString = ConString;
         MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
 
         private void toolStripComboBox1_Click(object sender, EventArgs e)
@@ -68,17 +63,122 @@ namespace mokivaraus
 
         }
 
-        private void button17_Click(object sender, EventArgs e) // laskutus, muokkaa -nappi
+        private void button17_Click(object sender, EventArgs e) // laskutus, hae -nappi
         {
-            Form3 form3 = new Form3();  // Create a new instance of Form3
-            form3.Show();               // Show Form3
+            // Haetaan kaikki laskut datagridviewiin näkyviin.
+
+            try
+            {
+                int laskuid = int.Parse(tblaskuid_hae.Text);
+
+                string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id WHERE lasku_id = @laskuid";
+
+                MySqlCommand mySqlCommand = new MySqlCommand(hakeminen, connection);
+                mySqlCommand.Parameters.AddWithValue("@laskuid", laskuid);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                dataGridView_tallennapdf.DataSource = table;
+            }
+            catch
+            {
+                MessageBox.Show("Tarkista syöte!");
+            }
 
         }
 
-        private void button18_Click(object sender, EventArgs e) // laskutus, poista -nappi
+        private void button18_Click(object sender, EventArgs e) // laskutus, muokkaa tila -nappi
         {
-            Form4 form4 = new Form4();  // Create a new instance of Form4
-            form4.Show();               // Show Form4
+            // Seuraavaksi muokataan laskun tila sen mukaan, mikä radiobutton on painettu. Sen jälkeen tulee vielä sen laskuid:n laskun tiedot päivitettynä näkyviin.
+            try
+            {
+                int laskuid = int.Parse(tblaskuid_hae.Text);
+                string paivita = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id WHERE lasku_id = @laskuid";
+
+                if (rbMaksamaton.Checked == true)
+                {
+                    try
+                    {
+
+                        //Muokataan tieto tila -kohtaan.
+                        string muokkaaminen = "UPDATE lasku SET tila = 0 WHERE lasku_id = @laskuid";
+                        MySqlCommand mySqlCommand = new MySqlCommand(muokkaaminen, connection);
+                        mySqlCommand.Parameters.AddWithValue("@laskuid", laskuid);
+                        connection.Open();
+                        mySqlCommand.ExecuteNonQuery();
+                        connection.Close();
+                        //Näytetään taulukossa tila -muutos ja muut tiedot valitusta sarakkeesta.
+                        MySqlCommand mySqlCommand1 = new MySqlCommand(paivita, connection);
+                        mySqlCommand1.Parameters.AddWithValue("@laskuid", laskuid);
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand1);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        dataGridView_tallennapdf.DataSource = table;
+
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Laskun tilan muokkaaminen epäonnistui!");
+                    }
+
+                }
+                else if (rbMaksettu.Checked)
+                {
+                    try
+                    {
+                        //Muokataan tieto tila -kohtaan.
+                        string muokkaaminen = "UPDATE lasku SET tila = '1' WHERE lasku_id = @laskuid";
+                        MySqlCommand mySqlCommand = new MySqlCommand(muokkaaminen, connection);
+                        mySqlCommand.Parameters.AddWithValue("@laskuid", laskuid);
+                        connection.Open();
+                        mySqlCommand.ExecuteNonQuery();
+                        connection.Close();
+                        //Näytetään taulukossa tila -muutos ja muut tiedot valitusta sarakkeesta.
+                        MySqlCommand mySqlCommand1 = new MySqlCommand(paivita, connection);
+                        mySqlCommand1.Parameters.AddWithValue("@laskuid", laskuid);
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand1);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        dataGridView_tallennapdf.DataSource = table;
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Laskun tilan muokkaaminen epäonnistui!");
+                    }
+                }
+                else if (rbEraantynyt.Checked)
+                {
+                    try
+                    {
+                        //Muokataan tieto tila -kohtaan.
+                        string muokkaaminen = "UPDATE lasku SET tila = '2' WHERE lasku_id = @laskuid";
+                        MySqlCommand mySqlCommand = new MySqlCommand(muokkaaminen, connection);
+                        mySqlCommand.Parameters.AddWithValue("@laskuid", laskuid);
+                        connection.Open();
+                        mySqlCommand.ExecuteNonQuery();
+                        connection.Close();
+                        //Näytetään taulukossa tila -muutos ja muut tiedot valitusta sarakkeesta.
+                        MySqlCommand mySqlCommand1 = new MySqlCommand(paivita, connection);
+                        mySqlCommand1.Parameters.AddWithValue("@laskuid", laskuid);
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand1);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        dataGridView_tallennapdf.DataSource = table;
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Laskun tilan muokkaaminen epäonnistui!");
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Laskun tilan muokkaaminen epäonnistui, valitse tila!");
+            }
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
@@ -88,27 +188,15 @@ namespace mokivaraus
 
         private void button28_Click(object sender, EventArgs e) // Tallenna PDF-muotoon -buttoni
         {
-            //string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id";
+            //TÄMÄ TUON ALLE SEURAAVAKSI
 
-            //MySqlCommand command = new MySqlCommand(hakeminen, connection);
-            //MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            //DataTable table = new DataTable();
-            //adapter.Fill(table);
-
-            //dataGridView_tallennapdf.DataSource = table;
         }
 
-        private void button29_Click(object sender, EventArgs e) // pitäis tulla kaikki lasku data datagridviewiin mutta meni moti niin päivitin paskaa sinne tietoihin.
+        private void button29_Click(object sender, EventArgs e) // kaikki laskut datagridviewiin näkyviin
         {
-            //MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
-            //string query = "SELECT * FROM lasku";
-            //MySqlCommand command = new MySqlCommand(query, connection);
-            //MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            //DataTable table = new DataTable();
-            //adapter.Fill(table);
-            //dataGridView_tallennapdf.DataSource = table;
 
-            string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id";
+            string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, " +
+                "varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id";
 
             MySqlCommand command = new MySqlCommand(hakeminen, connection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
@@ -130,7 +218,7 @@ namespace mokivaraus
             if (int.TryParse(tbLaskuID_laskutus.Text, out laskuid) &&
                 int.TryParse(tbVarausID_laskutus.Text, out varausid) &&
                 decimal.TryParse(tbSumma_laskutus.Text, out summa) &&
-                decimal.TryParse(tbALV_laskutus.Text, out alv))
+                decimal.TryParse(tblaskuid_hae.Text, out alv))
             {
                 command.Parameters.AddWithValue("@lasku_id", laskuid);
                 command.Parameters.AddWithValue("@varaus_id", varausid);
@@ -149,7 +237,7 @@ namespace mokivaraus
                 tbLaskuID_laskutus.Clear();
                 tbVarausID_laskutus.Clear();
                 tbSumma_laskutus.Clear();
-                tbALV_laskutus.Clear();
+                tblaskuid_hae.Clear();
             }
 
             string hae = "SELECT * FROM lasku";
@@ -162,150 +250,25 @@ namespace mokivaraus
 
         private void tbLaskuID_laskutus_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Tarkistaa että merkki on numero tai pilkku
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
-            // Tarkistaa että luku ei oo liian pitkä
-            TextBox textBox = sender as TextBox;
-            int maxLength = 0;
-            switch (textBox.Name)
-            {
-                case "tbLaskuID_laskutus":
-                    maxLength = 11; // lasku_id int(11)
-                    break;
-                case "tbVarausID_laskutus":
-                    maxLength = 10; // varaus_id int(10)
-                    break;
-                case "tbSumma_laskutus":
-                    maxLength = 10; // summa double(8,2)
-                    break;
-                case "tbALV_laskutus":
-                    maxLength = 10; // alv double(8,2)
-                    break;
-                default:
-                    break;
-            }
-            if (textBox.Text.Length >= maxLength && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+           
         }
 
         private void tbVarausID_laskutus_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Tarkistaa että syötetty merkki on numero 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
-            // Tarkista että luku ei ole liian pitkä
-            TextBox textBox = sender as TextBox;
-            int maxLength = 0;
-            switch (textBox.Name)
-            {
-                case "tbLaskuID_laskutus":
-                    maxLength = 11; // lasku_id int(11)
-                    break;
-                case "tbVarausID_laskutus":
-                    maxLength = 10; // varaus_id int(10)
-                    break;
-                case "tbSumma_laskutus":
-                    maxLength = 10; // summa double(8,2)
-                    break;
-                case "tbALV_laskutus":
-                    maxLength = 10; // alv double(8,2)
-                    break;
-                default:
-                    break;
-            }
-            if (textBox.Text.Length >= maxLength && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            
         }
+
+            
 
         private void tbSumma_laskutus_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Tarkistaa että merkki on numero tai pilkku
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
-
-            if (e.KeyChar == ',' && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
-
-            // Tarkistaa että luku ei ole liian pitkä
-            TextBox textBox = sender as TextBox;
-            int maxLength = 0;
-            switch (textBox.Name)
-            {
-                case "tbLaskuID_laskutus":
-                    maxLength = 11; // lasku_id int(11)
-                    break;
-                case "tbVarausID_laskutus":
-                    maxLength = 10; // varaus_id int(10)
-                    break;
-                case "tbSumma_laskutus":
-                    maxLength = 10; // summa double(8,2)
-                    break;
-                case "tbALV_laskutus":
-                    maxLength = 10; // alv double(8,2)
-                    break;
-                default:
-                    break;
-            }
-            if (textBox.Text.Length >= maxLength && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
+          
 
         }
 
         private void tbALV_laskutus_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Tarkistaa että merkki on numero tai pilkku
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
 
-            if (e.KeyChar == ',' && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
-
-            // Tarkistaa että luku ei ole liian pitkä
-            TextBox textBox = sender as TextBox;
-            int maxLength = 0;
-            switch (textBox.Name)
-            {
-                case "tbLaskuID_laskutus":
-                    maxLength = 11; // lasku_id int(11)
-                    break;
-                case "tbVarausID_laskutus":
-                    maxLength = 10; // varaus_id int(10)
-                    break;
-                case "tbsumma_laskutus":
-                    maxLength = 10; // summa double(8,2)
-                    break;
-                case "tbALV_laskutus":
-                    maxLength = 10; // alv double(8,2)
-                    break;
-                default:
-                    break;
-            }
-            if (textBox.Text.Length >= maxLength && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
         }
 
         private void button17_Click_1(object sender, EventArgs e)
@@ -313,5 +276,119 @@ namespace mokivaraus
             Form5 form5 = new Form5();
             form5.Show();
         }
+
+        private void tbhae_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void rbMaksamaton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNaytaVaraukset_Click(object sender, EventArgs e) // Näytä kaikki varaukset -buttoni
+        {
+            //tässä haetaan kaikki varaukset ja näytetään ne datagridviewissä
+            string hakeminen = "SELECT a.etunimi, a.sukunimi, v.varaus_id, a.email, l.summa, l.tila, l.erapv,\r\n       m.mokkinimi, v.varattu_pvm, v.vahvistus_pvm, v.varattu_alkupvm, v.varattu_loppupvm\r\nFROM varaus v \r\nJOIN asiakas a ON v.asiakas_id = a.asiakas_id \r\nJOIN lasku l ON v.varaus_id = l.varaus_id \r\nJOIN mokki m ON v.mokki_mokki_id = m.mokki_id";
+
+            MySqlCommand command = new MySqlCommand(hakeminen, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            dataGridView_varaus.DataSource = table;
+        }
+
+        private void btnHae_varaus_Click(object sender, EventArgs e)
+        {
+            //Tässä haetaan kaikki varaus, jonka varausid on syötetty textboxiin.
+
+            try
+            {
+                int varausid = int.Parse(tbHaeVarausID.Text);
+
+                string hakeminen = "SELECT a.etunimi, a.sukunimi, v.varaus_id, a.email, l.summa, l.tila, l.erapv,\r\n       m.mokkinimi, v.varattu_pvm, v.vahvistus_pvm, v.varattu_alkupvm, v.varattu_loppupvm\r\nFROM varaus v \r\nJOIN asiakas a ON v.asiakas_id = a.asiakas_id \r\nJOIN lasku l ON v.varaus_id = l.varaus_id \r\nJOIN mokki m ON v.mokki_mokki_id = m.mokki_id WHERE v.varaus_id = @varausid";
+
+                MySqlCommand mySqlCommand = new MySqlCommand(hakeminen, connection);
+                mySqlCommand.Parameters.AddWithValue("@varausid", varausid);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                dataGridView_varaus.DataSource = table;
+            }
+            catch
+            {
+                MessageBox.Show("Varausta ei löytynyt, yritä uudelleen!");
+            }
+        }
+
+        private void bnPoista_Click(object sender, EventArgs e) // varaus, poista-nappi
+        {
+
+        }
+
+        private void tabPage7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMuokkaaVaraus_Click(object sender, EventArgs e) // varaus, muokkaa-nappi
+        {
+            // seuraavaksi muutetaan oikeaan muotoon päivämäärät.
+            DateTime varattuPvm = dtpvarattu.Value;
+            string Pvm1 = varattuPvm.ToString("yyyy-MM-dd");
+
+            DateTime vahvistusPvm = dtpvahvistus.Value;
+            string Pvm2 = vahvistusPvm.ToString("yyyy-MM-dd");
+
+            DateTime varattuAlkuPvm = dtpvarattuAlku.Value;
+            string Pvm3 = varattuAlkuPvm.ToString("yyyy-MM-dd");
+
+            DateTime varattuLoppuPvm = dtpvarattuLoppu.Value;
+            string Pvm4 = varattuLoppuPvm.ToString("yyyy-MM-dd");
+
+            DateTime PVM1 = DateTime.ParseExact(Pvm1, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            DateTime PVM2 = DateTime.ParseExact(Pvm2, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            DateTime PVM3 = DateTime.ParseExact(Pvm3, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            DateTime PVM4 = DateTime.ParseExact(Pvm4, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+                try
+                {
+                    //seuraavaksi päivitetään varaus tietokantaan.
+
+                    int asiakasid = int.Parse(tbAsiakasidMuokkaa.Text);
+                    int mokkiid = int.Parse(tbMokkiidMuokkaa.Text);
+                    int varausid = int.Parse(tbVarausid_varaus.Text);
+                    string muokkaa = "UPDATE VARAUS SET asiakas_id = @asiakasid, mokki_mokki_id = @mokkiid, varattu_pvm = @varattupvm, vahvistus_pvm = @vahvistuspvm, varattu_alkupvm = @alkupvm, varattu_loppupvm = @loppupvm WHERE varaus_id = @varausid";
+                    MySqlCommand command = new MySqlCommand(muokkaa, connection);
+                    command.Parameters.AddWithValue("@asiakasid", asiakasid);
+                    command.Parameters.AddWithValue("@mokkiid", mokkiid);
+                    command.Parameters.AddWithValue("@varattupvm", PVM1);
+                    command.Parameters.AddWithValue("@vahvistuspvm", PVM2);
+                    command.Parameters.AddWithValue("@alkupvm", PVM3);
+                    command.Parameters.AddWithValue("@loppupvm", PVM4);
+                    command.Parameters.AddWithValue("@varausid", varausid);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    MessageBox.Show("Tietojen päivitys onnistui.");
+
+                }
+                catch
+                {
+                    MessageBox.Show("Muokkaaminen epäonnistui!");
+                }  
+        }
+
     }
 }

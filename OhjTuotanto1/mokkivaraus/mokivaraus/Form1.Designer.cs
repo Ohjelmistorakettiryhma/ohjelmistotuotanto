@@ -74,11 +74,10 @@
             this.button25 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button30 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rbEraantynyt = new System.Windows.Forms.RadioButton();
             this.rbMaksettu = new System.Windows.Forms.RadioButton();
             this.rbMaksamaton = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
@@ -89,16 +88,15 @@
             this.button18 = new System.Windows.Forms.Button();
             this.btnHae_laskutusIDlla = new System.Windows.Forms.Button();
             this.dataGridView_tallennapdf = new System.Windows.Forms.DataGridView();
-            this.tbALV_laskutus = new System.Windows.Forms.TextBox();
+            this.tblaskuid_hae = new System.Windows.Forms.TextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.button21 = new System.Windows.Forms.Button();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.btnMuokkaaVaraus = new System.Windows.Forms.Button();
+            this.tbAsiakasidMuokkaa = new System.Windows.Forms.TextBox();
+            this.dtpvahvistus = new System.Windows.Forms.DateTimePicker();
+            this.dtpvarattu = new System.Windows.Forms.DateTimePicker();
+            this.bnPoista = new System.Windows.Forms.Button();
+            this.btnMuokkaa = new System.Windows.Forms.Button();
+            this.dataGridView_varaus = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button27 = new System.Windows.Forms.Button();
@@ -110,7 +108,23 @@
             this.tbLaskuID_laskutus = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.button30 = new System.Windows.Forms.Button();
+            this.btnNaytaVaraukset = new System.Windows.Forms.Button();
+            this.btnHae_varaus = new System.Windows.Forms.Button();
+            this.tbHaeVarausID = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbMokkiidMuokkaa = new System.Windows.Forms.TextBox();
+            this.dtpvarattuAlku = new System.Windows.Forms.DateTimePicker();
+            this.dtpvarattuLoppu = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tbVarausid_varaus = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnErapv = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.Tab1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -130,7 +144,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_tallennapdf)).BeginInit();
             this.tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_varaus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -598,10 +612,10 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label13);
+            this.tabPage6.Controls.Add(this.btnErapv);
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.button17);
-            this.tabPage6.Controls.Add(this.label13);
-            this.tabPage6.Controls.Add(this.label14);
             this.tabPage6.Controls.Add(this.groupBox1);
             this.tabPage6.Controls.Add(this.label12);
             this.tabPage6.Controls.Add(this.label11);
@@ -611,7 +625,7 @@
             this.tabPage6.Controls.Add(this.button18);
             this.tabPage6.Controls.Add(this.btnHae_laskutusIDlla);
             this.tabPage6.Controls.Add(this.dataGridView_tallennapdf);
-            this.tabPage6.Controls.Add(this.tbALV_laskutus);
+            this.tabPage6.Controls.Add(this.tblaskuid_hae);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
@@ -620,6 +634,15 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Laskutus";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // button30
+            // 
+            this.button30.Location = new System.Drawing.Point(332, 426);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(198, 30);
+            this.button30.TabIndex = 31;
+            this.button30.Text = "Poista lasku";
+            this.button30.UseVisualStyleBackColor = true;
             // 
             // button17
             // 
@@ -631,45 +654,27 @@
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.button17_Click_1);
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(36, 351);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(257, 16);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "sitten tallenna halutessasi PDF-muodossa";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(36, 325);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(124, 16);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "Valitse ensin lasku, ";
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.rbEraantynyt);
             this.groupBox1.Controls.Add(this.rbMaksettu);
             this.groupBox1.Controls.Add(this.rbMaksamaton);
-            this.groupBox1.Location = new System.Drawing.Point(38, 85);
+            this.groupBox1.Location = new System.Drawing.Point(37, 212);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(256, 155);
+            this.groupBox1.Size = new System.Drawing.Size(256, 144);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             // 
-            // radioButton3
+            // rbEraantynyt
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(14, 120);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(108, 20);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "3 (erääntynyt)";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbEraantynyt.AutoSize = true;
+            this.rbEraantynyt.Location = new System.Drawing.Point(14, 120);
+            this.rbEraantynyt.Name = "rbEraantynyt";
+            this.rbEraantynyt.Size = new System.Drawing.Size(108, 20);
+            this.rbEraantynyt.TabIndex = 2;
+            this.rbEraantynyt.TabStop = true;
+            this.rbEraantynyt.Text = "2 (erääntynyt)";
+            this.rbEraantynyt.UseVisualStyleBackColor = true;
             // 
             // rbMaksettu
             // 
@@ -679,7 +684,7 @@
             this.rbMaksettu.Size = new System.Drawing.Size(100, 20);
             this.rbMaksettu.TabIndex = 1;
             this.rbMaksettu.TabStop = true;
-            this.rbMaksettu.Text = "2 (maksettu)";
+            this.rbMaksettu.Text = "1 (maksettu)";
             this.rbMaksettu.UseVisualStyleBackColor = true;
             // 
             // rbMaksamaton
@@ -690,31 +695,32 @@
             this.rbMaksamaton.Size = new System.Drawing.Size(124, 20);
             this.rbMaksamaton.TabIndex = 0;
             this.rbMaksamaton.TabStop = true;
-            this.rbMaksamaton.Text = "1 (maksamaton)";
+            this.rbMaksamaton.Text = "0 (maksamaton)";
             this.rbMaksamaton.UseVisualStyleBackColor = true;
+            this.rbMaksamaton.CheckedChanged += new System.EventHandler(this.rbMaksamaton_CheckedChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(34, 50);
+            this.label12.Location = new System.Drawing.Point(33, 40);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(172, 16);
+            this.label12.Size = new System.Drawing.Size(187, 16);
             this.label12.TabIndex = 26;
-            this.label12.Text = "sitten päivitä halutessasi tila";
+            this.label12.Text = "ja valitse painikkeista toiminto.";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(35, 27);
+            this.label11.Location = new System.Drawing.Point(33, 16);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(124, 16);
+            this.label11.Size = new System.Drawing.Size(190, 16);
             this.label11.TabIndex = 25;
-            this.label11.Text = "Valitse ensin lasku, ";
+            this.label11.Text = "Kirjoita lasku ID -tekstikenttään ";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(329, 47);
+            this.label10.Location = new System.Drawing.Point(8, 100);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 16);
             this.label10.TabIndex = 24;
@@ -732,9 +738,9 @@
             // 
             // button28
             // 
-            this.button28.Location = new System.Drawing.Point(39, 391);
+            this.button28.Location = new System.Drawing.Point(39, 426);
             this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(198, 42);
+            this.button28.Size = new System.Drawing.Size(198, 30);
             this.button28.TabIndex = 22;
             this.button28.Text = "Tallenna PDF-muodossa";
             this.button28.UseVisualStyleBackColor = true;
@@ -742,9 +748,9 @@
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(37, 258);
+            this.button18.Location = new System.Drawing.Point(37, 380);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(136, 42);
+            this.button18.Size = new System.Drawing.Size(136, 30);
             this.button18.TabIndex = 21;
             this.button18.Text = "Muokkaa tila";
             this.button18.UseVisualStyleBackColor = true;
@@ -752,7 +758,7 @@
             // 
             // btnHae_laskutusIDlla
             // 
-            this.btnHae_laskutusIDlla.Location = new System.Drawing.Point(640, 36);
+            this.btnHae_laskutusIDlla.Location = new System.Drawing.Point(195, 133);
             this.btnHae_laskutusIDlla.Name = "btnHae_laskutusIDlla";
             this.btnHae_laskutusIDlla.Size = new System.Drawing.Size(98, 30);
             this.btnHae_laskutusIDlla.TabIndex = 20;
@@ -770,24 +776,38 @@
             this.dataGridView_tallennapdf.Size = new System.Drawing.Size(672, 325);
             this.dataGridView_tallennapdf.TabIndex = 19;
             // 
-            // tbALV_laskutus
+            // tblaskuid_hae
             // 
-            this.tbALV_laskutus.Location = new System.Drawing.Point(411, 44);
-            this.tbALV_laskutus.Name = "tbALV_laskutus";
-            this.tbALV_laskutus.Size = new System.Drawing.Size(207, 22);
-            this.tbALV_laskutus.TabIndex = 16;
-            this.tbALV_laskutus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbALV_laskutus_KeyPress);
+            this.tblaskuid_hae.Location = new System.Drawing.Point(86, 94);
+            this.tblaskuid_hae.Name = "tblaskuid_hae";
+            this.tblaskuid_hae.Size = new System.Drawing.Size(207, 22);
+            this.tblaskuid_hae.TabIndex = 16;
+            this.tblaskuid_hae.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbhae_KeyPress);
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.button21);
-            this.tabPage7.Controls.Add(this.textBox10);
-            this.tabPage7.Controls.Add(this.textBox4);
-            this.tabPage7.Controls.Add(this.dateTimePicker2);
-            this.tabPage7.Controls.Add(this.dateTimePicker1);
-            this.tabPage7.Controls.Add(this.button20);
-            this.tabPage7.Controls.Add(this.button19);
-            this.tabPage7.Controls.Add(this.dataGridView6);
+            this.tabPage7.Controls.Add(this.label16);
+            this.tabPage7.Controls.Add(this.tbVarausid_varaus);
+            this.tabPage7.Controls.Add(this.label22);
+            this.tabPage7.Controls.Add(this.label21);
+            this.tabPage7.Controls.Add(this.label20);
+            this.tabPage7.Controls.Add(this.label19);
+            this.tabPage7.Controls.Add(this.label18);
+            this.tabPage7.Controls.Add(this.label17);
+            this.tabPage7.Controls.Add(this.dtpvarattuLoppu);
+            this.tabPage7.Controls.Add(this.dtpvarattuAlku);
+            this.tabPage7.Controls.Add(this.tbMokkiidMuokkaa);
+            this.tabPage7.Controls.Add(this.label15);
+            this.tabPage7.Controls.Add(this.tbHaeVarausID);
+            this.tabPage7.Controls.Add(this.btnHae_varaus);
+            this.tabPage7.Controls.Add(this.btnNaytaVaraukset);
+            this.tabPage7.Controls.Add(this.btnMuokkaaVaraus);
+            this.tabPage7.Controls.Add(this.tbAsiakasidMuokkaa);
+            this.tabPage7.Controls.Add(this.dtpvahvistus);
+            this.tabPage7.Controls.Add(this.dtpvarattu);
+            this.tabPage7.Controls.Add(this.bnPoista);
+            this.tabPage7.Controls.Add(this.btnMuokkaa);
+            this.tabPage7.Controls.Add(this.dataGridView_varaus);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
@@ -795,71 +815,67 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Varaukset";
             this.tabPage7.UseVisualStyleBackColor = true;
+            this.tabPage7.Click += new System.EventHandler(this.tabPage7_Click);
             // 
-            // button21
+            // btnMuokkaaVaraus
             // 
-            this.button21.Location = new System.Drawing.Point(135, 304);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(118, 55);
-            this.button21.TabIndex = 27;
-            this.button21.Text = "Lisää";
-            this.button21.UseVisualStyleBackColor = true;
+            this.btnMuokkaaVaraus.Location = new System.Drawing.Point(170, 405);
+            this.btnMuokkaaVaraus.Name = "btnMuokkaaVaraus";
+            this.btnMuokkaaVaraus.Size = new System.Drawing.Size(118, 40);
+            this.btnMuokkaaVaraus.TabIndex = 27;
+            this.btnMuokkaaVaraus.Text = "Muokkaa";
+            this.btnMuokkaaVaraus.UseVisualStyleBackColor = true;
+            this.btnMuokkaaVaraus.Click += new System.EventHandler(this.btnMuokkaaVaraus_Click);
             // 
-            // textBox10
+            // tbAsiakasidMuokkaa
             // 
-            this.textBox10.Location = new System.Drawing.Point(112, 77);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(200, 22);
-            this.textBox10.TabIndex = 26;
+            this.tbAsiakasidMuokkaa.Location = new System.Drawing.Point(137, 113);
+            this.tbAsiakasidMuokkaa.Name = "tbAsiakasidMuokkaa";
+            this.tbAsiakasidMuokkaa.Size = new System.Drawing.Size(200, 22);
+            this.tbAsiakasidMuokkaa.TabIndex = 26;
             // 
-            // textBox4
+            // dtpvahvistus
             // 
-            this.textBox4.Location = new System.Drawing.Point(112, 262);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 22);
-            this.textBox4.TabIndex = 25;
+            this.dtpvahvistus.Location = new System.Drawing.Point(137, 265);
+            this.dtpvahvistus.Name = "dtpvahvistus";
+            this.dtpvahvistus.Size = new System.Drawing.Size(200, 22);
+            this.dtpvahvistus.TabIndex = 24;
             // 
-            // dateTimePicker2
+            // dtpvarattu
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(112, 199);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 24;
+            this.dtpvarattu.Location = new System.Drawing.Point(137, 215);
+            this.dtpvarattu.Name = "dtpvarattu";
+            this.dtpvarattu.Size = new System.Drawing.Size(200, 22);
+            this.dtpvarattu.TabIndex = 23;
             // 
-            // dateTimePicker1
+            // bnPoista
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(112, 139);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 23;
+            this.bnPoista.Location = new System.Drawing.Point(880, 405);
+            this.bnPoista.Name = "bnPoista";
+            this.bnPoista.Size = new System.Drawing.Size(118, 40);
+            this.bnPoista.TabIndex = 22;
+            this.bnPoista.Text = "Poista";
+            this.bnPoista.UseVisualStyleBackColor = true;
+            this.bnPoista.Click += new System.EventHandler(this.bnPoista_Click);
             // 
-            // button20
+            // btnMuokkaa
             // 
-            this.button20.Location = new System.Drawing.Point(723, 365);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(118, 55);
-            this.button20.TabIndex = 22;
-            this.button20.Text = "Poista";
-            this.button20.UseVisualStyleBackColor = true;
+            this.btnMuokkaa.Location = new System.Drawing.Point(393, 405);
+            this.btnMuokkaa.Name = "btnMuokkaa";
+            this.btnMuokkaa.Size = new System.Drawing.Size(118, 40);
+            this.btnMuokkaa.TabIndex = 21;
+            this.btnMuokkaa.Text = "Lisää";
+            this.btnMuokkaa.UseVisualStyleBackColor = true;
             // 
-            // button19
+            // dataGridView_varaus
             // 
-            this.button19.Location = new System.Drawing.Point(519, 365);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(118, 55);
-            this.button19.TabIndex = 21;
-            this.button19.Text = "Muokkaa";
-            this.button19.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView6
-            // 
-            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Location = new System.Drawing.Point(441, 31);
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.RowHeadersWidth = 51;
-            this.dataGridView6.RowTemplate.Height = 24;
-            this.dataGridView6.Size = new System.Drawing.Size(525, 280);
-            this.dataGridView6.TabIndex = 20;
+            this.dataGridView_varaus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_varaus.Location = new System.Drawing.Point(393, 77);
+            this.dataGridView_varaus.Name = "dataGridView_varaus";
+            this.dataGridView_varaus.RowHeadersWidth = 51;
+            this.dataGridView_varaus.RowTemplate.Height = 24;
+            this.dataGridView_varaus.Size = new System.Drawing.Size(605, 311);
+            this.dataGridView_varaus.TabIndex = 20;
             // 
             // label7
             // 
@@ -957,14 +973,150 @@
             // 
             this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
             // 
-            // button30
+            // btnNaytaVaraukset
             // 
-            this.button30.Location = new System.Drawing.Point(332, 426);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(198, 30);
-            this.button30.TabIndex = 31;
-            this.button30.Text = "Poista lasku";
-            this.button30.UseVisualStyleBackColor = true;
+            this.btnNaytaVaraukset.Location = new System.Drawing.Point(798, 23);
+            this.btnNaytaVaraukset.Name = "btnNaytaVaraukset";
+            this.btnNaytaVaraukset.Size = new System.Drawing.Size(200, 32);
+            this.btnNaytaVaraukset.TabIndex = 28;
+            this.btnNaytaVaraukset.Text = "Näytä kaikki varaukset";
+            this.btnNaytaVaraukset.UseVisualStyleBackColor = true;
+            this.btnNaytaVaraukset.Click += new System.EventHandler(this.btnNaytaVaraukset_Click);
+            // 
+            // btnHae_varaus
+            // 
+            this.btnHae_varaus.Location = new System.Drawing.Point(667, 23);
+            this.btnHae_varaus.Name = "btnHae_varaus";
+            this.btnHae_varaus.Size = new System.Drawing.Size(94, 32);
+            this.btnHae_varaus.TabIndex = 29;
+            this.btnHae_varaus.Text = "Hae";
+            this.btnHae_varaus.UseVisualStyleBackColor = true;
+            this.btnHae_varaus.Click += new System.EventHandler(this.btnHae_varaus_Click);
+            // 
+            // tbHaeVarausID
+            // 
+            this.tbHaeVarausID.Location = new System.Drawing.Point(473, 28);
+            this.tbHaeVarausID.Name = "tbHaeVarausID";
+            this.tbHaeVarausID.Size = new System.Drawing.Size(177, 22);
+            this.tbHaeVarausID.TabIndex = 30;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(390, 31);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(66, 16);
+            this.label15.TabIndex = 31;
+            this.label15.Text = "Varaus ID";
+            // 
+            // tbMokkiidMuokkaa
+            // 
+            this.tbMokkiidMuokkaa.Location = new System.Drawing.Point(137, 162);
+            this.tbMokkiidMuokkaa.Name = "tbMokkiidMuokkaa";
+            this.tbMokkiidMuokkaa.Size = new System.Drawing.Size(200, 22);
+            this.tbMokkiidMuokkaa.TabIndex = 33;
+            // 
+            // dtpvarattuAlku
+            // 
+            this.dtpvarattuAlku.Location = new System.Drawing.Point(137, 314);
+            this.dtpvarattuAlku.Name = "dtpvarattuAlku";
+            this.dtpvarattuAlku.Size = new System.Drawing.Size(200, 22);
+            this.dtpvarattuAlku.TabIndex = 34;
+            // 
+            // dtpvarattuLoppu
+            // 
+            this.dtpvarattuLoppu.Location = new System.Drawing.Point(137, 366);
+            this.dtpvarattuLoppu.Name = "dtpvarattuLoppu";
+            this.dtpvarattuLoppu.Size = new System.Drawing.Size(200, 22);
+            this.dtpvarattuLoppu.TabIndex = 35;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(14, 119);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(72, 16);
+            this.label17.TabIndex = 37;
+            this.label17.Text = "Asiakas ID";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(14, 168);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(59, 16);
+            this.label18.TabIndex = 38;
+            this.label18.Text = "Mökki ID";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(14, 221);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(78, 16);
+            this.label19.TabIndex = 39;
+            this.label19.Text = "Varattu pvm";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(14, 271);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(94, 16);
+            this.label20.TabIndex = 40;
+            this.label20.Text = "Vahvistus pvm";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(14, 320);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(103, 16);
+            this.label21.TabIndex = 41;
+            this.label21.Text = "Varattu alkupvm";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(14, 372);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(112, 16);
+            this.label22.TabIndex = 42;
+            this.label22.Text = "Varattu loppupvm";
+            // 
+            // tbVarausid_varaus
+            // 
+            this.tbVarausid_varaus.Location = new System.Drawing.Point(137, 60);
+            this.tbVarausid_varaus.Name = "tbVarausid_varaus";
+            this.tbVarausid_varaus.Size = new System.Drawing.Size(200, 22);
+            this.tbVarausid_varaus.TabIndex = 43;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(14, 66);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(66, 16);
+            this.label16.TabIndex = 44;
+            this.label16.Text = "Varaus ID";
+            // 
+            // btnErapv
+            // 
+            this.btnErapv.Location = new System.Drawing.Point(570, 426);
+            this.btnErapv.Name = "btnErapv";
+            this.btnErapv.Size = new System.Drawing.Size(198, 30);
+            this.btnErapv.TabIndex = 32;
+            this.btnErapv.Text = "Muokkaa eräpäivää";
+            this.btnErapv.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 193);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(30, 16);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Tila";
             // 
             // Form1
             // 
@@ -1012,7 +1164,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_tallennapdf)).EndInit();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_varaus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1067,7 +1219,7 @@
         private System.Windows.Forms.TextBox tbLaskuID_laskutus;
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbALV_laskutus;
+        private System.Windows.Forms.TextBox tblaskuid_hae;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbSumma_laskutus;
@@ -1079,29 +1231,43 @@
         private System.Windows.Forms.DataGridView dataGridView_tallennapdf;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.DataGridView dataGridView6;
+        private System.Windows.Forms.Button btnMuokkaaVaraus;
+        private System.Windows.Forms.TextBox tbAsiakasidMuokkaa;
+        private System.Windows.Forms.DateTimePicker dtpvahvistus;
+        private System.Windows.Forms.DateTimePicker dtpvarattu;
+        private System.Windows.Forms.Button bnPoista;
+        private System.Windows.Forms.Button btnMuokkaa;
+        private System.Windows.Forms.DataGridView dataGridView_varaus;
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton rbEraantynyt;
         private System.Windows.Forms.RadioButton rbMaksettu;
         private System.Windows.Forms.RadioButton rbMaksamaton;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox tbHaeVarausID;
+        private System.Windows.Forms.Button btnHae_varaus;
+        private System.Windows.Forms.Button btnNaytaVaraukset;
+        private System.Windows.Forms.DateTimePicker dtpvarattuLoppu;
+        private System.Windows.Forms.DateTimePicker dtpvarattuAlku;
+        private System.Windows.Forms.TextBox tbMokkiidMuokkaa;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox tbVarausid_varaus;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnErapv;
     }
 }
 
