@@ -54,12 +54,12 @@ namespace mokivaraus
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
 
-         
+
+
             connection.Open();
 
-            string query = "INSERT INTO mokki (mokki_id, alue_id, postinro, mokkinimi, katuosoite, hinta, kuvaus, henkilomaara) VALUES (@mokki_id, @alue_id, @postinro, @mokkinimi, @katuosoite, @hinta, @kuvaus, @henkilomaara)";
+            string query = "INSERT INTO mokki (mokki_id, alue_id, postinro, mokkinimi, katuosoite, hinta, kuvaus, henkilomaara, varustelu) VALUES (@mokki_id, @alue_id, @postinro, @mokkinimi, @katuosoite, @hinta, @kuvaus, @henkilomaara, @varustelu)";
             MySqlCommand command = new MySqlCommand(query, connection);
 
             int mokkiid, alueid, henkilomaara;
@@ -79,6 +79,19 @@ namespace mokivaraus
                 command.Parameters.AddWithValue("@hinta", hinta);
                 command.Parameters.AddWithValue("@kuvaus", tbkuvaus_mokki.Text);
                 command.Parameters.AddWithValue("@henkilomaara", henkilomaara);
+
+                // Define the @varustelu parameter outside of the loop
+                string varustelu = string.Empty;
+                foreach (var item in checkedListBox1.CheckedItems)
+                {
+                    varustelu += item.ToString() + ", ";
+                }
+                // Remove the last comma and space from the end of the string
+                if (!string.IsNullOrEmpty(varustelu))
+                {
+                    varustelu = varustelu.Remove(varustelu.Length - 2);
+                }
+                command.Parameters.AddWithValue("@varustelu", varustelu);
 
                 command.ExecuteNonQuery();
 

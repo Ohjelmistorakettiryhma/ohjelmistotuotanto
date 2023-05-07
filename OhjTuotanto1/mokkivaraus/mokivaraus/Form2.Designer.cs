@@ -35,9 +35,6 @@
             this.lbkuvaus = new System.Windows.Forms.Label();
             this.lbhenkilomaara = new System.Windows.Forms.Label();
             this.lbvvarustelu = new System.Windows.Forms.Label();
-            this.cblemmikit = new System.Windows.Forms.CheckBox();
-            this.cbtupakointi = new System.Windows.Forms.CheckBox();
-            this.cbvarustelu = new System.Windows.Forms.ComboBox();
             this.tbmokkiid_mokki = new System.Windows.Forms.TextBox();
             this.tbalueid_mokki = new System.Windows.Forms.TextBox();
             this.tbpostinumero_mokki = new System.Windows.Forms.TextBox();
@@ -45,12 +42,12 @@
             this.tbkatuosoite_mokki = new System.Windows.Forms.TextBox();
             this.tbhinta_mokki = new System.Windows.Forms.TextBox();
             this.btallenna = new System.Windows.Forms.Button();
-            this.Listboxvarustelu = new System.Windows.Forms.ListBox();
             this.lbmokki_id = new System.Windows.Forms.Label();
             this.lbalue_id = new System.Windows.Forms.Label();
             this.lbpostinro = new System.Windows.Forms.Label();
             this.tbhenkilomaara_mokki = new System.Windows.Forms.TextBox();
             this.tbkuvaus_mokki = new System.Windows.Forms.TextBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -129,48 +126,6 @@
             this.lbvvarustelu.TabIndex = 7;
             this.lbvvarustelu.Text = "Varustelu:";
             // 
-            // cblemmikit
-            // 
-            this.cblemmikit.AutoSize = true;
-            this.cblemmikit.Location = new System.Drawing.Point(308, 158);
-            this.cblemmikit.Margin = new System.Windows.Forms.Padding(2);
-            this.cblemmikit.Name = "cblemmikit";
-            this.cblemmikit.Size = new System.Drawing.Size(99, 17);
-            this.cblemmikit.TabIndex = 11;
-            this.cblemmikit.Text = "Lemmikit sallittu";
-            this.cblemmikit.UseVisualStyleBackColor = true;
-            // 
-            // cbtupakointi
-            // 
-            this.cbtupakointi.AutoSize = true;
-            this.cbtupakointi.Location = new System.Drawing.Point(308, 192);
-            this.cbtupakointi.Margin = new System.Windows.Forms.Padding(2);
-            this.cbtupakointi.Name = "cbtupakointi";
-            this.cbtupakointi.Size = new System.Drawing.Size(108, 17);
-            this.cbtupakointi.TabIndex = 12;
-            this.cbtupakointi.Text = "Tupakointi sallittu";
-            this.cbtupakointi.UseVisualStyleBackColor = true;
-            // 
-            // cbvarustelu
-            // 
-            this.cbvarustelu.FormattingEnabled = true;
-            this.cbvarustelu.Items.AddRange(new object[] {
-            "Takka",
-            "Palju",
-            "Uimaranta",
-            "Grilli",
-            "Syöttötuoli",
-            "Parveke",
-            "Sauna",
-            "Tiskikone",
-            "Pyykinpesukone",
-            "Laituri"});
-            this.cbvarustelu.Location = new System.Drawing.Point(369, 36);
-            this.cbvarustelu.Margin = new System.Windows.Forms.Padding(2);
-            this.cbvarustelu.Name = "cbvarustelu";
-            this.cbvarustelu.Size = new System.Drawing.Size(92, 21);
-            this.cbvarustelu.TabIndex = 13;
-            // 
             // tbmokkiid_mokki
             // 
             this.tbmokkiid_mokki.Location = new System.Drawing.Point(145, 53);
@@ -230,15 +185,6 @@
             this.btallenna.UseVisualStyleBackColor = true;
             this.btallenna.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Listboxvarustelu
-            // 
-            this.Listboxvarustelu.FormattingEnabled = true;
-            this.Listboxvarustelu.Location = new System.Drawing.Point(370, 60);
-            this.Listboxvarustelu.Margin = new System.Windows.Forms.Padding(2);
-            this.Listboxvarustelu.Name = "Listboxvarustelu";
-            this.Listboxvarustelu.Size = new System.Drawing.Size(91, 95);
-            this.Listboxvarustelu.TabIndex = 21;
-            // 
             // lbmokki_id
             // 
             this.lbmokki_id.AutoSize = true;
@@ -285,17 +231,33 @@
             this.tbkuvaus_mokki.Size = new System.Drawing.Size(129, 20);
             this.tbkuvaus_mokki.TabIndex = 27;
             // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Palju",
+            "Sauna",
+            "Laituri",
+            "Syöttötuoli",
+            "Tupakointi sallittu",
+            "Lemmikit sallittu",
+            "Autotalli"});
+            this.checkedListBox1.Location = new System.Drawing.Point(318, 60);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(143, 109);
+            this.checkedListBox1.TabIndex = 28;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 358);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.tbkuvaus_mokki);
             this.Controls.Add(this.tbhenkilomaara_mokki);
             this.Controls.Add(this.lbpostinro);
             this.Controls.Add(this.lbalue_id);
             this.Controls.Add(this.lbmokki_id);
-            this.Controls.Add(this.Listboxvarustelu);
             this.Controls.Add(this.btallenna);
             this.Controls.Add(this.tbhinta_mokki);
             this.Controls.Add(this.tbkatuosoite_mokki);
@@ -303,9 +265,6 @@
             this.Controls.Add(this.tbpostinumero_mokki);
             this.Controls.Add(this.tbalueid_mokki);
             this.Controls.Add(this.tbmokkiid_mokki);
-            this.Controls.Add(this.cbvarustelu);
-            this.Controls.Add(this.cbtupakointi);
-            this.Controls.Add(this.cblemmikit);
             this.Controls.Add(this.lbvvarustelu);
             this.Controls.Add(this.lbhenkilomaara);
             this.Controls.Add(this.lbkuvaus);
@@ -330,9 +289,6 @@
         private System.Windows.Forms.Label lbkuvaus;
         private System.Windows.Forms.Label lbhenkilomaara;
         private System.Windows.Forms.Label lbvvarustelu;
-        private System.Windows.Forms.CheckBox cblemmikit;
-        private System.Windows.Forms.CheckBox cbtupakointi;
-        private System.Windows.Forms.ComboBox cbvarustelu;
         private System.Windows.Forms.TextBox tbmokkiid_mokki;
         private System.Windows.Forms.TextBox tbalueid_mokki;
         private System.Windows.Forms.TextBox tbpostinumero_mokki;
@@ -340,11 +296,11 @@
         private System.Windows.Forms.TextBox tbkatuosoite_mokki;
         private System.Windows.Forms.TextBox tbhinta_mokki;
         private System.Windows.Forms.Button btallenna;
-        private System.Windows.Forms.ListBox Listboxvarustelu;
         private System.Windows.Forms.Label lbmokki_id;
         private System.Windows.Forms.Label lbalue_id;
         private System.Windows.Forms.Label lbpostinro;
         private System.Windows.Forms.TextBox tbhenkilomaara_mokki;
         private System.Windows.Forms.TextBox tbkuvaus_mokki;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

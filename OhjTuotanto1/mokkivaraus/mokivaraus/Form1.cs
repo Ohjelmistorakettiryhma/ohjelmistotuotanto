@@ -1,7 +1,16 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySqlConnector;
+using System.Xml.Linq;
+using MySql.Data.MySqlClient;
 
 namespace mokivaraus
 {
@@ -146,8 +155,12 @@ namespace mokivaraus
         private void button4_Click(object sender, EventArgs e)
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
-            string query = "SELECT * FROM mokki";
+            string query = "SELECT * FROM mokki WHERE mokkinimi LIKE @mokkinimi";
             MySqlCommand command = new MySqlCommand(query, connection);
+
+            // Add parameter for the mokkinimi textbox input
+            command.Parameters.AddWithValue("@mokkinimi", "%" + tbetsimokki.Text + "%");
+
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -190,6 +203,11 @@ namespace mokivaraus
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

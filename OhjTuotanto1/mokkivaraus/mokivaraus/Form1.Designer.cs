@@ -57,7 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbetsimokki = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -360,7 +360,7 @@
             this.tabPage4.Controls.Add(this.label1);
             this.tabPage4.Controls.Add(this.button5);
             this.tabPage4.Controls.Add(this.dataGridView1);
-            this.tabPage4.Controls.Add(this.textBox1);
+            this.tabPage4.Controls.Add(this.tbetsimokki);
             this.tabPage4.Controls.Add(this.button4);
             this.tabPage4.Controls.Add(this.button3);
             this.tabPage4.Controls.Add(this.button2);
@@ -400,13 +400,14 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(392, 259);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // textBox1
+            // tbetsimokki
             // 
-            this.textBox1.Location = new System.Drawing.Point(355, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(286, 20);
-            this.textBox1.TabIndex = 5;
+            this.tbetsimokki.Location = new System.Drawing.Point(355, 25);
+            this.tbetsimokki.Name = "tbetsimokki";
+            this.tbetsimokki.Size = new System.Drawing.Size(286, 20);
+            this.tbetsimokki.TabIndex = 5;
             // 
             // button4
             // 
@@ -866,7 +867,7 @@
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbetsimokki;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
