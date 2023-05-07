@@ -11,7 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace mokivaraus
 {
@@ -188,8 +192,102 @@ namespace mokivaraus
 
         private void button28_Click(object sender, EventArgs e) // Tallenna PDF-muotoon -buttoni
         {
-            //TÄMÄ TUON ALLE SEURAAVAKSI
+            try
+            {
 
+                int laskuid = int.Parse(tblaskuid_hae.Text);
+                //Haetaan tiedot datagridviewiin siitä laskusta, jonka ID syötetty tblaskuid_hae:seen.
+                string Hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id WHERE lasku_id = @laskuid";
+                MySqlCommand mySqlCommand1 = new MySqlCommand(Hakeminen, connection);
+                mySqlCommand1.Parameters.AddWithValue("@laskuid", laskuid);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand1);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                dataGridView_tallennapdf.DataSource = table;
+
+                //Haetaan tiedot tietokannasta ja laitetaan ne muuttujiin, jotta voidaan käyttää niitä pdf-tiedostossa.
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(Hakeminen, connection))
+                {
+                    command.Parameters.AddWithValue("@laskuid", laskuid);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    { // kaikki muuttujat muokataan käytettäviksi laskuun
+                        string etunimi = reader.GetString(reader.GetOrdinal("etunimi"));
+                        string sukunimi = reader.GetString(reader.GetOrdinal("sukunimi"));
+                        int varausid = reader.GetInt32(reader.GetOrdinal("varaus_id"));
+                        string varausidString = varausid.ToString();
+                        DateTime Alkupvm = reader.GetDateTime(reader.GetOrdinal("varattu_alkupvm"));
+                        string AlkupvmString = Alkupvm.ToString("dd.MM.yyyy");
+                        DateTime Loppupvm = reader.GetDateTime(reader.GetOrdinal("varattu_loppupvm"));
+                        string LoppupvmString = Loppupvm.ToString("dd.MM.yyyy");
+                        string mokkinimi = reader.GetString(reader.GetOrdinal("mokkinimi"));
+                        string palvelunnimi = reader.GetString(reader.GetOrdinal("palvelun_nimi"));
+                        decimal summa = reader.GetDecimal(reader.GetOrdinal("summa"));
+                        string summaString = summa.ToString();
+                        decimal alv = reader.GetDecimal(reader.GetOrdinal("alv"));
+                        string alvString = alv.ToString();
+                        DateTime erapaiva = reader.GetDateTime(reader.GetOrdinal("erapv"));
+                        string erapaivaString = erapaiva.ToString("dd.MM.yyyy");
+
+                        Document dokumentti = new Document();
+                        string polku = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\LaskuPdf.pdf";
+                        PdfWriter.GetInstance(dokumentti, new FileStream(polku, FileMode.Create));
+                        dokumentti.Open();
+                        Paragraph laskuntiedot1 = new Paragraph();
+                        Paragraph laskuntiedot2 = new Paragraph();
+                        Paragraph laskuntiedot3 = new Paragraph();
+                        Paragraph tyhja = new Paragraph("\n");
+                        laskuntiedot1.Add("PDF lasku");
+                        dokumentti.Add(tyhja);
+                        dokumentti.Add(tyhja);
+                        dokumentti.Add(tyhja);
+                        laskuntiedot2.Add(new Chunk("\nNimi: "));
+                        laskuntiedot2.Add(new Chunk(etunimi + " " + sukunimi));
+                        laskuntiedot2.Add(new Chunk("\nVaraus ID: "));
+                        laskuntiedot2.Add(new Chunk(varausidString));
+                        laskuntiedot2.Add(new Chunk("\nMökki: "));
+                        laskuntiedot2.Add(new Chunk(mokkinimi));
+                        laskuntiedot2.Add(new Chunk("\nVarauksen alku päivämäärä: "));
+                        laskuntiedot2.Add(new Chunk(AlkupvmString));
+                        laskuntiedot2.Add(new Chunk("\nVarauksen loppu päivämäärä: "));
+                        laskuntiedot2.Add(new Chunk(LoppupvmString));
+                        laskuntiedot2.Add(new Chunk("\nLisäpalvelut: "));
+                        laskuntiedot2.Add(new Chunk(palvelunnimi));
+
+
+                        laskuntiedot3.Add(new Chunk("\nLaskun summa: "));
+                        laskuntiedot3.Add(new Chunk(summaString));
+
+                        laskuntiedot3.Add(new Chunk("\nALV: "));
+                        laskuntiedot3.Add(new Chunk(alvString));
+
+                        laskuntiedot3.Add(new Chunk("\nLaskun eräpäivä: "));
+                        laskuntiedot3.Add(new Chunk(erapaivaString));
+
+                        //laskuun laitetaan kaikki tiedot ja muutamat tyhjät rivit. Luodaan dokumentti ja se tulee heti näkyviin. Lisäksi messagebox ilmoittaa, että lasku tosiaan onnistui.
+
+                        dokumentti.Add(laskuntiedot1);
+                        dokumentti.Add(tyhja);
+                        dokumentti.Add(tyhja);
+                        dokumentti.Add(laskuntiedot2);
+                        dokumentti.Add(tyhja);
+                        dokumentti.Add(laskuntiedot3);
+                        dokumentti.Close();
+                        Process.Start(polku);
+                        MessageBox.Show("Pdf-tiedosto luotu onnistuneesti!");
+
+                    }
+                }
+            }
+            catch // jos ei onnistu tietojen hakeminen ja dokumentin luominen niin tullaan tähän.
+            {
+                MessageBox.Show("PDF-tiedoston luonti epäonnistui, yritä uudelleen.");
+            }
+
+            
         }
 
         private void button29_Click(object sender, EventArgs e) // kaikki laskut datagridviewiin näkyviin

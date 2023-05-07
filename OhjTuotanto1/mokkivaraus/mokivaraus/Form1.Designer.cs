@@ -74,6 +74,8 @@
             this.button25 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnErapv = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -90,6 +92,21 @@
             this.dataGridView_tallennapdf = new System.Windows.Forms.DataGridView();
             this.tblaskuid_hae = new System.Windows.Forms.TextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tbVarausid_varaus = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dtpvarattuLoppu = new System.Windows.Forms.DateTimePicker();
+            this.dtpvarattuAlku = new System.Windows.Forms.DateTimePicker();
+            this.tbMokkiidMuokkaa = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbHaeVarausID = new System.Windows.Forms.TextBox();
+            this.btnHae_varaus = new System.Windows.Forms.Button();
+            this.btnNaytaVaraukset = new System.Windows.Forms.Button();
             this.btnMuokkaaVaraus = new System.Windows.Forms.Button();
             this.tbAsiakasidMuokkaa = new System.Windows.Forms.TextBox();
             this.dtpvahvistus = new System.Windows.Forms.DateTimePicker();
@@ -108,23 +125,6 @@
             this.tbLaskuID_laskutus = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnNaytaVaraukset = new System.Windows.Forms.Button();
-            this.btnHae_varaus = new System.Windows.Forms.Button();
-            this.tbHaeVarausID = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.tbMokkiidMuokkaa = new System.Windows.Forms.TextBox();
-            this.dtpvarattuAlku = new System.Windows.Forms.DateTimePicker();
-            this.dtpvarattuLoppu = new System.Windows.Forms.DateTimePicker();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.tbVarausid_varaus = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btnErapv = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.Tab1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -635,6 +635,24 @@
             this.tabPage6.Text = "Laskutus";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 193);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(30, 16);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Tila";
+            // 
+            // btnErapv
+            // 
+            this.btnErapv.Location = new System.Drawing.Point(570, 426);
+            this.btnErapv.Name = "btnErapv";
+            this.btnErapv.Size = new System.Drawing.Size(198, 30);
+            this.btnErapv.TabIndex = 32;
+            this.btnErapv.Text = "Muokkaa eräpäivää";
+            this.btnErapv.UseVisualStyleBackColor = true;
+            // 
             // button30
             // 
             this.button30.Location = new System.Drawing.Point(332, 426);
@@ -817,6 +835,133 @@
             this.tabPage7.UseVisualStyleBackColor = true;
             this.tabPage7.Click += new System.EventHandler(this.tabPage7_Click);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(14, 66);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(66, 16);
+            this.label16.TabIndex = 44;
+            this.label16.Text = "Varaus ID";
+            // 
+            // tbVarausid_varaus
+            // 
+            this.tbVarausid_varaus.Location = new System.Drawing.Point(137, 60);
+            this.tbVarausid_varaus.Name = "tbVarausid_varaus";
+            this.tbVarausid_varaus.Size = new System.Drawing.Size(200, 22);
+            this.tbVarausid_varaus.TabIndex = 43;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(14, 372);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(112, 16);
+            this.label22.TabIndex = 42;
+            this.label22.Text = "Varattu loppupvm";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(14, 320);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(103, 16);
+            this.label21.TabIndex = 41;
+            this.label21.Text = "Varattu alkupvm";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(14, 271);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(94, 16);
+            this.label20.TabIndex = 40;
+            this.label20.Text = "Vahvistus pvm";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(14, 221);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(78, 16);
+            this.label19.TabIndex = 39;
+            this.label19.Text = "Varattu pvm";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(14, 168);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(59, 16);
+            this.label18.TabIndex = 38;
+            this.label18.Text = "Mökki ID";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(14, 119);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(72, 16);
+            this.label17.TabIndex = 37;
+            this.label17.Text = "Asiakas ID";
+            // 
+            // dtpvarattuLoppu
+            // 
+            this.dtpvarattuLoppu.Location = new System.Drawing.Point(137, 366);
+            this.dtpvarattuLoppu.Name = "dtpvarattuLoppu";
+            this.dtpvarattuLoppu.Size = new System.Drawing.Size(200, 22);
+            this.dtpvarattuLoppu.TabIndex = 35;
+            // 
+            // dtpvarattuAlku
+            // 
+            this.dtpvarattuAlku.Location = new System.Drawing.Point(137, 314);
+            this.dtpvarattuAlku.Name = "dtpvarattuAlku";
+            this.dtpvarattuAlku.Size = new System.Drawing.Size(200, 22);
+            this.dtpvarattuAlku.TabIndex = 34;
+            // 
+            // tbMokkiidMuokkaa
+            // 
+            this.tbMokkiidMuokkaa.Location = new System.Drawing.Point(137, 162);
+            this.tbMokkiidMuokkaa.Name = "tbMokkiidMuokkaa";
+            this.tbMokkiidMuokkaa.Size = new System.Drawing.Size(200, 22);
+            this.tbMokkiidMuokkaa.TabIndex = 33;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(390, 31);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(66, 16);
+            this.label15.TabIndex = 31;
+            this.label15.Text = "Varaus ID";
+            // 
+            // tbHaeVarausID
+            // 
+            this.tbHaeVarausID.Location = new System.Drawing.Point(473, 28);
+            this.tbHaeVarausID.Name = "tbHaeVarausID";
+            this.tbHaeVarausID.Size = new System.Drawing.Size(177, 22);
+            this.tbHaeVarausID.TabIndex = 30;
+            // 
+            // btnHae_varaus
+            // 
+            this.btnHae_varaus.Location = new System.Drawing.Point(667, 23);
+            this.btnHae_varaus.Name = "btnHae_varaus";
+            this.btnHae_varaus.Size = new System.Drawing.Size(94, 32);
+            this.btnHae_varaus.TabIndex = 29;
+            this.btnHae_varaus.Text = "Hae";
+            this.btnHae_varaus.UseVisualStyleBackColor = true;
+            this.btnHae_varaus.Click += new System.EventHandler(this.btnHae_varaus_Click);
+            // 
+            // btnNaytaVaraukset
+            // 
+            this.btnNaytaVaraukset.Location = new System.Drawing.Point(798, 23);
+            this.btnNaytaVaraukset.Name = "btnNaytaVaraukset";
+            this.btnNaytaVaraukset.Size = new System.Drawing.Size(200, 32);
+            this.btnNaytaVaraukset.TabIndex = 28;
+            this.btnNaytaVaraukset.Text = "Näytä kaikki varaukset";
+            this.btnNaytaVaraukset.UseVisualStyleBackColor = true;
+            this.btnNaytaVaraukset.Click += new System.EventHandler(this.btnNaytaVaraukset_Click);
+            // 
             // btnMuokkaaVaraus
             // 
             this.btnMuokkaaVaraus.Location = new System.Drawing.Point(170, 405);
@@ -972,151 +1117,6 @@
             // bindingSource1
             // 
             this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
-            // 
-            // btnNaytaVaraukset
-            // 
-            this.btnNaytaVaraukset.Location = new System.Drawing.Point(798, 23);
-            this.btnNaytaVaraukset.Name = "btnNaytaVaraukset";
-            this.btnNaytaVaraukset.Size = new System.Drawing.Size(200, 32);
-            this.btnNaytaVaraukset.TabIndex = 28;
-            this.btnNaytaVaraukset.Text = "Näytä kaikki varaukset";
-            this.btnNaytaVaraukset.UseVisualStyleBackColor = true;
-            this.btnNaytaVaraukset.Click += new System.EventHandler(this.btnNaytaVaraukset_Click);
-            // 
-            // btnHae_varaus
-            // 
-            this.btnHae_varaus.Location = new System.Drawing.Point(667, 23);
-            this.btnHae_varaus.Name = "btnHae_varaus";
-            this.btnHae_varaus.Size = new System.Drawing.Size(94, 32);
-            this.btnHae_varaus.TabIndex = 29;
-            this.btnHae_varaus.Text = "Hae";
-            this.btnHae_varaus.UseVisualStyleBackColor = true;
-            this.btnHae_varaus.Click += new System.EventHandler(this.btnHae_varaus_Click);
-            // 
-            // tbHaeVarausID
-            // 
-            this.tbHaeVarausID.Location = new System.Drawing.Point(473, 28);
-            this.tbHaeVarausID.Name = "tbHaeVarausID";
-            this.tbHaeVarausID.Size = new System.Drawing.Size(177, 22);
-            this.tbHaeVarausID.TabIndex = 30;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(390, 31);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(66, 16);
-            this.label15.TabIndex = 31;
-            this.label15.Text = "Varaus ID";
-            // 
-            // tbMokkiidMuokkaa
-            // 
-            this.tbMokkiidMuokkaa.Location = new System.Drawing.Point(137, 162);
-            this.tbMokkiidMuokkaa.Name = "tbMokkiidMuokkaa";
-            this.tbMokkiidMuokkaa.Size = new System.Drawing.Size(200, 22);
-            this.tbMokkiidMuokkaa.TabIndex = 33;
-            // 
-            // dtpvarattuAlku
-            // 
-            this.dtpvarattuAlku.Location = new System.Drawing.Point(137, 314);
-            this.dtpvarattuAlku.Name = "dtpvarattuAlku";
-            this.dtpvarattuAlku.Size = new System.Drawing.Size(200, 22);
-            this.dtpvarattuAlku.TabIndex = 34;
-            // 
-            // dtpvarattuLoppu
-            // 
-            this.dtpvarattuLoppu.Location = new System.Drawing.Point(137, 366);
-            this.dtpvarattuLoppu.Name = "dtpvarattuLoppu";
-            this.dtpvarattuLoppu.Size = new System.Drawing.Size(200, 22);
-            this.dtpvarattuLoppu.TabIndex = 35;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 119);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(72, 16);
-            this.label17.TabIndex = 37;
-            this.label17.Text = "Asiakas ID";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(14, 168);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(59, 16);
-            this.label18.TabIndex = 38;
-            this.label18.Text = "Mökki ID";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(14, 221);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(78, 16);
-            this.label19.TabIndex = 39;
-            this.label19.Text = "Varattu pvm";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(14, 271);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(94, 16);
-            this.label20.TabIndex = 40;
-            this.label20.Text = "Vahvistus pvm";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(14, 320);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(103, 16);
-            this.label21.TabIndex = 41;
-            this.label21.Text = "Varattu alkupvm";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(14, 372);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(112, 16);
-            this.label22.TabIndex = 42;
-            this.label22.Text = "Varattu loppupvm";
-            // 
-            // tbVarausid_varaus
-            // 
-            this.tbVarausid_varaus.Location = new System.Drawing.Point(137, 60);
-            this.tbVarausid_varaus.Name = "tbVarausid_varaus";
-            this.tbVarausid_varaus.Size = new System.Drawing.Size(200, 22);
-            this.tbVarausid_varaus.TabIndex = 43;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(14, 66);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(66, 16);
-            this.label16.TabIndex = 44;
-            this.label16.Text = "Varaus ID";
-            // 
-            // btnErapv
-            // 
-            this.btnErapv.Location = new System.Drawing.Point(570, 426);
-            this.btnErapv.Name = "btnErapv";
-            this.btnErapv.Size = new System.Drawing.Size(198, 30);
-            this.btnErapv.TabIndex = 32;
-            this.btnErapv.Text = "Muokkaa eräpäivää";
-            this.btnErapv.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 193);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(30, 16);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "Tila";
             // 
             // Form1
             // 
