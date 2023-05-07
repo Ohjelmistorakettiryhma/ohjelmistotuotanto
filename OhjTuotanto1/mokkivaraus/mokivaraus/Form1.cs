@@ -1,8 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Globalization;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySqlConnector;
-
+using MySql.Data.MySqlClient;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Diagnostics;
+using System.Xml.Linq;
 namespace mokivaraus
 {
 
@@ -63,15 +76,13 @@ namespace mokivaraus
 
         private void button17_Click(object sender, EventArgs e) // laskutus, muokkaa -nappi
         {
-            Form3 form3 = new Form3();  // Create a new instance of Form3
-            form3.Show();               // Show Form3
+           
 
         }
 
         private void button18_Click(object sender, EventArgs e) // laskutus, poista -nappi
         {
-            Form4 form4 = new Form4();  // Create a new instance of Form4
-            form4.Show();               // Show Form4
+            
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
@@ -81,19 +92,11 @@ namespace mokivaraus
 
         private void button28_Click(object sender, EventArgs e) // Tallenna PDF-muotoon -buttoni
         {
-            Form5 form5 = new Form5();  // Create a new instance of Form5
-            form5.Show();               // Show Form5
+            
         }
 
         private void button29_Click(object sender, EventArgs e) // pitäis tulla kaikki lasku data datagridviewiin mutta meni moti niin päivitin paskaa sinne tietoihin.
         {
-            
-            string query = "SELECT * FROM lasku";
-            MySqlCommand command = new MySqlCommand(query, connection);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            dataGridView4.DataSource = table;
 
         }
 
@@ -108,7 +111,7 @@ namespace mokivaraus
             if (int.TryParse(tbLaskuID_laskutus.Text, out laskuid) &&
                 int.TryParse(tbVarausID_laskutus.Text, out varausid) &&
                 decimal.TryParse(tbSumma_laskutus.Text, out summa) &&
-                decimal.TryParse(tbALV_laskutus.Text, out alv))
+                decimal.TryParse(tblaskuid_hae.Text, out alv))
             {
                 command.Parameters.AddWithValue("@lasku_id", laskuid);
                 command.Parameters.AddWithValue("@varaus_id", varausid);
@@ -127,7 +130,7 @@ namespace mokivaraus
                 tbLaskuID_laskutus.Clear();
                 tbVarausID_laskutus.Clear();
                 tbSumma_laskutus.Clear();
-                tbALV_laskutus.Clear();
+                tblaskuid_hae.Clear();
             }
 
             string hae = "SELECT * FROM lasku";
@@ -135,7 +138,7 @@ namespace mokivaraus
             MySqlDataAdapter adapter = new MySqlDataAdapter(com);
             DataTable table = new DataTable();
             adapter.Fill(table);
-            dataGridView4.DataSource = table;
+            dataGridView_tallennapdf.DataSource = table;
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -192,6 +195,234 @@ namespace mokivaraus
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnHae_laskutusIDlla_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int laskuid = int.Parse(tblaskuid_hae.Text);
+
+                string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id WHERE lasku_id = @laskuid";
+
+                MySqlCommand mySqlCommand = new MySqlCommand(hakeminen, connection);
+                mySqlCommand.Parameters.AddWithValue("@laskuid", laskuid);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                dataGridView_tallennapdf.DataSource = table;
+            }
+            catch
+            {
+                MessageBox.Show("Tarkista syöte!");
+            }
+        }
+
+        private void button32_Click(object sender, EventArgs e) // näytä olemassa olevat
+        {
+            string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, " +
+               "varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id";
+
+            MySqlCommand command = new MySqlCommand(hakeminen, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            dataGridView_tallennapdf.DataSource = table;
+        }
+
+        private void button34_Click(object sender, EventArgs e) // muokkaa tila
+        {
+            // Seuraavaksi muokataan laskun tila sen mukaan, mikä radiobutton on painettu. Sen jälkeen tulee vielä sen laskuid:n laskun tiedot päivitettynä näkyviin.
+            try
+            {
+
+                int laskuid = int.Parse(tblaskuid_hae.Text);
+                string paivita = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id WHERE lasku_id = @laskuid";
+
+                if (rbMaksamaton.Checked == true)
+                {
+                    try
+                    {
+
+                        //Muokataan tieto tila -kohtaan.
+                        string muokkaaminen = "UPDATE lasku SET tila = 0 WHERE lasku_id = @laskuid";
+                        MySqlCommand mySqlCommand = new MySqlCommand(muokkaaminen, connection);
+                        mySqlCommand.Parameters.AddWithValue("@laskuid", laskuid);
+                        connection.Open();
+                        mySqlCommand.ExecuteNonQuery();
+                        connection.Close();
+                        //Näytetään taulukossa tila -muutos ja muut tiedot valitusta sarakkeesta.
+                        MySqlCommand mySqlCommand1 = new MySqlCommand(paivita, connection);
+                        mySqlCommand1.Parameters.AddWithValue("@laskuid", laskuid);
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand1);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        dataGridView_tallennapdf.DataSource = table;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Laskun tilan muokkaaminen epäonnistui!");
+                    }
+
+                }
+                else if (rbMaksettu.Checked)
+                {
+                    try
+                    {
+                        //Muokataan tieto tila -kohtaan.
+                        string muokkaaminen = "UPDATE lasku SET tila = '1' WHERE lasku_id = @laskuid";
+                        MySqlCommand mySqlCommand = new MySqlCommand(muokkaaminen, connection);
+                        mySqlCommand.Parameters.AddWithValue("@laskuid", laskuid);
+                        connection.Open();
+                        mySqlCommand.ExecuteNonQuery();
+                        connection.Close();
+                        //Näytetään taulukossa tila -muutos ja muut tiedot valitusta sarakkeesta.
+                        MySqlCommand mySqlCommand1 = new MySqlCommand(paivita, connection);
+                        mySqlCommand1.Parameters.AddWithValue("@laskuid", laskuid);
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand1);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        dataGridView_tallennapdf.DataSource = table;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Laskun tilan muokkaaminen epäonnistui!");
+                    }
+                }
+                else if (rbEraantynyt.Checked)
+                {
+                    try
+                    {
+                        //Muokataan tieto tila -kohtaan.
+                        string muokkaaminen = "UPDATE lasku SET tila = '2' WHERE lasku_id = @laskuid";
+                        MySqlCommand mySqlCommand = new MySqlCommand(muokkaaminen, connection);
+                        mySqlCommand.Parameters.AddWithValue("@laskuid", laskuid);
+                        connection.Open();
+                        mySqlCommand.ExecuteNonQuery();
+                        connection.Close();
+                        //Näytetään taulukossa tila -muutos ja muut tiedot valitusta sarakkeesta.
+                        MySqlCommand mySqlCommand1 = new MySqlCommand(paivita, connection);
+                        mySqlCommand1.Parameters.AddWithValue("@laskuid", laskuid);
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand1);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        dataGridView_tallennapdf.DataSource = table;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Laskun tilan muokkaaminen epäonnistui!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Laskun tilan muokkaaminen epäonnistui, valitse tila!");
+            }
+        }
+
+        private void button33_Click(object sender, EventArgs e) // tallenna pdf
+        {
+            try
+            {
+
+                int laskuid = int.Parse(tblaskuid_hae.Text);
+                //Haetaan tiedot datagridviewiin siitä laskusta, jonka ID syötetty tblaskuid_hae:seen.
+                string Hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id WHERE lasku_id = @laskuid";
+                MySqlCommand mySqlCommand1 = new MySqlCommand(Hakeminen, connection);
+                mySqlCommand1.Parameters.AddWithValue("@laskuid", laskuid);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand1);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                dataGridView_tallennapdf.DataSource = table;
+
+                //Haetaan tiedot tietokannasta ja laitetaan ne muuttujiin, jotta voidaan käyttää niitä pdf-tiedostossa.
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(Hakeminen, connection))
+                {
+                    command.Parameters.AddWithValue("@laskuid", laskuid);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    { // kaikki muuttujat muokataan käytettäviksi laskuun
+                        string etunimi = reader.GetString(reader.GetOrdinal("etunimi"));
+                        string sukunimi = reader.GetString(reader.GetOrdinal("sukunimi"));
+                        int varausid = reader.GetInt32(reader.GetOrdinal("varaus_id"));
+                        string varausidString = varausid.ToString();
+                        DateTime Alkupvm = reader.GetDateTime(reader.GetOrdinal("varattu_alkupvm"));
+                        string AlkupvmString = Alkupvm.ToString("dd.MM.yyyy");
+                        DateTime Loppupvm = reader.GetDateTime(reader.GetOrdinal("varattu_loppupvm"));
+                        string LoppupvmString = Loppupvm.ToString("dd.MM.yyyy");
+                        string mokkinimi = reader.GetString(reader.GetOrdinal("mokkinimi"));
+                        string palvelunnimi = reader.GetString(reader.GetOrdinal("palvelun_nimi"));
+                        decimal summa = reader.GetDecimal(reader.GetOrdinal("summa"));
+                        string summaString = summa.ToString();
+                        decimal alv = reader.GetDecimal(reader.GetOrdinal("alv"));
+                        string alvString = alv.ToString();
+                        DateTime erapaiva = reader.GetDateTime(reader.GetOrdinal("erapv"));
+                        string erapaivaString = erapaiva.ToString("dd.MM.yyyy");
+
+                        Document dokumentti = new Document();
+                        string polku = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\LaskuPdf.pdf";
+                        PdfWriter.GetInstance(dokumentti, new FileStream(polku, FileMode.Create));
+                        dokumentti.Open();
+                        Paragraph laskuntiedot1 = new Paragraph();
+                        Paragraph laskuntiedot2 = new Paragraph();
+                        Paragraph laskuntiedot3 = new Paragraph();
+                        Paragraph tyhja = new Paragraph("\n");
+                        laskuntiedot1.Add("PDF lasku");
+                        dokumentti.Add(tyhja);
+                        dokumentti.Add(tyhja);
+                        dokumentti.Add(tyhja);
+                        laskuntiedot2.Add(new Chunk("\nNimi: "));
+                        laskuntiedot2.Add(new Chunk(etunimi + " " + sukunimi));
+                        laskuntiedot2.Add(new Chunk("\nVaraus ID: "));
+                        laskuntiedot2.Add(new Chunk(varausidString));
+                        laskuntiedot2.Add(new Chunk("\nMökki: "));
+                        laskuntiedot2.Add(new Chunk(mokkinimi));
+                        laskuntiedot2.Add(new Chunk("\nVarauksen alku päivämäärä: "));
+                        laskuntiedot2.Add(new Chunk(AlkupvmString));
+                        laskuntiedot2.Add(new Chunk("\nVarauksen loppu päivämäärä: "));
+                        laskuntiedot2.Add(new Chunk(LoppupvmString));
+                        laskuntiedot2.Add(new Chunk("\nLisäpalvelut: "));
+                        laskuntiedot2.Add(new Chunk(palvelunnimi));
+
+
+                        laskuntiedot3.Add(new Chunk("\nLaskun summa: "));
+                        laskuntiedot3.Add(new Chunk(summaString));
+
+                        laskuntiedot3.Add(new Chunk("\nALV: "));
+                        laskuntiedot3.Add(new Chunk(alvString));
+
+                        laskuntiedot3.Add(new Chunk("\nLaskun eräpäivä: "));
+                        laskuntiedot3.Add(new Chunk(erapaivaString));
+
+                        //laskuun laitetaan kaikki tiedot ja muutamat tyhjät rivit. Luodaan dokumentti ja se tulee heti näkyviin. Lisäksi messagebox ilmoittaa, että lasku tosiaan onnistui.
+
+                        dokumentti.Add(laskuntiedot1);
+                        dokumentti.Add(tyhja);
+                        dokumentti.Add(tyhja);
+                        dokumentti.Add(laskuntiedot2);
+                        dokumentti.Add(tyhja);
+                        dokumentti.Add(laskuntiedot3);
+                        dokumentti.Close();
+                        Process.Start(polku);
+                        MessageBox.Show("Pdf-tiedosto luotu onnistuneesti!");
+
+
+                    }
+                }
+            }
+            catch // jos ei onnistu tietojen hakeminen ja dokumentin luominen niin tullaan tähän.
+            {
+                MessageBox.Show("PDF-tiedoston luonti epäonnistui, yritä uudelleen.");
+            }
         }
     }
 }
