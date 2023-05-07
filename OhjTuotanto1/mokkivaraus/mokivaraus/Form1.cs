@@ -424,5 +424,93 @@ namespace mokivaraus
                 MessageBox.Show("PDF-tiedoston luonti epäonnistui, yritä uudelleen.");
             }
         }
+
+        private void btnMuokkaaVaraus_Click(object sender, EventArgs e) // varaus, muokkaa
+        {
+            // seuraavaksi muutetaan oikeaan muotoon päivämäärät.
+            DateTime varattuPvm = dtpvarattu.Value;
+            string Pvm1 = varattuPvm.ToString("yyyy-MM-dd");
+
+            DateTime vahvistusPvm = dtpvahvistus.Value;
+            string Pvm2 = vahvistusPvm.ToString("yyyy-MM-dd");
+
+            DateTime varattuAlkuPvm = dtpvarattuAlku.Value;
+            string Pvm3 = varattuAlkuPvm.ToString("yyyy-MM-dd");
+
+            DateTime varattuLoppuPvm = dtpvarattuLoppu.Value;
+            string Pvm4 = varattuLoppuPvm.ToString("yyyy-MM-dd");
+
+            DateTime PVM1 = DateTime.ParseExact(Pvm1, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            DateTime PVM2 = DateTime.ParseExact(Pvm2, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            DateTime PVM3 = DateTime.ParseExact(Pvm3, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            DateTime PVM4 = DateTime.ParseExact(Pvm4, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            try
+            {
+                //seuraavaksi päivitetään varaus tietokantaan.
+
+                int asiakasid = int.Parse(tbAsiakasidMuokkaa.Text);
+                int mokkiid = int.Parse(tbMokkiidMuokkaa.Text);
+                int varausid = int.Parse(tbVarausid_varaus.Text);
+                string muokkaa = "UPDATE VARAUS SET asiakas_id = @asiakasid, mokki_mokki_id = @mokkiid, varattu_pvm = @varattupvm, vahvistus_pvm = @vahvistuspvm, varattu_alkupvm = @alkupvm, varattu_loppupvm = @loppupvm WHERE varaus_id = @varausid";
+                MySqlCommand command = new MySqlCommand(muokkaa, connection);
+                command.Parameters.AddWithValue("@asiakasid", asiakasid);
+                command.Parameters.AddWithValue("@mokkiid", mokkiid);
+                command.Parameters.AddWithValue("@varattupvm", PVM1);
+                command.Parameters.AddWithValue("@vahvistuspvm", PVM2);
+                command.Parameters.AddWithValue("@alkupvm", PVM3);
+                command.Parameters.AddWithValue("@loppupvm", PVM4);
+                command.Parameters.AddWithValue("@varausid", varausid);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Tietojen päivitys onnistui.");
+
+            }
+            catch
+            {
+                MessageBox.Show("Muokkaaminen epäonnistui!");
+            }
+        }
+
+        private void btnHae_varaus_Click(object sender, EventArgs e) // hae -nappi, varaus
+        {
+            //Tässä haetaan kaikki varaus, jonka varausid on syötetty textboxiin.
+
+            try
+            {
+                int varausid = int.Parse(tbHaeVarausID.Text);
+
+                string hakeminen = "SELECT a.etunimi, a.sukunimi, v.varaus_id, a.email, l.summa, l.tila, l.erapv,\r\n       m.mokkinimi, v.varattu_pvm, v.vahvistus_pvm, v.varattu_alkupvm, v.varattu_loppupvm\r\nFROM varaus v \r\nJOIN asiakas a ON v.asiakas_id = a.asiakas_id \r\nJOIN lasku l ON v.varaus_id = l.varaus_id \r\nJOIN mokki m ON v.mokki_mokki_id = m.mokki_id WHERE v.varaus_id = @varausid";
+
+                MySqlCommand mySqlCommand = new MySqlCommand(hakeminen, connection);
+                mySqlCommand.Parameters.AddWithValue("@varausid", varausid);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                dataGridView_varaus.DataSource = table;
+            }
+            catch
+            {
+                MessageBox.Show("Varausta ei löytynyt, yritä uudelleen!");
+            }
+        }
+
+        private void btnNaytaVaraukset_Click(object sender, EventArgs e) // näyttää kaikki varaukset
+        {
+            //tässä haetaan kaikki varaukset ja näytetään ne datagridviewissä
+            string hakeminen = "SELECT a.etunimi, a.sukunimi, v.varaus_id, a.email, l.summa, l.tila, l.erapv,\r\n       m.mokkinimi, v.varattu_pvm, v.vahvistus_pvm, v.varattu_alkupvm, v.varattu_loppupvm\r\nFROM varaus v \r\nJOIN asiakas a ON v.asiakas_id = a.asiakas_id \r\nJOIN lasku l ON v.varaus_id = l.varaus_id \r\nJOIN mokki m ON v.mokki_mokki_id = m.mokki_id";
+
+            MySqlCommand command = new MySqlCommand(hakeminen, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            dataGridView_varaus.DataSource = table;
+        }
     }
 }
