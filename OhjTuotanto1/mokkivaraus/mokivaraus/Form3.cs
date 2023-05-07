@@ -17,6 +17,7 @@ namespace mokivaraus
         public Form3()
         {
             InitializeComponent();
+
         }
 
         // MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");

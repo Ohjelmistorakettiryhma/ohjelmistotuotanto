@@ -34,6 +34,7 @@ namespace mokivaraus
             DataTable table = new DataTable();
             adapter.Fill(table);
 
+
             dataGridView_tallenna_laskutus.DataSource = table;
         }
 

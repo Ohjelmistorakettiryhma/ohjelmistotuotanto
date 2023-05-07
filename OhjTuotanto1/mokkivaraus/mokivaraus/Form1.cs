@@ -97,6 +97,7 @@ namespace mokivaraus
             // Seuraavaksi muokataan laskun tila sen mukaan, mikä radiobutton on painettu. Sen jälkeen tulee vielä sen laskuid:n laskun tiedot päivitettynä näkyviin.
             try
             {
+
                 int laskuid = int.Parse(tblaskuid_hae.Text);
                 string paivita = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id WHERE lasku_id = @laskuid";
 
@@ -278,6 +279,7 @@ namespace mokivaraus
                         dokumentti.Close();
                         Process.Start(polku);
                         MessageBox.Show("Pdf-tiedosto luotu onnistuneesti!");
+
 
                     }
                 }
