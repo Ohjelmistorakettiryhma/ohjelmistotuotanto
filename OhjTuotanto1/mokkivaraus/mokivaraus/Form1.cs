@@ -512,5 +512,36 @@ namespace mokivaraus
 
             dataGridView_varaus.DataSource = table;
         }
+
+        private void button30_Click(object sender, EventArgs e) // laskun poistaminen
+        {
+            int laskuid = int.Parse(tblaskuid_hae.Text);
+
+            try
+            {
+                connection.Open();
+                string poista = "DELETE FROM lasku WHERE lasku_id = @laskuid";
+                MySqlCommand command = new MySqlCommand(poista, connection);
+                command.Parameters.AddWithValue("@laskuid", laskuid);
+                MessageBox.Show("Lasku poistettu onnistuneesti!");
+            }
+            catch 
+            {
+                MessageBox.Show("Laskun poistaminen epäonnistui.");
+            }
+        }
+
+        private void btnErapv_Click(object sender, EventArgs e) // muokkaa eräpäivää -nappi
+        {
+            Form4 form4 = new Form4();
+            form4.Show();
+
+        }
+
+        private void button31_Click(object sender, EventArgs e) // lisää lasku
+        {
+            Form5 form5 = new Form5();
+            form5.Show();
+        }
     }
 }
