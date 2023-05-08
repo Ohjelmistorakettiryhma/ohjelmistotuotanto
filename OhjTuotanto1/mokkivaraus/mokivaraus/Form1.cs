@@ -143,8 +143,9 @@ namespace mokivaraus
 
         private void button14_Click(object sender, EventArgs e)
         {
-
-        }
+			Form6 form6 = new Form6(); // Create a new instance of the Form6 class
+			form6.Show(); // Show the new form
+		}
 
         private void button4_Click(object sender, EventArgs e)
         {
