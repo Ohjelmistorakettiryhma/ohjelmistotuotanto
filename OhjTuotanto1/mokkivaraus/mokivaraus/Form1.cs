@@ -513,5 +513,38 @@ namespace mokivaraus
 
             dataGridView_varaus.DataSource = table;
         }
-    }
+
+		private void button15_Click(object sender, EventArgs e)
+		{
+			if (dataGridView3.SelectedRows.Count > 0)
+			{
+
+				DataGridViewRow selectedRow = dataGridView3.SelectedRows[0];
+				// TODO: Use the selectedRow to delete the corresponding record from the database
+
+				int id = Convert.ToInt32(selectedRow.Cells[0].Value);
+
+
+				MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+				connection.Open();
+				string query = "DELETE FROM asiakas WHERE asiakas_id = @id";
+				MySqlCommand command = new MySqlCommand(query, connection);
+				command.Parameters.AddWithValue("@id", id);
+
+				int rowsAffected = command.ExecuteNonQuery();
+				connection.Close();
+				if (rowsAffected > 0)
+				{
+					MessageBox.Show("Asiakas poistettu");
+				}
+				else
+				{
+					MessageBox.Show("Asiakasta ei löydy");
+
+
+				}
+				connection.Close();
+			}
+		}
+	}
 }
