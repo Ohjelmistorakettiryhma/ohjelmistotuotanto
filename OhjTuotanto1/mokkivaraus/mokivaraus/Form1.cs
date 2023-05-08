@@ -310,5 +310,15 @@ namespace mokivaraus
             adapter.Fill(table);
             dataGridView1.DataSource = table;
         }
+
+        private void btnNaytavaraukset_Click(object sender, EventArgs e) //raportit-välilehden majoitushaku
+        {
+
+        }
+
+        private void btnNaytalisapalvelut_Click(object sender, EventArgs e) //raportit-välilehden lisäpalvelut
+        {
+
+        }
     }
 }

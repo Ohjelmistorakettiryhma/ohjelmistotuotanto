@@ -97,8 +97,15 @@
             this.button20 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnNaytalisapalvelut = new System.Windows.Forms.Button();
+            this.btnNaytavaraukset = new System.Windows.Forms.Button();
+            this.dataGridView8 = new System.Windows.Forms.DataGridView();
+            this.dataGridView7 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
             this.Tab1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -118,6 +125,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            this.tabPage8.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,6 +141,7 @@
             this.Tab1.Controls.Add(this.tabPage5);
             this.Tab1.Controls.Add(this.tabPage6);
             this.Tab1.Controls.Add(this.tabPage7);
+            this.Tab1.Controls.Add(this.tabPage8);
             this.Tab1.Location = new System.Drawing.Point(0, -4);
             this.Tab1.Name = "Tab1";
             this.Tab1.SelectedIndex = 0;
@@ -281,6 +293,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.dataGridView2);
             this.panel1.Controls.Add(this.button11);
             this.panel1.Controls.Add(this.textBox2);
@@ -819,6 +832,64 @@
             this.dataGridView6.Size = new System.Drawing.Size(394, 228);
             this.dataGridView6.TabIndex = 20;
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.panel5);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(777, 374);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Raportit";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnNaytalisapalvelut);
+            this.panel5.Controls.Add(this.btnNaytavaraukset);
+            this.panel5.Controls.Add(this.dataGridView8);
+            this.panel5.Controls.Add(this.dataGridView7);
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(776, 373);
+            this.panel5.TabIndex = 0;
+            // 
+            // btnNaytalisapalvelut
+            // 
+            this.btnNaytalisapalvelut.Location = new System.Drawing.Point(553, 320);
+            this.btnNaytalisapalvelut.Name = "btnNaytalisapalvelut";
+            this.btnNaytalisapalvelut.Size = new System.Drawing.Size(124, 30);
+            this.btnNaytalisapalvelut.TabIndex = 3;
+            this.btnNaytalisapalvelut.Text = "Näytä lisäpalvelut";
+            this.btnNaytalisapalvelut.UseVisualStyleBackColor = true;
+            this.btnNaytalisapalvelut.Click += new System.EventHandler(this.btnNaytalisapalvelut_Click);
+            // 
+            // btnNaytavaraukset
+            // 
+            this.btnNaytavaraukset.Location = new System.Drawing.Point(113, 320);
+            this.btnNaytavaraukset.Name = "btnNaytavaraukset";
+            this.btnNaytavaraukset.Size = new System.Drawing.Size(124, 30);
+            this.btnNaytavaraukset.TabIndex = 2;
+            this.btnNaytavaraukset.Text = "Näytä varaukset";
+            this.btnNaytavaraukset.UseVisualStyleBackColor = true;
+            this.btnNaytavaraukset.Click += new System.EventHandler(this.btnNaytavaraukset_Click);
+            // 
+            // dataGridView8
+            // 
+            this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView8.Location = new System.Drawing.Point(402, 15);
+            this.dataGridView8.Name = "dataGridView8";
+            this.dataGridView8.Size = new System.Drawing.Size(368, 285);
+            this.dataGridView8.TabIndex = 1;
+            // 
+            // dataGridView7
+            // 
+            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView7.Location = new System.Drawing.Point(6, 15);
+            this.dataGridView7.Name = "dataGridView7";
+            this.dataGridView7.Size = new System.Drawing.Size(365, 285);
+            this.dataGridView7.TabIndex = 0;
+            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(699, 402);
@@ -832,6 +903,16 @@
             // bindingSource1
             // 
             this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(21, 21);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(142, 20);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Alueiden hallinta";
             // 
             // Form1
             // 
@@ -868,6 +949,10 @@
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            this.tabPage8.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -944,6 +1029,13 @@
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnNaytalisapalvelut;
+        private System.Windows.Forms.Button btnNaytavaraukset;
+        private System.Windows.Forms.DataGridView dataGridView8;
+        private System.Windows.Forms.DataGridView dataGridView7;
+        private System.Windows.Forms.Label label9;
     }
 }
 
