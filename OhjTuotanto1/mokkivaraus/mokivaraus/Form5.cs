@@ -44,6 +44,8 @@ namespace mokivaraus
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 { // kaikki muuttujat muokataan käytettäviksi laskuun
+                    MySqlCommand cmd = new MySqlCommand(Hakeminen, connection);
+                    cmd.Parameters.AddWithValue("@varausid", varausid);
                     int varausID = reader.GetInt32(reader.GetOrdinal("varaus_id"));
                     string varausidString = varausID.ToString();
 

@@ -677,7 +677,7 @@
             this.btnErapv.Location = new System.Drawing.Point(583, 425);
             this.btnErapv.Name = "btnErapv";
             this.btnErapv.Size = new System.Drawing.Size(198, 30);
-            this.btnErapv.TabIndex = 32;
+            this.btnErapv.TabIndex = 7;
             this.btnErapv.Text = "Muokkaa eräpäivää";
             this.btnErapv.UseVisualStyleBackColor = true;
             this.btnErapv.Click += new System.EventHandler(this.btnErapv_Click);
@@ -687,7 +687,7 @@
             this.button30.Location = new System.Drawing.Point(81, 132);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(98, 30);
-            this.button30.TabIndex = 31;
+            this.button30.TabIndex = 3;
             this.button30.Text = "Poista lasku";
             this.button30.UseVisualStyleBackColor = true;
             this.button30.Click += new System.EventHandler(this.button30_Click);
@@ -697,7 +697,7 @@
             this.button31.Location = new System.Drawing.Point(801, 425);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(198, 30);
-            this.button31.TabIndex = 30;
+            this.button31.TabIndex = 8;
             this.button31.Text = "Lisää uusi lasku";
             this.button31.UseVisualStyleBackColor = true;
             this.button31.Click += new System.EventHandler(this.button31_Click);
@@ -778,7 +778,7 @@
             this.button32.Location = new System.Drawing.Point(801, 35);
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(198, 30);
-            this.button32.TabIndex = 23;
+            this.button32.TabIndex = 1;
             this.button32.Text = "Näytä olemassa olevat laskut";
             this.button32.UseVisualStyleBackColor = true;
             this.button32.Click += new System.EventHandler(this.button32_Click);
@@ -788,7 +788,7 @@
             this.button33.Location = new System.Drawing.Point(34, 425);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(198, 30);
-            this.button33.TabIndex = 22;
+            this.button33.TabIndex = 6;
             this.button33.Text = "Tallenna PDF-muodossa";
             this.button33.UseVisualStyleBackColor = true;
             this.button33.Click += new System.EventHandler(this.button33_Click);
@@ -798,7 +798,7 @@
             this.button34.Location = new System.Drawing.Point(32, 379);
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(136, 30);
-            this.button34.TabIndex = 21;
+            this.button34.TabIndex = 5;
             this.button34.Text = "Muokkaa tila";
             this.button34.UseVisualStyleBackColor = true;
             this.button34.Click += new System.EventHandler(this.button34_Click);
@@ -808,7 +808,7 @@
             this.btnHae_laskutusIDlla.Location = new System.Drawing.Point(190, 132);
             this.btnHae_laskutusIDlla.Name = "btnHae_laskutusIDlla";
             this.btnHae_laskutusIDlla.Size = new System.Drawing.Size(98, 30);
-            this.btnHae_laskutusIDlla.TabIndex = 20;
+            this.btnHae_laskutusIDlla.TabIndex = 4;
             this.btnHae_laskutusIDlla.Text = "Hae";
             this.btnHae_laskutusIDlla.UseVisualStyleBackColor = true;
             this.btnHae_laskutusIDlla.Click += new System.EventHandler(this.btnHae_laskutusIDlla_Click);
@@ -828,7 +828,7 @@
             this.tblaskuid_hae.Location = new System.Drawing.Point(81, 93);
             this.tblaskuid_hae.Name = "tblaskuid_hae";
             this.tblaskuid_hae.Size = new System.Drawing.Size(207, 22);
-            this.tblaskuid_hae.TabIndex = 16;
+            this.tblaskuid_hae.TabIndex = 2;
             // 
             // button29
             // 
@@ -1037,7 +1037,7 @@
             this.tbVarausid_varaus.Location = new System.Drawing.Point(129, 50);
             this.tbVarausid_varaus.Name = "tbVarausid_varaus";
             this.tbVarausid_varaus.Size = new System.Drawing.Size(200, 22);
-            this.tbVarausid_varaus.TabIndex = 43;
+            this.tbVarausid_varaus.TabIndex = 4;
             // 
             // label22
             // 
@@ -1098,21 +1098,21 @@
             this.dtpvarattuLoppu.Location = new System.Drawing.Point(129, 356);
             this.dtpvarattuLoppu.Name = "dtpvarattuLoppu";
             this.dtpvarattuLoppu.Size = new System.Drawing.Size(200, 22);
-            this.dtpvarattuLoppu.TabIndex = 35;
+            this.dtpvarattuLoppu.TabIndex = 10;
             // 
             // dtpvarattuAlku
             // 
             this.dtpvarattuAlku.Location = new System.Drawing.Point(129, 304);
             this.dtpvarattuAlku.Name = "dtpvarattuAlku";
             this.dtpvarattuAlku.Size = new System.Drawing.Size(200, 22);
-            this.dtpvarattuAlku.TabIndex = 34;
+            this.dtpvarattuAlku.TabIndex = 9;
             // 
             // tbMokkiidMuokkaa
             // 
             this.tbMokkiidMuokkaa.Location = new System.Drawing.Point(129, 152);
             this.tbMokkiidMuokkaa.Name = "tbMokkiidMuokkaa";
             this.tbMokkiidMuokkaa.Size = new System.Drawing.Size(200, 22);
-            this.tbMokkiidMuokkaa.TabIndex = 33;
+            this.tbMokkiidMuokkaa.TabIndex = 6;
             // 
             // label15
             // 
@@ -1128,14 +1128,14 @@
             this.tbHaeVarausID.Location = new System.Drawing.Point(465, 18);
             this.tbHaeVarausID.Name = "tbHaeVarausID";
             this.tbHaeVarausID.Size = new System.Drawing.Size(177, 22);
-            this.tbHaeVarausID.TabIndex = 30;
+            this.tbHaeVarausID.TabIndex = 2;
             // 
             // btnHae_varaus
             // 
             this.btnHae_varaus.Location = new System.Drawing.Point(659, 13);
             this.btnHae_varaus.Name = "btnHae_varaus";
             this.btnHae_varaus.Size = new System.Drawing.Size(94, 32);
-            this.btnHae_varaus.TabIndex = 29;
+            this.btnHae_varaus.TabIndex = 3;
             this.btnHae_varaus.Text = "Hae";
             this.btnHae_varaus.UseVisualStyleBackColor = true;
             this.btnHae_varaus.Click += new System.EventHandler(this.btnHae_varaus_Click);
@@ -1145,7 +1145,7 @@
             this.btnNaytaVaraukset.Location = new System.Drawing.Point(790, 13);
             this.btnNaytaVaraukset.Name = "btnNaytaVaraukset";
             this.btnNaytaVaraukset.Size = new System.Drawing.Size(200, 32);
-            this.btnNaytaVaraukset.TabIndex = 28;
+            this.btnNaytaVaraukset.TabIndex = 1;
             this.btnNaytaVaraukset.Text = "Näytä kaikki varaukset";
             this.btnNaytaVaraukset.UseVisualStyleBackColor = true;
             this.btnNaytaVaraukset.Click += new System.EventHandler(this.btnNaytaVaraukset_Click);
@@ -1155,7 +1155,7 @@
             this.btnMuokkaaVaraus.Location = new System.Drawing.Point(162, 395);
             this.btnMuokkaaVaraus.Name = "btnMuokkaaVaraus";
             this.btnMuokkaaVaraus.Size = new System.Drawing.Size(118, 40);
-            this.btnMuokkaaVaraus.TabIndex = 27;
+            this.btnMuokkaaVaraus.TabIndex = 11;
             this.btnMuokkaaVaraus.Text = "Muokkaa";
             this.btnMuokkaaVaraus.UseVisualStyleBackColor = true;
             this.btnMuokkaaVaraus.Click += new System.EventHandler(this.btnMuokkaaVaraus_Click);
@@ -1165,28 +1165,28 @@
             this.tbAsiakasidMuokkaa.Location = new System.Drawing.Point(129, 103);
             this.tbAsiakasidMuokkaa.Name = "tbAsiakasidMuokkaa";
             this.tbAsiakasidMuokkaa.Size = new System.Drawing.Size(200, 22);
-            this.tbAsiakasidMuokkaa.TabIndex = 26;
+            this.tbAsiakasidMuokkaa.TabIndex = 5;
             // 
             // dtpvahvistus
             // 
             this.dtpvahvistus.Location = new System.Drawing.Point(129, 255);
             this.dtpvahvistus.Name = "dtpvahvistus";
             this.dtpvahvistus.Size = new System.Drawing.Size(200, 22);
-            this.dtpvahvistus.TabIndex = 24;
+            this.dtpvahvistus.TabIndex = 8;
             // 
             // dtpvarattu
             // 
             this.dtpvarattu.Location = new System.Drawing.Point(129, 205);
             this.dtpvarattu.Name = "dtpvarattu";
             this.dtpvarattu.Size = new System.Drawing.Size(200, 22);
-            this.dtpvarattu.TabIndex = 23;
+            this.dtpvarattu.TabIndex = 7;
             // 
             // bnPoista
             // 
             this.bnPoista.Location = new System.Drawing.Point(872, 395);
             this.bnPoista.Name = "bnPoista";
             this.bnPoista.Size = new System.Drawing.Size(118, 40);
-            this.bnPoista.TabIndex = 22;
+            this.bnPoista.TabIndex = 13;
             this.bnPoista.Text = "Poista";
             this.bnPoista.UseVisualStyleBackColor = true;
             // 
@@ -1195,7 +1195,7 @@
             this.btnMuokkaa.Location = new System.Drawing.Point(385, 395);
             this.btnMuokkaa.Name = "btnMuokkaa";
             this.btnMuokkaa.Size = new System.Drawing.Size(118, 40);
-            this.btnMuokkaa.TabIndex = 21;
+            this.btnMuokkaa.TabIndex = 12;
             this.btnMuokkaa.Text = "Lisää";
             this.btnMuokkaa.UseVisualStyleBackColor = true;
             // 
