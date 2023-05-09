@@ -29,7 +29,7 @@ namespace mokivaraus
 		{
 			connection.Open();
 
-			// tarkistaa onko postinumero jo olemassa tietokannassa
+			// Tarkistaa onko postinumero jo olemassa tietokannassa
 			string queryTarkistaPostinro = "SELECT COUNT(*) FROM posti WHERE postinro = @postinro";
 			MySqlCommand commandTarkistaPostinro = new MySqlCommand(queryTarkistaPostinro, connection);
 			commandTarkistaPostinro.Parameters.AddWithValue("@postinro", tbpostinro_asiakas.Text);
