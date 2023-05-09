@@ -16,6 +16,8 @@ using iTextSharp.text.pdf;
 using System.IO;
 using System.Diagnostics;
 using System.Xml.Linq;
+using mokivaraus.Properties;
+
 namespace mokivaraus
 {
 
@@ -56,7 +58,13 @@ namespace mokivaraus
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+            string query = "SELECT * FROM alue";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            dataGridView2.DataSource = table;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -546,5 +554,115 @@ namespace mokivaraus
 				connection.Close();
 			}
 		}
-	}
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            AlueenlisaysForm alueenlisaysform = new AlueenlisaysForm();  // aukaisee oman alueen lisäysikkunan
+            alueenlisaysform.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+            DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+            // TODO: Use the selectedRow to delete the corresponding record from the database
+
+            int id = Convert.ToInt32(selectedRow.Cells[0].Value);
+
+
+            MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+            connection.Open();
+            string query = "DELETE FROM alue WHERE alue_id = @id";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@id", id);
+
+            int rowsAffected = command.ExecuteNonQuery();
+            connection.Close();
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Alue on poistettu.");
+            }
+            else
+            {
+                MessageBox.Show("Kyseistä aluetta ei löytynyt.");
+
+
+            }
+            connection.Close();
+        }
+
+        private void button24_Click(object sender, EventArgs e) //palveluiden lisäys-nappi
+        {
+            PalvelunlisaysForm palvelunlisaysform = new PalvelunlisaysForm();  // aukausee oman palveluiden lisäysikkunan
+            palvelunlisaysform.Show();               // Show Form5
+        }
+
+        private void button26_Click(object sender, EventArgs e) //palveluiden muokkaus
+        {
+            MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+            string query = "SELECT * FROM palvelu";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            dataGridView5.DataSource = table;
+        }
+
+        private void button25_Click(object sender, EventArgs e) //palvelun poisto
+        {
+
+            if (dataGridView5.SelectedRows.Count > 0)
+            {
+
+                DataGridViewRow selectedRow = dataGridView5.SelectedRows[0];
+                // TODO: Use the selectedRow to delete the corresponding record from the database
+
+                int id = Convert.ToInt32(selectedRow.Cells[0].Value);
+
+
+                MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+                connection.Open();
+                string query = "DELETE FROM palvelu WHERE palvelu_id = @id";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@id", id);
+
+                int rowsAffected = command.ExecuteNonQuery();
+                connection.Close();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Palvelu on poistettu.");
+                }
+                else
+                {
+                    MessageBox.Show("Kyseistä palvelua ei löytynyt.");
+
+
+                }
+                connection.Close();
+            }
+
+        }
+
+        private void button11_Click(object sender, EventArgs e) //hae alueita
+        {
+            MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+            string query = "SELECT * FROM alue";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            dataGridView1.DataSource = table;
+        }
+
+        private void button22_Click(object sender, EventArgs e) //palveluiden haku
+        {
+            MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+            string query = "SELECT * FROM palvelu";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            dataGridView1.DataSource = table;
+        }
+    }
 }
