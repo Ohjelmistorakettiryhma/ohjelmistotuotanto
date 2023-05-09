@@ -45,6 +45,8 @@
 			this.tbemail_asiakas = new System.Windows.Forms.TextBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
+			this.label9 = new System.Windows.Forms.Label();
+			this.tbkaupunki_asiakas = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -104,7 +106,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(36, 282);
+			this.label7.Location = new System.Drawing.Point(36, 321);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(80, 13);
 			this.label7.TabIndex = 6;
@@ -113,7 +115,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(36, 330);
+			this.label8.Location = new System.Drawing.Point(36, 360);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(63, 13);
 			this.label8.TabIndex = 7;
@@ -156,21 +158,21 @@
 			// 
 			// tbpuhelinnro_asiakas
 			// 
-			this.tbpuhelinnro_asiakas.Location = new System.Drawing.Point(127, 279);
+			this.tbpuhelinnro_asiakas.Location = new System.Drawing.Point(127, 318);
 			this.tbpuhelinnro_asiakas.Name = "tbpuhelinnro_asiakas";
 			this.tbpuhelinnro_asiakas.Size = new System.Drawing.Size(128, 20);
 			this.tbpuhelinnro_asiakas.TabIndex = 13;
 			// 
 			// tbemail_asiakas
 			// 
-			this.tbemail_asiakas.Location = new System.Drawing.Point(127, 327);
+			this.tbemail_asiakas.Location = new System.Drawing.Point(127, 357);
 			this.tbemail_asiakas.Name = "tbemail_asiakas";
 			this.tbemail_asiakas.Size = new System.Drawing.Size(160, 20);
 			this.tbemail_asiakas.TabIndex = 14;
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(251, 391);
+			this.button1.Location = new System.Drawing.Point(260, 402);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 23);
 			this.button1.TabIndex = 15;
@@ -180,7 +182,7 @@
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(162, 391);
+			this.button2.Location = new System.Drawing.Point(168, 402);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(75, 23);
 			this.button2.TabIndex = 16;
@@ -188,11 +190,29 @@
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(36, 283);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(86, 13);
+			this.label9.TabIndex = 17;
+			this.label9.Text = "Postitoimipaikka:";
+			// 
+			// tbkaupunki_asiakas
+			// 
+			this.tbkaupunki_asiakas.Location = new System.Drawing.Point(128, 280);
+			this.tbkaupunki_asiakas.Name = "tbkaupunki_asiakas";
+			this.tbkaupunki_asiakas.Size = new System.Drawing.Size(127, 20);
+			this.tbkaupunki_asiakas.TabIndex = 18;
+			// 
 			// Form6
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(371, 450);
+			this.Controls.Add(this.tbkaupunki_asiakas);
+			this.Controls.Add(this.label9);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.tbemail_asiakas);
@@ -236,5 +256,7 @@
 		private System.Windows.Forms.TextBox tbemail_asiakas;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.TextBox tbkaupunki_asiakas;
 	}
 }

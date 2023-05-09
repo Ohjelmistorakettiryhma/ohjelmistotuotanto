@@ -708,5 +708,16 @@ namespace mokivaraus
             Form5 form5 = new Form5();
             form5.Show();
         }
-    }
+
+		private void button12_Click(object sender, EventArgs e)
+		{
+			MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+			string query = "SELECT * FROM asiakas";
+			MySqlCommand command = new MySqlCommand(query, connection);
+			MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+			DataTable table = new DataTable();
+			adapter.Fill(table);
+			dataGridView3.DataSource = table;
+		}
+	}
 }
