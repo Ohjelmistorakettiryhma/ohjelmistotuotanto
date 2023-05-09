@@ -203,8 +203,7 @@ namespace mokivaraus
             {
                 int laskuid = int.Parse(tblaskuid_hae.Text);
 
-                string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id WHERE lasku_id = @laskuid";
-
+                string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi, SUM(mokki.hinta + palvelu.hinta * varauksen_palvelut.lkm) AS summa FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id WHERE lasku_id = @laskuid GROUP BY lasku.lasku_id";
                 MySqlCommand mySqlCommand = new MySqlCommand(hakeminen, connection);
                 mySqlCommand.Parameters.AddWithValue("@laskuid", laskuid);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(mySqlCommand);
@@ -519,11 +518,25 @@ namespace mokivaraus
 
             try
             {
-                connection.Open();
+                
                 string poista = "DELETE FROM lasku WHERE lasku_id = @laskuid";
                 MySqlCommand command = new MySqlCommand(poista, connection);
                 command.Parameters.AddWithValue("@laskuid", laskuid);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
                 MessageBox.Show("Lasku poistettu onnistuneesti!");
+
+                string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, " +
+              "varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id";
+
+                MySqlCommand command1 = new MySqlCommand(hakeminen, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command1);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                dataGridView_tallennapdf.DataSource = table;
+
             }
             catch 
             {
