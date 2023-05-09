@@ -206,7 +206,7 @@ namespace mokivaraus
 
         }
 
-        private void btnHae_laskutusIDlla_Click(object sender, EventArgs e)
+        private void btnHae_laskutusIDlla_Click(object sender, EventArgs e) // hae lasku
         {
             try
             {
@@ -228,7 +228,7 @@ namespace mokivaraus
             }
         }
 
-        private void button32_Click(object sender, EventArgs e) // näytä olemassa olevat
+        private void button32_Click(object sender, EventArgs e) // näytä olemassa olevat laskut
         {
             string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, " +
                "varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id";
