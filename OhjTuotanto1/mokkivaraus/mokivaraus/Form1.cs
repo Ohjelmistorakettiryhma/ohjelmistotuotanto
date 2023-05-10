@@ -719,5 +719,32 @@ namespace mokivaraus
 			adapter.Fill(table);
 			dataGridView3.DataSource = table;
 		}
+
+		private void button16_Click(object sender, EventArgs e)
+		{
+			// tarkistetaan onko rivi valittuna
+			if (dataGridView3.SelectedRows.Count > 0)
+			{
+				// haetaan asiakastiedot datagridviewstä
+				DataGridViewRow selectedRow = dataGridView3.SelectedRows[0];
+				string hae_asiakasid = selectedRow.Cells["clmasiakasid_asiakas"].Value.ToString();
+				string hae_postinro = selectedRow.Cells["clmpostinro_asiakas"].Value.ToString();
+				string hae_etunimi = selectedRow.Cells["clmetunimi_asiakas"].Value.ToString();
+				string hae_sukunimi = selectedRow.Cells["clmsukunimi_asiakas"].Value.ToString();
+				string hae_lahiosoite = selectedRow.Cells["clmlahiosoite_asiakas"].Value.ToString();
+				string hae_email = selectedRow.Cells["clmemail_asiakas"].Value.ToString();
+				string hae_puhelinnro = selectedRow.Cells["clmpuhelinnro_asiakas"].Value.ToString();
+
+				// avataan uusi formi muokkausta varten
+				FormM6 formm6 = new FormM6(hae_asiakasid, hae_postinro, hae_etunimi, hae_sukunimi, hae_lahiosoite, hae_email, hae_puhelinnro);
+				formm6.ShowDialog();
+			}
+
+            // jos asiakasriviä ei ole valittu
+            else
+            {
+				MessageBox.Show("Hae ja valitse ensin asiakas listalta muokkausta varten.");
+			}
+		}
 	}
 }

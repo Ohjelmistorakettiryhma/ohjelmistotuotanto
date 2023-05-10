@@ -137,6 +137,12 @@
     <Compile Include="Form6.Designer.cs">
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormM6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormM6.Designer.cs">
+      <DependentUpon>FormM6.cs</DependentUpon>
+    </Compile>
     <Compile Include="PalvelunlisaysForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form6.resx">
       <DependentUpon>Form6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormM6.resx">
+      <DependentUpon>FormM6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PalvelunlisaysForm.resx">
       <DependentUpon>PalvelunlisaysForm.cs</DependentUpon>
