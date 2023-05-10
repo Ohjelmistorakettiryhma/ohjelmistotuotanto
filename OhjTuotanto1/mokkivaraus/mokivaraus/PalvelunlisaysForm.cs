@@ -21,7 +21,6 @@ namespace mokivaraus.Properties
         MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
         private void button1_Click(object sender, EventArgs e)
         {
-            connection.Open();
 
             string query = "INSERT INTO palvelu (palvelu_id, alue_id, nimi, tyyppi, kuvaus, hinta, alv) VALUES (@palvelu_id, @alue_id, @nimi, @tyyppi, @kuvaus, @hinta, @alv)";
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -43,7 +42,7 @@ namespace mokivaraus.Properties
                 command.Parameters.AddWithValue("@kuvaus", tbpalvelunkuvaus.Text);
                 command.Parameters.AddWithValue("@hinta", hinta);
                 command.Parameters.AddWithValue("@alv", alv);
-
+                connection.Open();
                 command.ExecuteNonQuery();
 
                 connection.Close();

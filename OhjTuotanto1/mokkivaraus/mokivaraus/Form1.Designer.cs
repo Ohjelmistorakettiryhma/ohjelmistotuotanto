@@ -63,7 +63,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.tbVarausid_varaus = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.dataGridView_varaus = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tbLaskuID_laskutus = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -103,7 +102,6 @@
             this.button26 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button22 = new System.Windows.Forms.Button();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
@@ -114,7 +112,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -154,11 +151,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Tab1 = new System.Windows.Forms.TabControl();
             this.label28 = new System.Windows.Forms.Label();
+            this.dataGridView_varaus = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_varaus)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.panel5.SuspendLayout();
@@ -180,6 +177,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Tab1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_varaus)).BeginInit();
             this.SuspendLayout();
             // 
             // button6
@@ -509,16 +507,6 @@
             this.label16.Size = new System.Drawing.Size(66, 16);
             this.label16.TabIndex = 44;
             this.label16.Text = "Varaus ID";
-            // 
-            // dataGridView_varaus
-            // 
-            this.dataGridView_varaus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_varaus.Location = new System.Drawing.Point(384, 71);
-            this.dataGridView_varaus.Name = "dataGridView_varaus";
-            this.dataGridView_varaus.RowHeadersWidth = 51;
-            this.dataGridView_varaus.RowTemplate.Height = 24;
-            this.dataGridView_varaus.Size = new System.Drawing.Size(604, 285);
-            this.dataGridView_varaus.TabIndex = 45;
             // 
             // tabPage6
             // 
@@ -912,7 +900,6 @@
             this.panel4.Controls.Add(this.dataGridView5);
             this.panel4.Controls.Add(this.button22);
             this.panel4.Controls.Add(this.textBox5);
-            this.panel4.Controls.Add(this.button23);
             this.panel4.Controls.Add(this.button24);
             this.panel4.Controls.Add(this.button25);
             this.panel4.Controls.Add(this.button26);
@@ -924,7 +911,7 @@
             // 
             // button26
             // 
-            this.button26.Location = new System.Drawing.Point(33, 162);
+            this.button26.Location = new System.Drawing.Point(33, 201);
             this.button26.Margin = new System.Windows.Forms.Padding(4);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(160, 37);
@@ -935,7 +922,7 @@
             // 
             // button25
             // 
-            this.button25.Location = new System.Drawing.Point(33, 226);
+            this.button25.Location = new System.Drawing.Point(33, 310);
             this.button25.Margin = new System.Windows.Forms.Padding(4);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(160, 37);
@@ -954,16 +941,6 @@
             this.button24.Text = "Lisää...";
             this.button24.UseVisualStyleBackColor = true;
             this.button24.Click += new System.EventHandler(this.button24_Click);
-            // 
-            // button23
-            // 
-            this.button23.Location = new System.Drawing.Point(33, 299);
-            this.button23.Margin = new System.Windows.Forms.Padding(4);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(160, 37);
-            this.button23.TabIndex = 8;
-            this.button23.Text = "Raportit";
-            this.button23.UseVisualStyleBackColor = true;
             // 
             // textBox5
             // 
@@ -998,7 +975,6 @@
             // 
             this.tabPage4.Controls.Add(this.label28);
             this.tabPage4.Controls.Add(this.label1);
-            this.tabPage4.Controls.Add(this.button5);
             this.tabPage4.Controls.Add(this.dataGridView1);
             this.tabPage4.Controls.Add(this.textBox1);
             this.tabPage4.Controls.Add(this.button4);
@@ -1027,7 +1003,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(32, 181);
+            this.button2.Location = new System.Drawing.Point(32, 213);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(160, 37);
@@ -1038,7 +1014,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(32, 249);
+            this.button3.Location = new System.Drawing.Point(33, 314);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(160, 37);
@@ -1075,16 +1051,6 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(523, 319);
             this.dataGridView1.TabIndex = 6;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(32, 315);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(160, 37);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Raportit";
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -1509,6 +1475,16 @@
             this.label28.TabIndex = 9;
             this.label28.Text = "Mökin nimi";
             // 
+            // dataGridView_varaus
+            // 
+            this.dataGridView_varaus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_varaus.Location = new System.Drawing.Point(389, 83);
+            this.dataGridView_varaus.Name = "dataGridView_varaus";
+            this.dataGridView_varaus.RowHeadersWidth = 51;
+            this.dataGridView_varaus.RowTemplate.Height = 24;
+            this.dataGridView_varaus.Size = new System.Drawing.Size(599, 281);
+            this.dataGridView_varaus.TabIndex = 45;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1525,7 +1501,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_varaus)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
@@ -1555,6 +1530,7 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Tab1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_varaus)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1564,7 +1540,6 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DataGridView dataGridView_varaus;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox tbVarausid_varaus;
         private System.Windows.Forms.Label label22;
@@ -1633,14 +1608,12 @@
         private System.Windows.Forms.DataGridView dataGridView5;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button4;
@@ -1684,6 +1657,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabControl Tab1;
+        private System.Windows.Forms.DataGridView dataGridView_varaus;
     }
 }
 

@@ -248,15 +248,21 @@ namespace mokivaraus
 
         private void button32_Click(object sender, EventArgs e) // näytä olemassa olevat laskut
         {
-            string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, " +
-               "varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id";
+            try
+            {
+                string hakeminen = "SELECT asiakas.etunimi, asiakas.sukunimi, lasku.*, " +
+                   "varaus.varattu_alkupvm, varaus.varattu_loppupvm, mokki.mokkinimi, palvelu.nimi AS palvelun_nimi FROM lasku JOIN varaus ON lasku.varaus_id = varaus.varaus_id JOIN asiakas ON varaus.asiakas_id = asiakas.asiakas_id JOIN mokki ON varaus.mokki_mokki_id = mokki.mokki_id INNER JOIN varauksen_palvelut ON varaus.varaus_id = varauksen_palvelut.varaus_id INNER JOIN palvelu ON varauksen_palvelut.palvelu_id = palvelu.palvelu_id";
 
-            MySqlCommand command = new MySqlCommand(hakeminen, connection);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
+                MySqlCommand command = new MySqlCommand(hakeminen, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
 
-            dataGridView_tallennapdf.DataSource = table;
+                dataGridView_tallennapdf.DataSource = table;
+            }
+            catch {
+                MessageBox.Show("Laskujen hakeminen epäonnistui.");
+            }
         }
 
         private void button34_Click(object sender, EventArgs e) // muokkaa tila
@@ -885,6 +891,7 @@ namespace mokivaraus
                 connection.Open();
                 command.ExecuteNonQuery();
                 connection.Close();
+
                 MySqlCommand command1 = new MySqlCommand(poista, connection);
                 command.Parameters.AddWithValue("varausid", int.Parse(tbHaeVarausID.Text));
                 connection.Open();
