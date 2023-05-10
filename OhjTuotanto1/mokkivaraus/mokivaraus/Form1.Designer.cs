@@ -140,6 +140,13 @@
 			this.dataGridView6 = new System.Windows.Forms.DataGridView();
 			this.button6 = new System.Windows.Forms.Button();
 			this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.clmasiakasid_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clmpostinro_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clmetunimi_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clmsukunimi_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clmlahiosoite_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clmemail_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clmpuhelinnro_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Tab1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.panel3.SuspendLayout();
@@ -265,7 +272,15 @@
 			// dataGridView3
 			// 
 			this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView3.Location = new System.Drawing.Point(359, 72);
+			this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmasiakasid_asiakas,
+            this.clmpostinro_asiakas,
+            this.clmetunimi_asiakas,
+            this.clmsukunimi_asiakas,
+            this.clmlahiosoite_asiakas,
+            this.clmemail_asiakas,
+            this.clmpuhelinnro_asiakas});
+			this.dataGridView3.Location = new System.Drawing.Point(359, 67);
 			this.dataGridView3.Name = "dataGridView3";
 			this.dataGridView3.RowHeadersWidth = 51;
 			this.dataGridView3.Size = new System.Drawing.Size(402, 290);
@@ -316,6 +331,7 @@
 			this.button16.TabIndex = 2;
 			this.button16.Text = "Muokkaa...";
 			this.button16.UseVisualStyleBackColor = true;
+			this.button16.Click += new System.EventHandler(this.button16_Click);
 			// 
 			// tabPage3
 			// 
@@ -1329,6 +1345,48 @@
 			// 
 			this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
 			// 
+			// clmasiakasid_asiakas
+			// 
+			this.clmasiakasid_asiakas.HeaderText = "Asiakas ID";
+			this.clmasiakasid_asiakas.Name = "clmasiakasid_asiakas";
+			this.clmasiakasid_asiakas.ReadOnly = true;
+			// 
+			// clmpostinro_asiakas
+			// 
+			this.clmpostinro_asiakas.HeaderText = "Postinumero";
+			this.clmpostinro_asiakas.Name = "clmpostinro_asiakas";
+			this.clmpostinro_asiakas.ReadOnly = true;
+			// 
+			// clmetunimi_asiakas
+			// 
+			this.clmetunimi_asiakas.HeaderText = "Etunimi";
+			this.clmetunimi_asiakas.Name = "clmetunimi_asiakas";
+			this.clmetunimi_asiakas.ReadOnly = true;
+			// 
+			// clmsukunimi_asiakas
+			// 
+			this.clmsukunimi_asiakas.HeaderText = "Sukunimi";
+			this.clmsukunimi_asiakas.Name = "clmsukunimi_asiakas";
+			this.clmsukunimi_asiakas.ReadOnly = true;
+			// 
+			// clmlahiosoite_asiakas
+			// 
+			this.clmlahiosoite_asiakas.HeaderText = "Osoite";
+			this.clmlahiosoite_asiakas.Name = "clmlahiosoite_asiakas";
+			this.clmlahiosoite_asiakas.ReadOnly = true;
+			// 
+			// clmemail_asiakas
+			// 
+			this.clmemail_asiakas.HeaderText = "Sähköposti";
+			this.clmemail_asiakas.Name = "clmemail_asiakas";
+			this.clmemail_asiakas.ReadOnly = true;
+			// 
+			// clmpuhelinnro_asiakas
+			// 
+			this.clmpuhelinnro_asiakas.HeaderText = "Puhelinnumero";
+			this.clmpuhelinnro_asiakas.Name = "clmpuhelinnro_asiakas";
+			this.clmpuhelinnro_asiakas.ReadOnly = true;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1489,6 +1547,13 @@
         private System.Windows.Forms.DataGridView dataGridView_varaus;
 		private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-    }
+		private System.Windows.Forms.DataGridViewTextBoxColumn clmasiakasid_asiakas;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clmpostinro_asiakas;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clmetunimi_asiakas;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clmsukunimi_asiakas;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clmlahiosoite_asiakas;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clmemail_asiakas;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clmpuhelinnro_asiakas;
+	}
 }
 
