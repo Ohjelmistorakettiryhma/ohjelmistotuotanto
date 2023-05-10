@@ -47,7 +47,7 @@ namespace mokivaraus
 			}
 
 			// Lisätään uusi asiakasdata asiakastauluun
-			string queryLisaaAsiakas = "INSERT INTO asiakas (asiakasid, postinro, etunimi, sukunimi, lahiosoite, puhelinnro, email) VALUES (@asiakasid, @postinro, @etunimi, @sukunimi, @lahiosoite, @puhelinnro, @email)";
+			string queryLisaaAsiakas = "INSERT INTO asiakas (asiakas_id, postinro, etunimi, sukunimi, lahiosoite, puhelinnro, email) VALUES (@asiakasid, @postinro, @etunimi, @sukunimi, @lahiosoite, @puhelinnro, @email)";
 			MySqlCommand commandLisaaAsiakas = new MySqlCommand(queryLisaaAsiakas, connection);
 
 			int asiakasid;

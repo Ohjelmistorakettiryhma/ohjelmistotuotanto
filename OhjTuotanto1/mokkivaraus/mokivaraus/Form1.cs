@@ -569,7 +569,7 @@ namespace mokivaraus
 
 
 				}
-				connection.Close();
+				
 			}
 		}
 
@@ -663,13 +663,35 @@ namespace mokivaraus
 
         private void button11_Click(object sender, EventArgs e) //hae alueita
         {
-            MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
-            string query = "SELECT * FROM alue";
-            MySqlCommand command = new MySqlCommand(query, connection);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            dataGridView1.DataSource = table;
+            try
+            {
+                if (textBox2.Text == "")
+                {
+                    string HAEKAIKKI = "SELECT * FROM alue";
+                    MySqlCommand command1 = new MySqlCommand(HAEKAIKKI, connection);
+                    MySqlDataAdapter adapter1 = new MySqlDataAdapter(command1);
+                    DataTable table1 = new DataTable();
+                    adapter1.Fill(table1);
+                    dataGridView2.DataSource = table1;
+
+                }
+                else
+                {
+                    string query = "SELECT * FROM alue WHERE alue_id LIKE @alue";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+
+                    command.Parameters.AddWithValue("@alue", "%" + int.Parse(textBox2.Text) + "%");
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    dataGridView2.DataSource = table;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Virhe haussa, yritä uudelleen.");
+            }
         }
 
         private void button22_Click(object sender, EventArgs e) //palveluiden haku
@@ -727,16 +749,38 @@ namespace mokivaraus
             form5.Show();
         }
 
-		private void button12_Click(object sender, EventArgs e)
+		private void button12_Click(object sender, EventArgs e) // hae kaikki asiakkaat datagridviewiin
 		{
-			MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
-			string query = "SELECT * FROM asiakas";
-			MySqlCommand command = new MySqlCommand(query, connection);
-			MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-			DataTable table = new DataTable();
-			adapter.Fill(table);
-			dataGridView3.DataSource = table;
-		}
+            try
+            {
+                if (textBox3.Text == "")
+                {
+                    string HAEKAIKKI = "SELECT * FROM asiakas";
+                    MySqlCommand command1 = new MySqlCommand(HAEKAIKKI, connection);
+                    MySqlDataAdapter adapter1 = new MySqlDataAdapter(command1);
+                    DataTable table1 = new DataTable();
+                    adapter1.Fill(table1);
+                    dataGridView3.DataSource = table1;
+
+                }
+                else
+                {
+                    string query = "SELECT * FROM asiakas WHERE asiakas_id LIKE @asiakas";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+
+                    command.Parameters.AddWithValue("@asiakas", "%" + int.Parse(textBox3.Text) + "%");
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    dataGridView3.DataSource = table;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Virhe haussa, yritä uudelleen.");
+            }
+        }
 
 		private void button16_Click(object sender, EventArgs e)
 		{

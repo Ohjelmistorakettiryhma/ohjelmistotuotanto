@@ -38,14 +38,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.clmasiakasid_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmpostinro_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmetunimi_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmsukunimi_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmlahiosoite_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmemail_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmpuhelinnro_asiakas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button12 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button14 = new System.Windows.Forms.Button();
@@ -54,7 +46,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button11 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button10 = new System.Windows.Forms.Button();
@@ -136,7 +127,6 @@
             this.dtpvarattu = new System.Windows.Forms.DateTimePicker();
             this.bnPoista = new System.Windows.Forms.Button();
             this.btnMuokkaa = new System.Windows.Forms.Button();
-            this.dataGridView_varaus = new System.Windows.Forms.DataGridView();
             this.button21 = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -147,16 +137,18 @@
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_varaus = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Tab1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage5.SuspendLayout();
@@ -169,9 +161,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.tabPage7.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_varaus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_varaus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // Tab1
@@ -248,8 +242,9 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.dataGridView3);
+            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.button12);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.button14);
@@ -272,80 +267,6 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Asiakkaiden hallinta";
             // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmasiakasid_asiakas,
-            this.clmpostinro_asiakas,
-            this.clmetunimi_asiakas,
-            this.clmsukunimi_asiakas,
-            this.clmlahiosoite_asiakas,
-            this.clmemail_asiakas,
-            this.clmpuhelinnro_asiakas});
-            this.dataGridView3.Location = new System.Drawing.Point(479, 82);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.Size = new System.Drawing.Size(536, 357);
-            this.dataGridView3.TabIndex = 11;
-            // 
-            // clmasiakasid_asiakas
-            // 
-            this.clmasiakasid_asiakas.HeaderText = "Asiakas ID";
-            this.clmasiakasid_asiakas.MinimumWidth = 6;
-            this.clmasiakasid_asiakas.Name = "clmasiakasid_asiakas";
-            this.clmasiakasid_asiakas.ReadOnly = true;
-            this.clmasiakasid_asiakas.Width = 125;
-            // 
-            // clmpostinro_asiakas
-            // 
-            this.clmpostinro_asiakas.HeaderText = "Postinumero";
-            this.clmpostinro_asiakas.MinimumWidth = 6;
-            this.clmpostinro_asiakas.Name = "clmpostinro_asiakas";
-            this.clmpostinro_asiakas.ReadOnly = true;
-            this.clmpostinro_asiakas.Width = 125;
-            // 
-            // clmetunimi_asiakas
-            // 
-            this.clmetunimi_asiakas.HeaderText = "Etunimi";
-            this.clmetunimi_asiakas.MinimumWidth = 6;
-            this.clmetunimi_asiakas.Name = "clmetunimi_asiakas";
-            this.clmetunimi_asiakas.ReadOnly = true;
-            this.clmetunimi_asiakas.Width = 125;
-            // 
-            // clmsukunimi_asiakas
-            // 
-            this.clmsukunimi_asiakas.HeaderText = "Sukunimi";
-            this.clmsukunimi_asiakas.MinimumWidth = 6;
-            this.clmsukunimi_asiakas.Name = "clmsukunimi_asiakas";
-            this.clmsukunimi_asiakas.ReadOnly = true;
-            this.clmsukunimi_asiakas.Width = 125;
-            // 
-            // clmlahiosoite_asiakas
-            // 
-            this.clmlahiosoite_asiakas.HeaderText = "Osoite";
-            this.clmlahiosoite_asiakas.MinimumWidth = 6;
-            this.clmlahiosoite_asiakas.Name = "clmlahiosoite_asiakas";
-            this.clmlahiosoite_asiakas.ReadOnly = true;
-            this.clmlahiosoite_asiakas.Width = 125;
-            // 
-            // clmemail_asiakas
-            // 
-            this.clmemail_asiakas.HeaderText = "Sähköposti";
-            this.clmemail_asiakas.MinimumWidth = 6;
-            this.clmemail_asiakas.Name = "clmemail_asiakas";
-            this.clmemail_asiakas.ReadOnly = true;
-            this.clmemail_asiakas.Width = 125;
-            // 
-            // clmpuhelinnro_asiakas
-            // 
-            this.clmpuhelinnro_asiakas.HeaderText = "Puhelinnumero";
-            this.clmpuhelinnro_asiakas.MinimumWidth = 6;
-            this.clmpuhelinnro_asiakas.Name = "clmpuhelinnro_asiakas";
-            this.clmpuhelinnro_asiakas.ReadOnly = true;
-            this.clmpuhelinnro_asiakas.Width = 125;
-            // 
             // button12
             // 
             this.button12.Location = new System.Drawing.Point(895, 50);
@@ -359,10 +280,10 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(479, 50);
+            this.textBox3.Location = new System.Drawing.Point(555, 50);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(407, 22);
+            this.textBox3.Size = new System.Drawing.Size(331, 22);
             this.textBox3.TabIndex = 9;
             // 
             // button14
@@ -412,8 +333,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.dataGridView2);
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.button11);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.button10);
@@ -436,16 +357,6 @@
             this.label9.Size = new System.Drawing.Size(172, 25);
             this.label9.TabIndex = 12;
             this.label9.Text = "Alueiden hallinta";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(479, 89);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(536, 357);
-            this.dataGridView2.TabIndex = 11;
             // 
             // button11
             // 
@@ -1106,6 +1017,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.dataGridView_varaus);
             this.panel6.Controls.Add(this.label16);
             this.panel6.Controls.Add(this.tbVarausid_varaus);
             this.panel6.Controls.Add(this.label22);
@@ -1127,7 +1039,6 @@
             this.panel6.Controls.Add(this.dtpvarattu);
             this.panel6.Controls.Add(this.bnPoista);
             this.panel6.Controls.Add(this.btnMuokkaa);
-            this.panel6.Controls.Add(this.dataGridView_varaus);
             this.panel6.Location = new System.Drawing.Point(4, 2);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
@@ -1325,17 +1236,6 @@
             this.btnMuokkaa.UseVisualStyleBackColor = true;
             this.btnMuokkaa.Click += new System.EventHandler(this.btnMuokkaa_Click);
             // 
-            // dataGridView_varaus
-            // 
-            this.dataGridView_varaus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_varaus.Location = new System.Drawing.Point(385, 66);
-            this.dataGridView_varaus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView_varaus.Name = "dataGridView_varaus";
-            this.dataGridView_varaus.RowHeadersWidth = 51;
-            this.dataGridView_varaus.RowTemplate.Height = 24;
-            this.dataGridView_varaus.Size = new System.Drawing.Size(605, 311);
-            this.dataGridView_varaus.TabIndex = 20;
-            // 
             // button21
             // 
             this.button21.Location = new System.Drawing.Point(157, 366);
@@ -1424,6 +1324,45 @@
             // 
             this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
             // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(479, 111);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(536, 312);
+            this.dataGridView3.TabIndex = 13;
+            // 
+            // dataGridView_varaus
+            // 
+            this.dataGridView_varaus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_varaus.Location = new System.Drawing.Point(384, 71);
+            this.dataGridView_varaus.Name = "dataGridView_varaus";
+            this.dataGridView_varaus.RowHeadersWidth = 51;
+            this.dataGridView_varaus.RowTemplate.Height = 24;
+            this.dataGridView_varaus.Size = new System.Drawing.Size(604, 285);
+            this.dataGridView_varaus.TabIndex = 45;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(476, 53);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 16);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Asiakas ID";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(479, 104);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(536, 312);
+            this.dataGridView2.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1442,11 +1381,9 @@
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1466,9 +1403,11 @@
             this.tabPage7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_varaus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_varaus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1497,13 +1436,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button10;
@@ -1582,16 +1519,12 @@
         private System.Windows.Forms.DateTimePicker dtpvarattu;
         private System.Windows.Forms.Button bnPoista;
         private System.Windows.Forms.Button btnMuokkaa;
-        private System.Windows.Forms.DataGridView dataGridView_varaus;
 		private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.DataGridViewTextBoxColumn clmasiakasid_asiakas;
-		private System.Windows.Forms.DataGridViewTextBoxColumn clmpostinro_asiakas;
-		private System.Windows.Forms.DataGridViewTextBoxColumn clmetunimi_asiakas;
-		private System.Windows.Forms.DataGridViewTextBoxColumn clmsukunimi_asiakas;
-		private System.Windows.Forms.DataGridViewTextBoxColumn clmlahiosoite_asiakas;
-		private System.Windows.Forms.DataGridViewTextBoxColumn clmemail_asiakas;
-		private System.Windows.Forms.DataGridViewTextBoxColumn clmpuhelinnro_asiakas;
-	}
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dataGridView_varaus;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridView dataGridView2;
+    }
 }
 
