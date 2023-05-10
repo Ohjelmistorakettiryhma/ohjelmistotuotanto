@@ -11,15 +11,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using MySqlConnector;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using System.Diagnostics;
 using System.Xml.Linq;
 using mokivaraus.Properties;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Org.BouncyCastle.Utilities.Collections;
-
+using MySqlConnection = MySqlConnector.MySqlConnection;
+using MySqlCommand = MySqlConnector.MySqlCommand;
+using MySqlDataAdapter = MySqlConnector.MySqlDataAdapter;
+using MySqlDataReader = MySqlConnector.MySqlDataReader;
+using System.Linq.Expressions;
 
 namespace mokivaraus
 {
@@ -762,7 +765,7 @@ namespace mokivaraus
 			}
 		}
 
-        private void btnMuokkaa_Click(object sender, EventArgs e) // lisää -nappi varauksissa
+        private void btnMuokkaa_Click(object sender, EventArgs e) // lisää -nappi varauksissa, vie tietokantaan mutta sitten ei jostain syytä päivitä datagridviewviin
         {
             DateTime varattuPvm = dtpvarattu.Value;
             string Pvm1 = varattuPvm.ToString("yyyy-MM-dd");
@@ -804,11 +807,57 @@ namespace mokivaraus
                 connection.Close();
                 MessageBox.Show("Varauksen lisäys onnistui!");
 
+                //tässä haetaan kaikki varaukset ja näytetään ne datagridviewissä
+                string hakeminen = "SELECT a.etunimi, a.sukunimi, v.varaus_id, a.email, l.summa, l.tila, l.erapv,\r\n       m.mokkinimi, v.varattu_pvm, v.vahvistus_pvm, v.varattu_alkupvm, v.varattu_loppupvm\r\nFROM varaus v \r\nJOIN asiakas a ON v.asiakas_id = a.asiakas_id \r\nJOIN lasku l ON v.varaus_id = l.varaus_id \r\nJOIN mokki m ON v.mokki_mokki_id = m.mokki_id";
+
+                MySqlCommand command1 = new MySqlCommand(hakeminen, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command1);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                dataGridView_varaus.DataSource = table;
+
+                dataGridView_varaus.Refresh();
+
+
+
             }
             catch
             {
                 MessageBox.Show("Varauksen lisäys epäonnistui!");
             }
+        }
+
+        private void bnPoista_Click(object sender, EventArgs e) // Poista varaus
+        {
+            try
+            {
+
+                string poista = "DELETE FROM varaus WHERE varaus_id = @varausid";
+                string poistapalvelu = "DELETE FROM varauksen_palvelut WHERE varaus_id = @varausid";
+
+                MySqlCommand command = new MySqlCommand(poistapalvelu, connection);
+                command.Parameters.AddWithValue("varausid", int.Parse(tbHaeVarausID.Text));
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                MySqlCommand command1 = new MySqlCommand(poista, connection);
+                command.Parameters.AddWithValue("varausid", int.Parse(tbHaeVarausID.Text));
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Varaus poistettu onnistuneesti!");
+
+
+
+            }
+            catch
+            {
+                MessageBox.Show("Varauksen poistaminen epäonnistui.");
+            }
+
+
+
         }
     }
 }
