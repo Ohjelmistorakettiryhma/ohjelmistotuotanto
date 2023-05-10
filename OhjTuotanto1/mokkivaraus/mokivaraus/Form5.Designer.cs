@@ -84,7 +84,7 @@
             this.groupBox1.Location = new System.Drawing.Point(99, 178);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(256, 144);
-            this.groupBox1.TabIndex = 28;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
             // rbEraantynyt
@@ -125,7 +125,7 @@
             this.dtperapv.Location = new System.Drawing.Point(99, 339);
             this.dtperapv.Name = "dtperapv";
             this.dtperapv.Size = new System.Drawing.Size(175, 22);
-            this.dtperapv.TabIndex = 14;
+            this.dtperapv.TabIndex = 4;
             // 
             // label7
             // 
@@ -150,7 +150,7 @@
             this.button2.Location = new System.Drawing.Point(113, 498);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 50);
-            this.button2.TabIndex = 11;
+            this.button2.TabIndex = 5;
             this.button2.Text = "Lisää";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -160,7 +160,7 @@
             this.btnNaytaKaikki.Location = new System.Drawing.Point(667, 45);
             this.btnNaytaKaikki.Name = "btnNaytaKaikki";
             this.btnNaytaKaikki.Size = new System.Drawing.Size(168, 48);
-            this.btnNaytaKaikki.TabIndex = 10;
+            this.btnNaytaKaikki.TabIndex = 6;
             this.btnNaytaKaikki.Text = "Näytä kaikki laskut";
             this.btnNaytaKaikki.UseVisualStyleBackColor = true;
             this.btnNaytaKaikki.Click += new System.EventHandler(this.btnNaytaKaikki_Click);

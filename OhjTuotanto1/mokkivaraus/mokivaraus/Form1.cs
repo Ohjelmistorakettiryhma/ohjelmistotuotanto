@@ -517,7 +517,7 @@ namespace mokivaraus
             {
                 int varausid = int.Parse(tbHaeVarausID.Text);
 
-                string hakeminen = "SELECT a.etunimi, a.sukunimi, v.varaus_id, a.email, l.summa, l.tila, l.erapv,\r\n       m.mokkinimi, v.varattu_pvm, v.vahvistus_pvm, v.varattu_alkupvm, v.varattu_loppupvm\r\nFROM varaus v \r\nJOIN asiakas a ON v.asiakas_id = a.asiakas_id \r\nJOIN lasku l ON v.varaus_id = l.varaus_id \r\nJOIN mokki m ON v.mokki_mokki_id = m.mokki_id WHERE v.varaus_id = @varausid";
+                string hakeminen = "SELECT a.etunimi, a.sukunimi, a.asiakas_id, v.varaus_id, a.email, m.mokkinimi, v.varattu_pvm, v.vahvistus_pvm, v.varattu_alkupvm, v.varattu_loppupvm FROM varaus v JOIN asiakas a ON v.asiakas_id = a.asiakas_id JOIN lasku l ON v.varaus_id = l.varaus_id JOIN mokki m ON v.mokki_mokki_id = m.mokki_id WHERE v.varaus_id = @varausid";
 
                 MySqlCommand mySqlCommand = new MySqlCommand(hakeminen, connection);
                 mySqlCommand.Parameters.AddWithValue("@varausid", varausid);
@@ -536,7 +536,7 @@ namespace mokivaraus
         private void btnNaytaVaraukset_Click(object sender, EventArgs e) // näyttää kaikki varaukset
         {
             //tässä haetaan kaikki varaukset ja näytetään ne datagridviewissä
-            string hakeminen = "SELECT a.etunimi, a.sukunimi, v.varaus_id, a.email, l.summa, l.tila, l.erapv,\r\n       m.mokkinimi, v.varattu_pvm, v.vahvistus_pvm, v.varattu_alkupvm, v.varattu_loppupvm\r\nFROM varaus v \r\nJOIN asiakas a ON v.asiakas_id = a.asiakas_id \r\nJOIN lasku l ON v.varaus_id = l.varaus_id \r\nJOIN mokki m ON v.mokki_mokki_id = m.mokki_id";
+            string hakeminen = "SELECT a.etunimi, a.sukunimi, a.asiakas_id, v.varaus_id, a.email, m.mokkinimi, v.varattu_pvm, v.vahvistus_pvm, v.varattu_alkupvm, v.varattu_loppupvm FROM varaus v JOIN asiakas a ON v.asiakas_id = a.asiakas_id JOIN lasku l ON v.varaus_id = l.varaus_id JOIN mokki m ON v.mokki_mokki_id = m.mokki_id";
 
             MySqlCommand command = new MySqlCommand(hakeminen, connection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
@@ -992,6 +992,11 @@ namespace mokivaraus
             {
                 MessageBox.Show("Virhe haussa, yritä uudelleen.");
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

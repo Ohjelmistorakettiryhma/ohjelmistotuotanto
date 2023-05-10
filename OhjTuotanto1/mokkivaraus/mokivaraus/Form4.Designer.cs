@@ -83,7 +83,7 @@
             this.button2.Location = new System.Drawing.Point(572, 20);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(173, 38);
-            this.button2.TabIndex = 6;
+            this.button2.TabIndex = 4;
             this.button2.Text = "Näytä olemassa olevat";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -120,21 +120,21 @@
             this.tbLaskuIDerapv.Location = new System.Drawing.Point(101, 140);
             this.tbLaskuIDerapv.Name = "tbLaskuIDerapv";
             this.tbLaskuIDerapv.Size = new System.Drawing.Size(174, 22);
-            this.tbLaskuIDerapv.TabIndex = 2;
+            this.tbLaskuIDerapv.TabIndex = 1;
             // 
             // dtpErapv
             // 
             this.dtpErapv.Location = new System.Drawing.Point(101, 222);
             this.dtpErapv.Name = "dtpErapv";
             this.dtpErapv.Size = new System.Drawing.Size(174, 22);
-            this.dtpErapv.TabIndex = 1;
+            this.dtpErapv.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(124, 294);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 46);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Muokkaa";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

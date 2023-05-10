@@ -125,7 +125,7 @@
             this.tbmokkiid_mokki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbmokkiid_mokki.Name = "tbmokkiid_mokki";
             this.tbmokkiid_mokki.Size = new System.Drawing.Size(171, 22);
-            this.tbmokkiid_mokki.TabIndex = 14;
+            this.tbmokkiid_mokki.TabIndex = 1;
             // 
             // tbalueid_mokki
             // 
@@ -133,7 +133,7 @@
             this.tbalueid_mokki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbalueid_mokki.Name = "tbalueid_mokki";
             this.tbalueid_mokki.Size = new System.Drawing.Size(171, 22);
-            this.tbalueid_mokki.TabIndex = 15;
+            this.tbalueid_mokki.TabIndex = 2;
             // 
             // tbpostinumero_mokki
             // 
@@ -141,7 +141,7 @@
             this.tbpostinumero_mokki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbpostinumero_mokki.Name = "tbpostinumero_mokki";
             this.tbpostinumero_mokki.Size = new System.Drawing.Size(171, 22);
-            this.tbpostinumero_mokki.TabIndex = 16;
+            this.tbpostinumero_mokki.TabIndex = 3;
             // 
             // tbmokkinimi_mokki
             // 
@@ -149,7 +149,7 @@
             this.tbmokkinimi_mokki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbmokkinimi_mokki.Name = "tbmokkinimi_mokki";
             this.tbmokkinimi_mokki.Size = new System.Drawing.Size(171, 22);
-            this.tbmokkinimi_mokki.TabIndex = 17;
+            this.tbmokkinimi_mokki.TabIndex = 4;
             // 
             // tbkatuosoite_mokki
             // 
@@ -157,7 +157,7 @@
             this.tbkatuosoite_mokki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbkatuosoite_mokki.Name = "tbkatuosoite_mokki";
             this.tbkatuosoite_mokki.Size = new System.Drawing.Size(171, 22);
-            this.tbkatuosoite_mokki.TabIndex = 18;
+            this.tbkatuosoite_mokki.TabIndex = 5;
             // 
             // tbhinta_mokki
             // 
@@ -165,7 +165,7 @@
             this.tbhinta_mokki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbhinta_mokki.Name = "tbhinta_mokki";
             this.tbhinta_mokki.Size = new System.Drawing.Size(171, 22);
-            this.tbhinta_mokki.TabIndex = 19;
+            this.tbhinta_mokki.TabIndex = 6;
             // 
             // btallenna
             // 
@@ -173,7 +173,7 @@
             this.btallenna.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btallenna.Name = "btallenna";
             this.btallenna.Size = new System.Drawing.Size(165, 53);
-            this.btallenna.TabIndex = 20;
+            this.btallenna.TabIndex = 9;
             this.btallenna.Text = "Tallenna";
             this.btallenna.UseVisualStyleBackColor = true;
             this.btallenna.Click += new System.EventHandler(this.button1_Click);
@@ -211,7 +211,7 @@
             this.tbhenkilomaara_mokki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbhenkilomaara_mokki.Name = "tbhenkilomaara_mokki";
             this.tbhenkilomaara_mokki.Size = new System.Drawing.Size(171, 22);
-            this.tbhenkilomaara_mokki.TabIndex = 25;
+            this.tbhenkilomaara_mokki.TabIndex = 7;
             // 
             // tbkuvaus_mokki
             // 
@@ -219,7 +219,7 @@
             this.tbkuvaus_mokki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbkuvaus_mokki.Name = "tbkuvaus_mokki";
             this.tbkuvaus_mokki.Size = new System.Drawing.Size(171, 22);
-            this.tbkuvaus_mokki.TabIndex = 27;
+            this.tbkuvaus_mokki.TabIndex = 8;
             // 
             // checkedListBox1
             // 
