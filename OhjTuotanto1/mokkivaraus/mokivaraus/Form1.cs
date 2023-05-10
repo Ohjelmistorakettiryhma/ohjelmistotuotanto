@@ -903,5 +903,88 @@ namespace mokivaraus
 
 
         }
+
+        private void button36_Click(object sender, EventArgs e) // poista posti
+        {
+            try
+            {
+                connection.Open();
+
+                string posti = "DELETE * FROM posti WHERE postinro = @postinumero";
+                MySqlCommand command = new MySqlCommand(posti, connection);
+
+
+                command.Parameters.AddWithValue("@postinumero", tbPostinumero.Text);
+                command.Parameters.AddWithValue("@toimipaikka", tbToimipaikka.Text);
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+                MessageBox.Show("Posti poistettu!");
+            }
+            catch
+            {
+                MessageBox.Show("Postin poistaminen epäonnistui.");
+            }
+        }
+
+        private void button35_Click(object sender, EventArgs e) // lisää posti
+        {
+            try
+            {
+                connection.Open();
+
+                string posti = "INSERT INTO posti (postinro, toimipaikka) VALUES (@postinumero, @toimipaikka)";
+                MySqlCommand command = new MySqlCommand(posti, connection);
+
+
+                command.Parameters.AddWithValue("@postinumero", tbPostinumero.Text);
+                command.Parameters.AddWithValue("@toimipaikka", tbToimipaikka.Text);
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+                MessageBox.Show("Posti lisätty!");
+            }
+            catch {
+                MessageBox.Show("Postin lisäys epäonnistui.");
+            }
+
+        }
+
+        private void btnHaePosti_Click(object sender, EventArgs e) // hae postinumerolla tai ilman
+        {
+            try
+            {
+                if (textBox8.Text == "")
+                {
+                    string HAEKAIKKI = "SELECT * FROM posti";
+                    MySqlCommand command1 = new MySqlCommand(HAEKAIKKI, connection);
+                    MySqlDataAdapter adapter1 = new MySqlDataAdapter(command1);
+                    DataTable table1 = new DataTable();
+                    adapter1.Fill(table1);
+                    dataGridView7.DataSource = table1;
+
+                }
+                else
+                {
+                    string query = "SELECT * FROM posti WHERE postinro LIKE @postinumero";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+
+                    command.Parameters.AddWithValue("@postinumero", "%" + textBox8.Text + "%");
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    dataGridView7.DataSource = table;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Virhe haussa, yritä uudelleen.");
+            }
+        }
     }
 }
