@@ -17,6 +17,9 @@ using System.IO;
 using System.Diagnostics;
 using System.Xml.Linq;
 using mokivaraus.Properties;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Org.BouncyCastle.Utilities.Collections;
+
 
 namespace mokivaraus
 {
@@ -155,11 +158,23 @@ namespace mokivaraus
 			form6.Show(); // Show the new form
 		}
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) // hae mökki
         {
+            //MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+            //string query = "SELECT * FROM mokki";
+            //MySqlCommand command = new MySqlCommand(query, connection);
+            //MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            //DataTable table = new DataTable();
+            //adapter.Fill(table);
+            //dataGridView1.DataSource = table;
+
             MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
-            string query = "SELECT * FROM mokki";
+            string query = "SELECT * FROM mokki WHERE mokkinimi LIKE @mokkinimi";
             MySqlCommand command = new MySqlCommand(query, connection);
+
+            // Add parameter for the mokkinimi textbox input
+            command.Parameters.AddWithValue("@mokkinimi", "%" + textBox1.Text + "%");
+
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -437,6 +452,7 @@ namespace mokivaraus
         private void btnMuokkaaVaraus_Click(object sender, EventArgs e) // varaus, muokkaa
         {
             // seuraavaksi muutetaan oikeaan muotoon päivämäärät.
+
             DateTime varattuPvm = dtpvarattu.Value;
             string Pvm1 = varattuPvm.ToString("yyyy-MM-dd");
 
@@ -460,7 +476,6 @@ namespace mokivaraus
             try
             {
                 //seuraavaksi päivitetään varaus tietokantaan.
-
                 int asiakasid = int.Parse(tbAsiakasidMuokkaa.Text);
                 int mokkiid = int.Parse(tbMokkiidMuokkaa.Text);
                 int varausid = int.Parse(tbVarausid_varaus.Text);
@@ -746,5 +761,54 @@ namespace mokivaraus
 				MessageBox.Show("Hae ja valitse ensin asiakas listalta muokkausta varten.");
 			}
 		}
-	}
+
+        private void btnMuokkaa_Click(object sender, EventArgs e) // lisää -nappi varauksissa
+        {
+            DateTime varattuPvm = dtpvarattu.Value;
+            string Pvm1 = varattuPvm.ToString("yyyy-MM-dd");
+
+            DateTime vahvistusPvm = dtpvahvistus.Value;
+            string Pvm2 = vahvistusPvm.ToString("yyyy-MM-dd");
+
+            DateTime varattuAlkuPvm = dtpvarattuAlku.Value;
+            string Pvm3 = varattuAlkuPvm.ToString("yyyy-MM-dd");
+
+            DateTime varattuLoppuPvm = dtpvarattuLoppu.Value;
+            string Pvm4 = varattuLoppuPvm.ToString("yyyy-MM-dd");
+
+            DateTime PVM1 = DateTime.ParseExact(Pvm1, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            DateTime PVM2 = DateTime.ParseExact(Pvm2, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            DateTime PVM3 = DateTime.ParseExact(Pvm3, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            DateTime PVM4 = DateTime.ParseExact(Pvm4, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            try
+            {
+                //seuraavaksi päivitetään varaus tietokantaan.
+                int asiakasid = int.Parse(tbAsiakasidMuokkaa.Text);
+                int mokkiid = int.Parse(tbMokkiidMuokkaa.Text);
+                int varausid = int.Parse(tbVarausid_varaus.Text);
+                string lisaa = "INSERT INTO varaus(varaus_id, asiakas_id, mokki_mokki_id, varattu_pvm, vahvistus_pvm, varattu_alkupvm, varattu_loppupvm) VALUES (@varausid, @asiakasid, @mokkiid, @varattupvm, @vahvistuspvm, @alkupvm, @loppupvm)";
+                MySqlCommand command = new MySqlCommand(lisaa, connection);
+                command.Parameters.AddWithValue("@asiakasid", asiakasid);
+                command.Parameters.AddWithValue("@mokkiid", mokkiid);
+                command.Parameters.AddWithValue("@varattupvm", PVM1);
+                command.Parameters.AddWithValue("@vahvistuspvm", PVM2);
+                command.Parameters.AddWithValue("@alkupvm", PVM3);
+                command.Parameters.AddWithValue("@loppupvm", PVM4);
+                command.Parameters.AddWithValue("@varausid", varausid);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Varauksen lisäys onnistui!");
+
+            }
+            catch
+            {
+                MessageBox.Show("Varauksen lisäys epäonnistui!");
+            }
+        }
+    }
 }

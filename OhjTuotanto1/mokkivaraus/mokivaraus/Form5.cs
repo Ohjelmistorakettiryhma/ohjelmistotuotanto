@@ -9,6 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySqlConnection = MySqlConnector.MySqlConnection;
+using MySqlCommand = MySqlConnector.MySqlCommand;
+using MySqlDataAdapter = MySqlConnector.MySqlDataAdapter;
+using MySqlDataReader = MySqlConnector.MySqlDataReader;
 
 namespace mokivaraus
 {
