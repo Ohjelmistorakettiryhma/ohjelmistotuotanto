@@ -186,36 +186,43 @@ namespace mokivaraus
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
-             if (dataGridView1.SelectedRows.Count > 0)
+            try
             {
-                
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                // TODO: Use the selectedRow to delete the corresponding record from the database
-
-                int id = Convert.ToInt32(selectedRow.Cells[0].Value);
-
-
-                MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
-                connection.Open();
-                string query = "DELETE FROM mokki WHERE mokki_id = @id";
-                MySqlCommand command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@id", id);
-                
-                int rowsAffected = command.ExecuteNonQuery();
-                connection.Close();
-                if (rowsAffected > 0)
+                if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    MessageBox.Show("Mökki poistettu");
-                }
-                else
-                {
-                    MessageBox.Show("Mökkiä ei löydy");
-                    
 
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                    // TODO: Use the selectedRow to delete the corresponding record from the database
+
+                    int id = Convert.ToInt32(selectedRow.Cells[0].Value);
+
+
+                    MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+                    connection.Open();
+                    string query = "DELETE FROM mokki WHERE mokki_id = @id";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id", id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Mökki poistettu");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mökkiä ei löydy");
+
+
+                    }
+                    connection.Close();
                 }
-                connection.Close();
             }
+            catch
+            {
+                MessageBox.Show("Poistaminen epäonnistui");
+            }
+                   
             
         }
 
@@ -535,48 +542,62 @@ namespace mokivaraus
 
         private void btnNaytaVaraukset_Click(object sender, EventArgs e) // näyttää kaikki varaukset
         {
-            //tässä haetaan kaikki varaukset ja näytetään ne datagridviewissä
-            string hakeminen = "SELECT a.etunimi, a.sukunimi, a.asiakas_id, v.varaus_id, a.email, m.mokkinimi, v.varattu_pvm, v.vahvistus_pvm, v.varattu_alkupvm, v.varattu_loppupvm FROM varaus v JOIN asiakas a ON v.asiakas_id = a.asiakas_id JOIN lasku l ON v.varaus_id = l.varaus_id JOIN mokki m ON v.mokki_mokki_id = m.mokki_id";
+            try
+            { //tässä haetaan kaikki varaukset ja näytetään ne datagridviewissä
+                string hakeminen = "SELECT a.etunimi, a.sukunimi, a.asiakas_id, v.varaus_id, a.email, m.mokkinimi, v.varattu_pvm, v.vahvistus_pvm, v.varattu_alkupvm, v.varattu_loppupvm FROM varaus v JOIN asiakas a ON v.asiakas_id = a.asiakas_id JOIN lasku l ON v.varaus_id = l.varaus_id JOIN mokki m ON v.mokki_mokki_id = m.mokki_id";
 
-            MySqlCommand command = new MySqlCommand(hakeminen, connection);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
+                MySqlCommand command = new MySqlCommand(hakeminen, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
 
-            dataGridView_varaus.DataSource = table;
+                dataGridView_varaus.DataSource = table;
+            }
+            catch
+            {
+                MessageBox.Show("Haku epäonnistui");
+            }
         }
 
 		private void button15_Click(object sender, EventArgs e)
 		{
-			if (dataGridView3.SelectedRows.Count > 0)
-			{
+            try
+            {
 
-				DataGridViewRow selectedRow = dataGridView3.SelectedRows[0];
-				// TODO: Use the selectedRow to delete the corresponding record from the database
+                if (dataGridView3.SelectedRows.Count > 0)
+                {
 
-				int id = Convert.ToInt32(selectedRow.Cells[0].Value);
+                    DataGridViewRow selectedRow = dataGridView3.SelectedRows[0];
+                    // TODO: Use the selectedRow to delete the corresponding record from the database
 
-
-				MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
-				connection.Open();
-				string query = "DELETE FROM asiakas WHERE asiakas_id = @id";
-				MySqlCommand command = new MySqlCommand(query, connection);
-				command.Parameters.AddWithValue("@id", id);
-
-				int rowsAffected = command.ExecuteNonQuery();
-				connection.Close();
-				if (rowsAffected > 0)
-				{
-					MessageBox.Show("Asiakas poistettu");
-				}
-				else
-				{
-					MessageBox.Show("Asiakasta ei löydy");
+                    int id = Convert.ToInt32(selectedRow.Cells[0].Value);
 
 
-				}
-				
-			}
+                    MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+                    connection.Open();
+                    string query = "DELETE FROM asiakas WHERE asiakas_id = @id";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id", id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Asiakas poistettu");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asiakasta ei löydy");
+
+
+                    }
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Asiakkaan poisto epäonnistui");
+            }
 		}
 
         private void button7_Click(object sender, EventArgs e)
@@ -587,32 +608,38 @@ namespace mokivaraus
 
         private void button9_Click(object sender, EventArgs e)
         {
-
-            DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
-            // TODO: Use the selectedRow to delete the corresponding record from the database
-
-            int id = Convert.ToInt32(selectedRow.Cells[0].Value);
-
-
-            MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
-            connection.Open();
-            string query = "DELETE FROM alue WHERE alue_id = @id";
-            MySqlCommand command = new MySqlCommand(query, connection);
-            command.Parameters.AddWithValue("@id", id);
-
-            int rowsAffected = command.ExecuteNonQuery();
-            connection.Close();
-            if (rowsAffected > 0)
+            try
             {
-                MessageBox.Show("Alue on poistettu.");
+                DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+                // TODO: Use the selectedRow to delete the corresponding record from the database
+
+                int id = Convert.ToInt32(selectedRow.Cells[0].Value);
+
+
+                MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;Allow User Variables=true");
+                connection.Open();
+                string query = "DELETE FROM alue WHERE alue_id = @id";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@id", id);
+
+                int rowsAffected = command.ExecuteNonQuery();
+                connection.Close();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Alue on poistettu.");
+                }
+                else
+                {
+                    MessageBox.Show("Kyseistä aluetta ei löytynyt.");
+
+
+                }
+                connection.Close();
             }
-            else
+            catch
             {
-                MessageBox.Show("Kyseistä aluetta ei löytynyt.");
-
-
+                MessageBox.Show("Alueen poisto epäonnistui");
             }
-            connection.Close();
         }
 
         private void button24_Click(object sender, EventArgs e) //palveluiden lisäys-nappi
@@ -634,35 +661,43 @@ namespace mokivaraus
 
         private void button25_Click(object sender, EventArgs e) //palvelun poisto
         {
-
-            if (dataGridView5.SelectedRows.Count > 0)
+            try
             {
 
-                DataGridViewRow selectedRow = dataGridView5.SelectedRows[0];
-                // TODO: Use the selectedRow to delete the corresponding record from the database
 
-                int id = Convert.ToInt32(selectedRow.Cells[0].Value);
-
-
-                MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
-                connection.Open();
-                string query = "DELETE FROM palvelu WHERE palvelu_id = @id";
-                MySqlCommand command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@id", id);
-
-                int rowsAffected = command.ExecuteNonQuery();
-                connection.Close();
-                if (rowsAffected > 0)
+                if (dataGridView5.SelectedRows.Count > 0)
                 {
-                    MessageBox.Show("Palvelu on poistettu.");
-                }
-                else
-                {
-                    MessageBox.Show("Kyseistä palvelua ei löytynyt.");
+
+                    DataGridViewRow selectedRow = dataGridView5.SelectedRows[0];
+                    // TODO: Use the selectedRow to delete the corresponding record from the database
+
+                    int id = Convert.ToInt32(selectedRow.Cells[0].Value);
 
 
+                    MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+                    connection.Open();
+                    string query = "DELETE FROM palvelu WHERE palvelu_id = @id";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id", id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Palvelu on poistettu.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kyseistä palvelua ei löytynyt.");
+
+
+                    }
+                    connection.Close();
                 }
-                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Palvelun poistaminen epäonnistui");
             }
 
         }
@@ -703,12 +738,16 @@ namespace mokivaraus
         private void button22_Click(object sender, EventArgs e) //palveluiden haku
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
-            string query = "SELECT * FROM palvelu";
+            string query = "SELECT * FROM palvelu WHERE nimi LIKE @nimi";
             MySqlCommand command = new MySqlCommand(query, connection);
+
+            // Add parameter for the mokkinimi textbox input
+            command.Parameters.AddWithValue("@nimi", "%" + textBox5.Text + "%");
+
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
-            dataGridView1.DataSource = table;
+            dataGridView5.DataSource = table;
         }
 
         private void button30_Click(object sender, EventArgs e)//poista lasku
@@ -843,7 +882,7 @@ namespace mokivaraus
                 int asiakasid = int.Parse(tbAsiakasidMuokkaa.Text);
                 int mokkiid = int.Parse(tbMokkiidMuokkaa.Text);
                 int varausid = int.Parse(tbVarausid_varaus.Text);
-                string lisaa = "INSERT INTO varaus(varaus_id, asiakas_id, mokki_mokki_id, varattu_pvm, vahvistus_pvm, varattu_alkupvm, varattu_loppupvm) VALUES (@varausid, @asiakasid, @mokkiid, @varattupvm, @vahvistuspvm, @alkupvm, @loppupvm)";
+                string lisaa = "INSERT INTO varaus (varaus_id, asiakas_id, mokki_mokki_id, varattu_pvm, vahvistus_pvm, varattu_alkupvm, varattu_loppupvm) VALUES (@varausid, @asiakasid, @mokkiid, @varattupvm, @vahvistuspvm, @alkupvm, @loppupvm)";
                 MySqlCommand command = new MySqlCommand(lisaa, connection);
                 command.Parameters.AddWithValue("@asiakasid", asiakasid);
                 command.Parameters.AddWithValue("@mokkiid", mokkiid);
@@ -915,25 +954,42 @@ namespace mokivaraus
         {
             try
             {
-                connection.Open();
+                if (dataGridView7.SelectedRows.Count > 0)
+                {
 
-                string posti = "DELETE * FROM posti WHERE postinro = @postinumero";
-                MySqlCommand command = new MySqlCommand(posti, connection);
+                    DataGridViewRow selectedRow = dataGridView7.SelectedRows[0];
+                    // TODO: Use the selectedRow to delete the corresponding record from the database
+
+                    int id = Convert.ToInt32(selectedRow.Cells[0].Value);
 
 
-                command.Parameters.AddWithValue("@postinumero", tbPostinumero.Text);
-                command.Parameters.AddWithValue("@toimipaikka", tbToimipaikka.Text);
+                    MySqlConnection connection = new MySqlConnection("server=localhost;port=3307;database=vn;uid=root;pwd=Ruutti;");
+                    connection.Open();
+                    string query = "DELETE FROM posti WHERE postinro = @id";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id", id);
 
-                command.ExecuteNonQuery();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Posti poistettu");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Postia ei löytynyt");
 
-                connection.Close();
 
-                MessageBox.Show("Posti poistettu!");
+                    }
+                    connection.Close();
+                }
             }
             catch
             {
-                MessageBox.Show("Postin poistaminen epäonnistui.");
+                MessageBox.Show("Posti on käytössä mökillä");
             }
+            
+            
         }
 
         private void button35_Click(object sender, EventArgs e) // lisää posti
